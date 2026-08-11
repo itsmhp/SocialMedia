@@ -1,12 +1,20 @@
 import { useStore } from "../data/store";
 
 export function MemoriesScreen() {
-  const { state } = useStore();
+  const { state, dispatch } = useStore();
   return (
     <section className="screen active">
       <div className="section-head">
         <h2>Memories</h2>
         <span>warm, not vanity metrics</span>
+      </div>
+      <div className="profile-card">
+        <span className="ava">{state.me.avatar}</span>
+        <div className="profile-meta">
+          <div className="profile-name">{state.me.name}</div>
+          <div className="profile-sub">your handle · saved on this device</div>
+        </div>
+        <button className="btn-small" onClick={() => dispatch({ type: "OPEN_PROFILE_EDIT" })}>Edit</button>
       </div>
       <div className="streak-big">
         🔥 <b>{state.streak}</b> day streak

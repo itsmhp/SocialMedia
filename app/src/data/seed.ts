@@ -1,4 +1,7 @@
 import type { AppState } from "../types";
+import { loadProfile } from "../lib/profile";
+
+const savedProfile = loadProfile();
 
 /**
  * Mock seed data — the app runs entirely on this until the Supabase data
@@ -7,7 +10,9 @@ import type { AppState } from "../types";
  */
 export const seedState: AppState = {
   screen: "chat",
-  me: { name: "You", avatar: "🦊" },
+  onboarded: savedProfile !== null,
+  editingProfile: false,
+  me: savedProfile ?? { name: "You", avatar: "🦊" },
   streak: 5,
   friends: [
     { name: "Dinda", avatar: "🌸" },

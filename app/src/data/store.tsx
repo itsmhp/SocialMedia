@@ -22,6 +22,9 @@ export type Action =
   | { type: "VOTE_GAME"; name: string }
   | { type: "NEXT_GAME" }
   | { type: "TICK" }
+  | { type: "SET_PROFILE"; name: string; avatar: string }
+  | { type: "OPEN_PROFILE_EDIT" }
+  | { type: "CLOSE_PROFILE_EDIT" }
   | { type: "TOAST"; msg: string }
   | { type: "CLEAR_TOAST" };
 
@@ -155,6 +158,15 @@ function reducer(state: AppState, action: Action): AppState {
       for (const m of [state.me, ...state.friends]) votes[m.name] = 0;
       return { ...state, game: { ...g, idx, votes, mine: null } };
     }
+
+    case "SET_PROFILE":
+      return { ...state, me: { name: action.name, avatar: action.avatar }, onboarded: true, editingProfile: false };
+
+    case "OPEN_PROFILE_EDIT":
+      return { ...state, editingProfile: true };
+
+    case "CLOSE_PROFILE_EDIT":
+      return { ...state, editingProfile: false };
 
     case "TOAST":
       return { ...state, toast: action.msg };

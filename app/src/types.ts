@@ -61,6 +61,8 @@ export type ScreenName = "chat" | "moments" | "play" | "memories";
 export interface AppState {
   screen: ScreenName;
   toast?: string;
+  onboarded: boolean;
+  editingProfile: boolean;
   me: Me;
   streak: number;
   friends: Member[];
