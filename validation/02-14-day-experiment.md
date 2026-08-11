@@ -2,15 +2,15 @@
 
 [⬅️ Validation index](README.md) · [GPT-5.6 Sol verdict](01-gpt-5.6-sol-validation.md)
 
-> 🧰 **Ready-to-use tooling** for running this experiment (recruitment scripts, forms, WhatsApp templates, tracker) is in [`../experiment/`](../experiment/README.md).
+> 🧰 **Ready-to-use tooling** for running this experiment (recruitment scripts, forms, message templates, tracker) is in [`../experiment/`](../experiment/README.md).
 
 ## Goal
 
-Test whether students genuinely want to use the **Plan → vote → commit → attend → repeat** flow, before building an app.
+Test whether students genuinely want to use the **Plan → vote → commit → attend → repeat** flow, before building an app. In this scrappy test the founder manually plays the role the app will later automate — the real product keeps all coordination in-app.
 
 ## Tools
 
-- WhatsApp for distribution;
+- the crew's existing group chat — only to reach people for this manual test (not part of the product);
 - Tally or Google Forms to create/vote on Plans;
 - a manual spreadsheet for status, RSVP, check-in, and repeat;
 - manual reminders with a fixed template.
@@ -33,9 +33,9 @@ Test whether students genuinely want to use the **Plan → vote → commit → a
 ### Days 3–7: activation test
 
 1. The host fills in: activity, area/place, and 2–3 time options.
-2. The founder creates the voting link and the host shares it to WhatsApp themselves.
-3. Participants vote without installing an app.
-4. The host locks the choice and sends the RSVP/commitment to attend.
+2. The founder collects everyone's available times (a quick form, or a poll in the crew's group chat).
+3. The circle votes on the time options.
+4. The host locks the choice and confirms the RSVP/commitment to attend.
 
 ### Days 8–11: outcome test
 
@@ -74,10 +74,10 @@ Activation <5/8 **or** Plans That Happen <50%. Don’t build a full social app; 
 
 ## Riskiest assumptions
 
-1. Candidate hosts find WhatsApp coordination painful enough.
-2. Hosts are willing to create an external link.
-3. Guests respond without being required to install.
-4. Voting produces a decision, not an endless poll.
+1. Coordinating a hangout is painful enough today to want a dedicated tool.
+2. Hosts are willing to start a plan and rally their circle.
+3. The circle responds and votes.
+4. Voting produces a decision, not an endless back-and-forth.
 5. Committing to attend increases attendance.
 6. The recap makes people want to do it again.
 7. Participants are willing to be the next host.
@@ -86,9 +86,9 @@ Activation <5/8 **or** Plans That Happen <50%. Don’t build a full social app; 
 
 ## Data to record
 
-- time from link creation to sharing;
+- time from starting a plan to the circle finishing voting;
 - number of invitations, votes, RSVPs, attendees;
 - reasons for cancellation/no-show;
 - who reminded the group;
-- whether the host keeps using WhatsApp alongside the link;
+- whether the crew would want this coordination inside one dedicated app;
 - NPS is not a priority; the key question: **“Without our help, would this plan still happen?”**

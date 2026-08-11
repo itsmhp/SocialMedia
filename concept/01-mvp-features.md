@@ -5,7 +5,7 @@
 ## Core MVP features (deterministic logic)
 
 1. **Create a Plan in ≤30 seconds** — activity, area/place, and 2–3 time options.
-2. **Install-free link** — the host shares a link to WhatsApp; guests don't need an account for the initial vote.
+2. **Invite your circle into the app** — the host adds members by invite code (or contacts); everyone coordinates inside Unggun.
 3. **Vote on times** — participants pick the options they can make.
 4. **Lock the plan** — the host sets the time/place from the vote results.
 5. **RSVP / commit to attend** — a clear status, not a chat that gets buried.
@@ -28,8 +28,8 @@ Permanent Circles, the Daily Prompt, the Moment feed, voice notes, reactions, mi
 Safety rests on **social design**:
 
 1. **Private, invitation-based Plans** → no public discovery in the MVP.
-2. **The host controls the participant list** and can remove guests.
-3. **Links can be rotated/disabled** if they spread beyond the group.
+2. **The host controls the circle** and can remove members.
+3. **Invite codes can be rotated/revoked** if they spread beyond the circle.
 4. **Report button → human review** with a clear SLA.
 5. **Location data is limited** to invited participants after the plan is locked.
 
@@ -39,9 +39,9 @@ Safety rests on **social design**:
 
 ```mermaid
 flowchart TD
-    Start([Host opens web/app]) --> Plan[Create a Plan<br/>activity + area + time]
-    Plan --> Share[Share the link to WhatsApp]
-    Share --> Vote[Guests vote without installing]
+    Start([Host opens the app]) --> Plan[Create a Plan<br/>activity + area + time]
+    Plan --> Invite[Invite the circle<br/>into the app]
+    Invite --> Vote[Members vote on times in-app]
     Vote --> Lock[Host locks the time and place]
     Lock --> RSVP[Commit to attend + reminder]
     RSVP --> Checkin[Meetup check-in]
@@ -49,6 +49,6 @@ flowchart TD
     Recap --> Repeat[Create the next version]
 ```
 
-## Why not just WhatsApp
+## Why a dedicated app (not a group chat)
 
-Unggun doesn't replace chat. It wins only if it's better at four steps: **finding consensus before the time is set, locking the decision, measuring commitment to attend, and making it easy to repeat after the event**. If experiments show WhatsApp is already enough, the product thesis should be stopped.
+Unggun isn't a chat app. It wins only if it's better at four steps than a noisy group chat: **finding consensus before the time is set, locking the decision, measuring commitment to attend, and making it easy to repeat after the event**. Everything lives in one place — no plans lost in the scroll. If experiments show a plain group chat is already enough, the product thesis should be stopped.

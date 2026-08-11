@@ -9,7 +9,7 @@ From the [landscape data](../research/01-landscape-and-data.md):
 - DataReportal 2026 estimates **230M internet users** (80.5% penetration) and **180M social identities** at the end of 2025.
 - APJII 2024 estimates Gen Z as the largest group of internet users (**34.4%**).
 - Indonesia remains **young and mobile-first**, but macro data doesn't prove demand for Unggun.
-- Product lesson: don't fight WhatsApp; use WhatsApp as a distribution channel.
+- Product lesson: plans die when they're buried in a group chat — Unggun gives each plan its own dedicated, self-contained space instead.
 
 **Campus = the ideal beachhead** (the Facebook@Harvard, Fizz@Stanford pattern):
 
@@ -31,7 +31,7 @@ From the [landscape data](../research/01-landscape-and-data.md):
 | **Being accompanied & heard** | Real human meetups |
 | Self-expression & identity | Not an MVP priority |
 | Control over the algorithm | No recommendation feed |
-| Finding "my people" | Not addressed in the MVP; groups are brought over from WhatsApp |
+| Finding "my people" | Not addressed in the MVP; you invite your existing circle into the app |
 | Meaningful time | The flow ends when a decision and a meetup happen |
 
 ➡️ The old claim of "answering 9 out of 9" was too strong. Unggun v2 focuses on the three most concrete needs: **coordination, real meetups, and private connection**. Other needs are deliberately not forced into the MVP.

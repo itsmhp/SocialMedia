@@ -1,8 +1,8 @@
 # 2. Create & Vote on Plans (No App)
 
-[⬅️ 1. Recruitment](01-host-recruitment.md) · [Kit](README.md) · [3. WhatsApp templates ➡️](03-whatsapp-templates.md)
+[⬅️ 1. Recruitment](01-host-recruitment.md) · [Kit](README.md) · [3. Message templates ➡️](03-message-templates.md)
 
-Core flow: **host creates a Plan → vote on times via WhatsApp Poll → lock → commit to attend.** Everything inside WhatsApp; voting uses **WhatsApp's built-in Poll feature** (zero extra installs).
+Core flow: **host creates a Plan → vote on times → lock → commit to attend.** Run it with a quick poll in the crew's group chat (most chat apps have polls) or a 30-second form. This is a manual stand-in for the app — the real product keeps it all in-app.
 
 ## "Create a Plan" form (Tally / Google Forms, ~30 seconds)
 
@@ -16,20 +16,20 @@ Fill in the following fields (the host fills them in, or you help fill them duri
 6. **Time option 3** (optional)
 7. **Roughly who you'll invite** (names) — optional
 
-> Why a form first? So the data is **uniform & measurable**. Confident hosts can make the Poll themselves in the group — just still record the results in the [tracker](04-tracker.md).
+> Why a form first? So the data is **uniform & measurable**. Confident hosts can run the poll themselves in the group chat — just still record the results in the [tracker](04-tracker.md).
 
-## Vote on times = WhatsApp Poll
+## Vote on times = a quick poll or form
 
-1. Open the group → **Attach → Poll**.
+1. Post a poll with the 2–3 time options in the crew's group chat (or send a 30-second form).
 2. Question: `When should we [activity]?`
 3. Options: copy **Time option 1/2/3** from the form.
-4. Enable "**Allow multiple answers**" so people can mark every time that works for them.
+4. Allow **multiple answers** so people can mark every time that works for them.
 
 ## Lock & commit
 
 1. Pick the option with the most votes that's realistic.
-2. Announce the final time + place (templates are in [document 3](03-whatsapp-templates.md)).
-3. Ask for a **commit to attend**: a second Poll `Coming [day]?` (options: "I'm in ✅" / "Can't make it 😭") or a ✅ reaction.
+2. Announce the final time + place (templates are in [document 3](03-message-templates.md)).
+3. Ask for a **commit to attend**: a second quick poll `Coming [day]?` (options: "I'm in ✅" / "Can't make it 😭") or a ✅ reaction.
 
 ## Rules to keep the test honest
 

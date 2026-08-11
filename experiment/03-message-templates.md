@@ -1,4 +1,4 @@
-# 3. WhatsApp Templates (Ready to Copy)
+# 3. Message Templates (Ready to Copy)
 
 [⬅️ 2. Create & vote](02-create-and-vote-plans.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
 

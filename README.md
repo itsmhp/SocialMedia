@@ -9,7 +9,7 @@ A social media platform project currently focused on the **research & concept-di
 - [`research/`](research/) — in-depth research (landscape, wants, *latent needs*, opportunities, recommendations) + Mermaid diagrams.
 - [`concept/`](concept/) — **the "Unggun" product concept** (hanging out online): beachhead, atom, MVP features, growth, roadmap.
 - [`validation/`](validation/) — independent GPT-5.6 Sol validation, concept comparison, and a 14-day experiment before building the app.
-- [`experiment/`](experiment/) — a **ready-to-run kit** (no code) for running the 14-day test: recruitment, forms, WhatsApp templates, and a tracker.
+- [`experiment/`](experiment/) — a **ready-to-run kit** (no code) for running the 14-day test: recruitment, forms, message templates, and a tracker.
 - [`prototype/`](prototype/) — the **clickable prototype** of Unggun (static HTML): open [`prototype/index.html`](prototype/index.html) in a browser.
 
 ## How to read

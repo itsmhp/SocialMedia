@@ -8,7 +8,7 @@
 **Unggun helps small groups stop saying "someday" and actually meet up.** The host creates a plan, friends pick a time, everyone commits, then keeps a private recap — warm, lightweight, and **100% human-made**.
 
 - 🔒 **Private plans, not public broadcasts.** The host invites the people who matter.
-- 🔗 **Works through WhatsApp.** Guests can vote and RSVP from a link without having to install anything.
+- 🔗 **Everything in one app.** Invite your circle in, then vote, RSVP, and keep recaps all inside Unggun — no plans lost in a group chat.
 - ⏹️ **Finite, not endless.** No *infinite scroll* or obligation to post every day.
 - 🤝 **Success = people actually show up**, not screen time, followers, or likes.
 
@@ -17,7 +17,7 @@
 | Question | Unggun's answer |
 | --- | --- |
 | **Atom** (core unit) | **Plan** — activity + area/place + 2–3 time options + list of people. |
-| **First community** (beachhead) | A group of **4–12 first-year students** on a single campus the founder can reach, who already arrange meals, study sessions, workouts, or hangouts over WhatsApp. |
+| **First community** (beachhead) | A group of **4–12 first-year students** on a single campus the founder can reach, who already try to arrange meals, study sessions, workouts, or hangouts in their group chats. |
 | **Why they come back** | The next plan is easier to create, participants can become hosts, and every meetup has a private recap. The rhythm is event-driven, not forced daily. |
 
 ```mermaid
@@ -35,7 +35,7 @@ mindmap
       Plan
       Activity place time options
     Core features
-      Link via WhatsApp
+      Invite circle via code
       Vote on times
       RSVP and reminders
       Check-in and recap
@@ -52,9 +52,9 @@ journey
     title From Talk to Meetup
     section Create
       Host creates a Plan in 30 seconds: 4: Host
-      Share the link to WhatsApp: 5: Host
+      Invite the circle into the app: 5: Host
     section Decide
-      Friends vote without installing: 4: Friend
+      Friends vote on times in-app: 4: Friend
       Host locks the time and place: 5: Host
     section Show Up and Repeat
       Participants check in: 5: Everyone
@@ -65,7 +65,7 @@ journey
 
 ```mermaid
 flowchart LR
-    A[Host creates a Plan] --> B[Share the link<br/>to WhatsApp]
+    A[Host creates a Plan] --> B[Invite the circle<br/>into the app]
     B --> C[Friends vote and show up]
     C --> D[Private recap]
     D --> E[Participants create<br/>the next Plan]

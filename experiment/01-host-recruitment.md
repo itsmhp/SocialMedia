@@ -27,9 +27,9 @@ Ask the prospective host:
 
 > If they **don't** recall ever having a plan fall through, they're **not** the right host. Look for someone who feels the problem.
 
-## Invite script (WhatsApp / DM)
+## Invite script (DM or group chat)
 
-> Hey! I'm trying a little something over the next 2 weeks: helping crews actually make their hangout / study / workout plans **happen** instead of just talking about them. No hassle, nothing to install — it all runs in your WhatsApp group. Want to be one of the testers? I just need you + 4–12 close friends.
+> Hey! I'm trying a little something over the next 2 weeks: helping crews actually make their hangout / study / workout plans **happen** instead of just talking about them. No hassle, nothing to install — I'll run it through your crew's group chat + a couple of quick forms. Want to be one of the testers? I just need you + 4–12 close friends.
 
 ## Days 1–2 target
 

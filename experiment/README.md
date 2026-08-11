@@ -2,7 +2,7 @@
 
 A **ready-to-use** toolkit for running the [14-day experiment](../validation/02-14-day-experiment.md) that serves as the **GO** gate before building the Unggun v2 app.
 
-> Principle: **no writing code.** Everything runs through WhatsApp + 2 small forms (Tally/Google Forms) + 1 spreadsheet.
+> Principle: **no writing code.** Everything runs through the crew's group chat + 2 small forms (Tally/Google Forms) + 1 spreadsheet.
 
 ## Why this is the "best choice" right now
 
@@ -21,7 +21,7 @@ Everything else (scripts, forms, templates, tracker) is already prepared in this
 
 1. [Recruit 8 hosts](01-host-recruitment.md)
 2. [Create & vote on Plans](02-create-and-vote-plans.md)
-3. [Ready-to-copy WhatsApp templates](03-whatsapp-templates.md)
+3. [Ready-to-copy message templates](03-message-templates.md)
 4. [Tracker & GO/ITERATE/KILL dashboard](04-tracker.md) + [CSV](tracker-template.csv)
 
 ## 14-day flow (summary)

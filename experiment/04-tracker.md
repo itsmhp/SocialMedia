@@ -1,6 +1,6 @@
 # 4. Tracker & GO / ITERATE / KILL Dashboard
 
-[⬅️ 3. WhatsApp templates](03-whatsapp-templates.md) · [Kit](README.md)
+[⬅️ 3. Message templates](03-message-templates.md) · [Kit](README.md)
 
 Use [tracker-template.csv](tracker-template.csv) (import into Google Sheets / Excel). One **row = one Plan**.
 
@@ -46,4 +46,4 @@ Example Google Sheets formulas (data rows start at 2):
 - **ITERATE** — plans-that-happen passes but growth fails → focus on recurring-activity crews or campus organization tools.
 - **KILL** — activation < 5/8 **or** plans-that-happen < 50% → stop the social app thesis; the problem / wedge isn't strong enough.
 
-> Mandatory qualitative question for every host: **"Without our help, would this plan still have happened?"** An answer of "yes, it still would" = a signal that WhatsApp alone is enough (be cautious).
+> Mandatory qualitative question for every host: **"Without our help, would this plan still have happened?"** An answer of "yes, it still would" = a signal that a plain group chat alone is enough (be cautious).
