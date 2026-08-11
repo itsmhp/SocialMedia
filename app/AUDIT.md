@@ -33,6 +33,23 @@ The app is now suitable for **single-device local dogfood of the core room loop*
 It is still not a multi-user closed alpha: secure invite/join, auth, realtime,
 server-authoritative expiry, safety operations and corrected RLS remain L1 work.
 
+### L1 foundation update
+
+The current working tree now also contains the code foundation for that next gate:
+
+- fail-closed fresh-project schema with private authorization helpers;
+- atomic create room, hashed invite, join, revoke, leave, remove and extension-vote RPCs;
+- server-authoritative idempotent fade/Bara finalization;
+- report evidence retention plus block/report policies;
+- magic-link session client and conditional account UI;
+- typed room/invite/message/reaction/vote/report/block/Realtime adapter;
+- static schema/auth/invite contract tests (12 tests total).
+
+This does **not** change the readiness verdict to multi-user. A live Supabase project
+and three authenticated test users are required to execute the SQL, verify RLS and
+Realtime, and then connect the adapter to the React store. The exact gate is documented
+in [`supabase/README.md`](supabase/README.md).
+
 ## Executive verdict
 
 At the audited baseline, Unggun was a coherent **interactive prototype**. After the

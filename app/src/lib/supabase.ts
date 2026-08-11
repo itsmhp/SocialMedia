@@ -1,20 +1,33 @@
-// Backend seam. The app runs entirely on the in-memory mock store until BOTH env
-// vars are set (see .env.example). No env = mock, so web/dev just works. Wiring the
-// reducer store to these queries + realtime is the next increment.
-const url = import.meta.env.VITE_SUPABASE_URL;
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Backend seam. The UI remains local until the repository adapter is wired and
+// verified against a live project. These variables only configure the client.
+const url = import.meta.env.VITE_SUPABASE_URL?.trim() ?? "";
+const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() ?? "";
 
-export const SUPABASE_ENABLED = Boolean(url && anonKey);
+function validBackendUrl(value: string): boolean {
+  try {
+    const parsed = new URL(value);
+    return (parsed.protocol === "https:" || parsed.protocol === "http:") && Boolean(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
+
+export const SUPABASE_CONFIGURED = Boolean(anonKey && validBackendUrl(url));
 
 let clientPromise: Promise<import("@supabase/supabase-js").SupabaseClient> | null = null;
 
-/** Lazily creates the client (and loads its bundle) only when Supabase is configured. */
 export function getSupabase() {
-  if (!SUPABASE_ENABLED) return null;
+  if (!SUPABASE_CONFIGURED) return null;
   if (!clientPromise) {
     clientPromise = import("@supabase/supabase-js").then(({ createClient }) =>
-      createClient(url as string, anonKey as string)
+      createClient(url, anonKey)
     );
   }
   return clientPromise;
+}
+
+export async function requireSupabase() {
+  const pending = getSupabase();
+  if (!pending) throw new Error("Supabase is not configured for this build.");
+  return pending;
 }

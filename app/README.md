@@ -123,27 +123,31 @@ single-device lifecycle test). The Supabase seam is not connected to React
 queries or mutations yet. Setting environment variables creates an available
 client and changes the development console label, but the UI remains local.
 
+Secure auth/RPC/Realtime client operations and a fail-closed fresh-project schema
+are now implemented. See [`supabase/README.md`](supabase/README.md) for the exact
+activation and three-user RLS verification gate. The React room store is not
+connected until that live gate passes.
+
 To prepare a future multi-user environment:
 
 1. Create a free project at [supabase.com](https://supabase.com).
-2. For isolated development only, inspect [`supabase/schema.sql`](supabase/schema.sql)
-  as a draft of the tables, RLS and realtime publication. Do not use it for real
-  users until the RLS corrections below are implemented and tested.
+2. Review [`supabase/schema.sql`](supabase/schema.sql) and the security checklist.
+  Run it only in a new empty project; live RLS verification is still required.
 3. Copy `.env.example` to `.env` and fill `VITE_SUPABASE_URL` +
    `VITE_SUPABASE_ANON_KEY` (Supabase → Settings → API).
 4. Restart `npm run dev`. The seam in [`src/lib/supabase.ts`](src/lib/supabase.ts)
   becomes available, but do not treat this as backend activation.
 
-Before wiring, the draft RLS must be tightened for invite-only membership,
-reaction membership checks, shared-room profile visibility, roles and removal.
-Then auth will use an **email magic link** (no SMS/phone), and the local repository
-interface can be replaced by verified Supabase queries + realtime mutations.
+Auth uses an **email magic link** (no SMS/phone). The schema now enforces hashed,
+expiring invites, membership checks, roles, removal, reports and blocks; these
+must be exercised against the user's live project before the local repository is
+replaced by Supabase queries + Realtime mutations.
 
 ## Roadmap (next increments)
 
 1. **Secure multi-user closed alpha**
-   - Tighten and test RLS + an atomic, expiring/revocable invite transaction.
-   - Add email magic-link auth, room roles, join/leave/remove/report/block.
+  - Run and test the prepared RLS + atomic invite schema on a live project.
+  - Verify email magic-link auth, roles, join/leave/remove/report/block.
    - Replace the local repository with queries, mutations and Realtime while
      keeping expiry/Bara server-authoritative and idempotent.
 2. **Local hardening**

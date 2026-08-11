@@ -222,6 +222,21 @@ body {
 .btn-small { background: #1a130d; border: 1px solid var(--line); color: var(--ember2); border-radius: 10px; padding: 7px 12px; font-weight: 700; font-size: 13px; cursor: pointer; }
 .gname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
+/* Cloud account (only rendered in configured builds) */
+.cloud-account { display: flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 14px; background: #18120e; padding: 11px 12px; margin: -4px 0 14px; color: var(--muted); font-size: 12px; }
+.cloud-account-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.cloud-account-copy strong { color: var(--text); font-size: 13px; }
+.cloud-account-copy span, .cloud-account-copy small { overflow-wrap: anywhere; }
+.cloud-account-copy span { color: var(--ember2); }
+.cloud-account-copy small { line-height: 1.4; }
+.cloud-account-form { display: block; }
+.cloud-account-form .field-label { margin-top: 10px; }
+.cloud-email-row { display: flex; gap: 7px; }
+.cloud-email-row .field { min-width: 0; }
+.cloud-email-row .btn-primary { width: auto; flex: none; padding-inline: 14px; }
+.form-error { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; border-left: 2px solid #f07a67; padding-left: 8px; color: #ffd0c8; font-size: 11px; }
+.form-error button { border: 0; background: transparent; color: var(--ember2); font-weight: 800; cursor: pointer; }
+
 /* Room hub */
 .rooms-screen { padding-bottom: 8px; }
 .rooms-hero { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 2px 2px 22px; }
