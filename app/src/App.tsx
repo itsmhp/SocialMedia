@@ -6,6 +6,7 @@ import { MomentsScreen } from "./components/MomentsScreen";
 import { PlayScreen } from "./components/PlayScreen";
 import { MemoriesScreen } from "./components/MemoriesScreen";
 import { ProfileOverlay } from "./components/ProfileOverlay";
+import { CreateRoomOverlay } from "./components/CreateRoomOverlay";
 import { Toast } from "./components/Toast";
 
 function Screens() {
@@ -28,6 +29,7 @@ export default function App() {
         <Screens />
         <BottomNav />
         <Toast />
+        <CreateRoomOverlay />
         <ProfileOverlay />
       </div>
     </StoreProvider>

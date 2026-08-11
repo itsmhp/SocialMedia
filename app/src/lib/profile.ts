@@ -1,4 +1,5 @@
 import type { Me } from "../types";
+import { makeId } from "./id";
 
 const KEY = "unggun.profile";
 
@@ -9,7 +10,13 @@ export function loadProfile(): Me | null {
     if (!raw) return null;
     const p = JSON.parse(raw) as Partial<Me>;
     if (p && typeof p.name === "string" && typeof p.avatar === "string") {
-      return { name: p.name, avatar: p.avatar };
+      const profile = {
+        id: typeof p.id === "string" && p.id ? p.id : makeId("user"),
+        name: p.name,
+        avatar: p.avatar,
+      };
+      if (!p.id) saveProfile(profile);
+      return profile;
     }
   } catch {
     // ignore unavailable / malformed storage

@@ -22,6 +22,8 @@ export function MomentCard({ m }: { m: Moment }) {
             <button
               key={e}
               className={"react" + (on ? " active" : "")}
+              aria-label={`${on ? "Remove" : "Add"} ${e} reaction`}
+              aria-pressed={on}
               onClick={() => dispatch({ type: "REACT_MOMENT", id: m.id, emoji: e })}
             >
               {e} <b>{m.reactions[e] || 0}</b>

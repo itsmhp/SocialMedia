@@ -18,14 +18,15 @@ export function PlayScreen() {
         </div>
         <div className="game-options">
           {members.map((m) => {
-            const v = g.votes[m.name] || 0;
+            const v = g.votes[m.id] || 0;
             const pct = total ? Math.round((v / total) * 100) : 0;
-            const mine = g.mine === m.name;
+            const mine = g.mine === m.id;
             return (
               <button
-                key={m.name}
+                key={m.id}
                 className={"gopt" + (mine ? " mine" : "")}
-                onClick={() => dispatch({ type: "VOTE_GAME", name: m.name })}
+                aria-pressed={mine}
+                onClick={() => dispatch({ type: "VOTE_GAME", memberId: m.id })}
               >
                 <span className="ava sm">{m.avatar}</span>
                 <span className="gname">{m.name}</span>

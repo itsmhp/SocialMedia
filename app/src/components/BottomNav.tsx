@@ -16,9 +16,10 @@ export function BottomNav() {
         <button
           key={t.key}
           className={"nav-btn" + (state.screen === t.key ? " active" : "")}
+          aria-current={state.screen === t.key ? "page" : undefined}
           onClick={() => dispatch({ type: "SET_SCREEN", screen: t.key })}
         >
-          {t.icon}
+          <span className="nav-icon" aria-hidden="true">{t.icon}</span>
           <span>{t.label}</span>
         </button>
       ))}

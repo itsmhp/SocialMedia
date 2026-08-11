@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../data/store";
+import { makeId } from "../lib/id";
 
 export function Composer() {
   const { dispatch } = useStore();
@@ -8,28 +9,24 @@ export function Composer() {
   const send = () => {
     const t = text.trim();
     if (!t) return;
-    dispatch({ type: "SEND_MESSAGE", text: t });
+    dispatch({ type: "SEND_MESSAGE", id: makeId("message"), text: t, now: Date.now() });
     setText("");
   };
 
   return (
-    <div className="composer">
+    <form className="composer" onSubmit={(event) => { event.preventDefault(); send(); }}>
       <input
+        name="message"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            send();
-          }
-        }}
         placeholder="Say something silly…"
         autoComplete="off"
+        maxLength={500}
         aria-label="Message"
       />
-      <button className="btn-send" onClick={send}>
+      <button className="btn-send" type="submit" disabled={!text.trim()}>
         Send
       </button>
-    </div>
+    </form>
   );
 }

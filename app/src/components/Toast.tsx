@@ -10,5 +10,5 @@ export function Toast() {
     return () => window.clearTimeout(id);
   }, [state.toast, dispatch]);
 
-  return <div className={"toast" + (state.toast ? " show" : "")}>{state.toast}</div>;
+  return <div className={"toast" + (state.toast ? " show" : "")} role="status" aria-live="polite">{state.toast}</div>;
 }

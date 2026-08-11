@@ -2,11 +2,11 @@ import { CHAT_REACTIONS, useStore } from "../data/store";
 import type { Message } from "../types";
 
 export function MessageBubble({ m }: { m: Message }) {
-  const { dispatch } = useStore();
+  const { state, dispatch } = useStore();
 
   if (m.system) return <div className="sys-msg">{m.text}</div>;
 
-  const mine = m.who === "You";
+  const mine = m.authorId === state.me.id;
   return (
     <div className={"msg" + (mine ? " mine" : "")}>
       <div className="who">
@@ -22,6 +22,8 @@ export function MessageBubble({ m }: { m: Message }) {
             <button
               key={e}
               className={"mreact" + (on ? " active" : "")}
+              aria-label={`${on ? "Remove" : "Add"} ${e} reaction`}
+              aria-pressed={on}
               onClick={() => dispatch({ type: "REACT_MESSAGE", id: m.id, emoji: e })}
             >
               {e}

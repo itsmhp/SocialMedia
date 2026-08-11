@@ -51,6 +51,7 @@ export function ProfileForm({
             className={"ava-opt" + (avatar === a ? " active" : "")}
             onClick={() => setAvatar(a)}
             aria-label={"avatar " + a}
+            aria-pressed={avatar === a}
           >
             {a}
           </button>

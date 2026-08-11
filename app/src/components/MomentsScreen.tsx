@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../data/store";
+import { makeId } from "../lib/id";
 import { MomentCard } from "./MomentCard";
 
 const MOODS = ["😊", "😌", "🥰", "😂", "😮‍💨", "🎶", "🔥"];
@@ -15,7 +16,7 @@ export function MomentsScreen() {
       dispatch({ type: "TOAST", msg: "Write your moment first 🙂" });
       return;
     }
-    dispatch({ type: "ADD_MOMENT", text, mood });
+    dispatch({ type: "ADD_MOMENT", id: makeId("moment"), text, mood, now: Date.now() });
     setText("");
     setMood("😊");
   };
@@ -27,9 +28,12 @@ export function MomentsScreen() {
         <div className="prompt-text">{PROMPT}</div>
         <div className="compose">
           <textarea
+            aria-label="Moment"
+            name="moment"
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={2}
+            maxLength={500}
             placeholder="Share an unfiltered moment with your circle…"
           />
           <div className="mood-row">
@@ -37,6 +41,8 @@ export function MomentsScreen() {
               <button
                 key={mo}
                 className={"mood" + (mood === mo ? " active" : "")}
+                aria-label={`Mood ${mo}`}
+                aria-pressed={mood === mo}
                 onClick={() => setMood(mo)}
               >
                 {mo}

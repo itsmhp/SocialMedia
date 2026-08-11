@@ -11,9 +11,10 @@ leaves a small **Bara** recap. Human-first, small circles, no algorithmic feed.
 
 - **Vite + React + TypeScript** single-page app, shipped as an installable **PWA**.
 - **Capacitor** wraps the same web build into native **Android + iOS** apps (one codebase → web + both stores).
-- **Supabase-ready** (Postgres + Auth + Realtime) — the client seam + SQL schema
-  are in place; set two env vars to switch from the built-in mock to a real
-  backend (see "Backend" below). No env = mock, so web/dev just works.
+- **Supabase foundation** (Postgres + Auth + Realtime) — the lazy client seam +
+  draft SQL schema are in place, but the UI store is intentionally still local.
+  Environment variables only configure the client; they do not switch the app
+  to a real backend yet (see "Backend" below).
 - Static hosting (Cloudflare Pages / Vercel / Netlify free tier) — no server to run.
 
 Chosen for a 2-person, no-budget team: one codebase, $0 hosting, realtime built
@@ -27,8 +28,8 @@ npm install
 npm run dev      # http://localhost:5173
 ```
 
-Other scripts: `npm run build` (type-check + production build), `npm run preview`
-(serve the build, incl. the service worker).
+Other scripts: `npm test` (domain/lifecycle tests), `npm run build` (type-check +
+production build), `npm run preview` (serve the build, incl. the service worker).
 
 ## Mobile apps (Android + iOS via Capacitor)
 
@@ -75,10 +76,20 @@ directory `dist`. All have a free tier with no server to run.
 
 ## What works now
 
-- **Chat** tab (the core): live 24h **countdown**, a fun ephemeral group chat,
-  tap-to-react, and the **extend-by-vote** card near expiry — a majority "keep"
-  adds +24h, drops a system note, and resets the countdown.
-- **Moments / Play / Memories** tabs (ported from the prototype): a daily-prompt moments feed with reactions, a "Most likely to…" poll, and a warm recap.
+- **First-run profile:** privacy-minimal handle + emoji avatar, editable later and
+  saved on this device.
+- **Rooms:** open the room switcher, light a private room with a spark, choose a
+  12h/24h lifetime and local circle members, then switch among active rooms.
+- **Chat** (the core): messages + reactions, an absolute **countdown** that
+  survives reload/background time, and **extend-by-vote** keyed by stable user
+  IDs. A majority adds +24h and opens a fresh vote in the next cycle.
+- **Fade -> Bara -> relight:** expiry locks/deletes the raw chat, deterministically
+  keeps the warmest messages as a private Bara, shows factual counts in Memories,
+  and can light a clean new round from the same circle.
+- **Versioned local persistence:** rooms, chat, reactions, votes, Moments, game
+  state and Bara survive reload while the backend remains dormant.
+- **Moments / Play** tabs remain local supporting experiments; deeper work on
+  them is deferred until the room loop is validated.
 - Installable PWA shell (manifest + offline service worker); native Android/iOS via Capacitor.
 
 ## Structure
@@ -89,50 +100,59 @@ src/
   App.tsx             phone shell: Header + active screen + BottomNav + Toast
   types.ts            domain types (Message, Room, ExtendVote, ...)
   styles.css          ember/campfire theme
+  lib/id.ts           stable local ID generation
   lib/time.ts         countdown formatting
+  lib/useDialogFocus.ts accessible modal focus handling
   data/
     seed.ts           mock seed data (room near expiry)
-    store.tsx         Context + reducer store — the seam to swap in Supabase
-  components/         Header, BottomNav, ChatScreen, MessageBubble,
-                      ExtendVoteCard, Composer, Placeholder, Toast
+    lifecycle.ts      absolute clock, expiry, deterministic Bara
+    localState.ts     versioned local persistence
+    store.tsx         Context + pure reducer — the seam to swap in Supabase
+    lifecycle.test.ts lifecycle/reducer/persistence regression tests
+  components/         Rooms, CreateRoom, Chat, Vote, Bara, Memories, profile
 ```
 
 All state changes flow through the reducer in `data/store.tsx`. Swapping the mock
 for Supabase means: load a room's messages there, subscribe to Realtime inserts
 that `dispatch` into the same reducer, and send mutations to Postgres.
 
-## Backend (Supabase) — how to turn it on
+## Backend (Supabase) — foundation only
 
-Today the app runs on an in-memory **mock** (great for web/dev and the 14-day
-test). To make chat real (persisted + realtime + multi-user):
+Today the app runs on a versioned **local store** (great for web/dev and the
+single-device lifecycle test). The Supabase seam is not connected to React
+queries or mutations yet. Setting environment variables creates an available
+client and changes the development console label, but the UI remains local.
+
+To prepare a future multi-user environment:
 
 1. Create a free project at [supabase.com](https://supabase.com).
-2. In the SQL editor, run [`supabase/schema.sql`](supabase/schema.sql) — tables +
-   Row-Level Security (only a room's members can read/write it) + realtime.
+2. For isolated development only, inspect [`supabase/schema.sql`](supabase/schema.sql)
+  as a draft of the tables, RLS and realtime publication. Do not use it for real
+  users until the RLS corrections below are implemented and tested.
 3. Copy `.env.example` to `.env` and fill `VITE_SUPABASE_URL` +
    `VITE_SUPABASE_ANON_KEY` (Supabase → Settings → API).
 4. Restart `npm run dev`. The seam in [`src/lib/supabase.ts`](src/lib/supabase.ts)
-   activates automatically (the dev console logs the active data source).
+  becomes available, but do not treat this as backend activation.
 
-Auth will use an **email magic link** (no SMS/phone) — privacy-minimal. Wiring the
-reducer store to Supabase queries + realtime is the next increment, done against
-your live project so it's verified.
+Before wiring, the draft RLS must be tightened for invite-only membership,
+reaction membership checks, shared-room profile visibility, roles and removal.
+Then auth will use an **email magic link** (no SMS/phone), and the local repository
+interface can be replaced by verified Supabase queries + realtime mutations.
 
 ## Roadmap (next increments)
 
-1. **Wire Supabase**
-   - Tables (sketch): `rooms(id, name, created_at, expires_at, resolved)`,
-     `room_members(room_id, user_id, avatar)`, `messages(id, room_id, user_id, body, created_at)`,
-     `reactions(message_id, user_id, emoji)`, `extend_votes(room_id, user_id, choice)`.
-   - **Row-Level Security** so only a room's members can read/write it (enforces
-     the private, self-contained rule).
-   - **Realtime** subscription on `messages` + `extend_votes`.
-   - **Auth:** email magic link (no SMS/phone) — privacy-minimal.
-   - A DB job/trigger fades rooms past `expires_at` and writes the Bara recap.
-2. **Push notifications** — Web Push (PWA) + Capacitor Push / APNs+FCM (native) for the "the room is voting to stay alive" re-engagement hook.
-3. **Native polish** — Capacitor plugins (Status Bar, Splash Screen, Keyboard, hardware back button) + real PNG / Android adaptive icons.
-4. **iOS project** — `npx cap add ios` on a Mac / cloud-Mac CI, then wire signing.
-5. Deploy the web/PWA to a free static host + share link for the 14-day test.
+1. **Secure multi-user closed alpha**
+   - Tighten and test RLS + an atomic, expiring/revocable invite transaction.
+   - Add email magic-link auth, room roles, join/leave/remove/report/block.
+   - Replace the local repository with queries, mutations and Realtime while
+     keeping expiry/Bara server-authoritative and idempotent.
+2. **Local hardening**
+   - Empty/failure/offline/reconnect states, accurate locale timestamps, input
+     and rate limits, plus broader accessibility/E2E coverage.
+3. **Push notifications** — Web Push (PWA) + Capacitor Push / APNs+FCM (native) for the "the room is voting to stay alive" re-engagement hook.
+4. **Native polish** — Capacitor plugins (Status Bar, Splash Screen, Keyboard, hardware back button) + real PNG / Android adaptive icons.
+5. **iOS project** — `npx cap add ios` on a Mac / cloud-Mac CI, then wire signing.
+6. Deploy the web/PWA to a free static host + share link for the 14-day test.
 
 ## Constraints (kept)
 
