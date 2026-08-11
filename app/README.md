@@ -11,8 +11,9 @@ leaves a small **Bara** recap. Human-first, small circles, no algorithmic feed.
 
 - **Vite + React + TypeScript** single-page app, shipped as an installable **PWA**.
 - **Capacitor** wraps the same web build into native **Android + iOS** apps (one codebase → web + both stores).
-- **Supabase-ready** (Postgres + Auth + Realtime + Storage) — not wired yet; the
-  app currently runs on an in-memory mock store so it works with zero setup.
+- **Supabase-ready** (Postgres + Auth + Realtime) — the client seam + SQL schema
+  are in place; set two env vars to switch from the built-in mock to a real
+  backend (see "Backend" below). No env = mock, so web/dev just works.
 - Static hosting (Cloudflare Pages / Vercel / Netlify free tier) — no server to run.
 
 Chosen for a 2-person, no-budget team: one codebase, $0 hosting, realtime built
@@ -99,6 +100,23 @@ src/
 All state changes flow through the reducer in `data/store.tsx`. Swapping the mock
 for Supabase means: load a room's messages there, subscribe to Realtime inserts
 that `dispatch` into the same reducer, and send mutations to Postgres.
+
+## Backend (Supabase) — how to turn it on
+
+Today the app runs on an in-memory **mock** (great for web/dev and the 14-day
+test). To make chat real (persisted + realtime + multi-user):
+
+1. Create a free project at [supabase.com](https://supabase.com).
+2. In the SQL editor, run [`supabase/schema.sql`](supabase/schema.sql) — tables +
+   Row-Level Security (only a room's members can read/write it) + realtime.
+3. Copy `.env.example` to `.env` and fill `VITE_SUPABASE_URL` +
+   `VITE_SUPABASE_ANON_KEY` (Supabase → Settings → API).
+4. Restart `npm run dev`. The seam in [`src/lib/supabase.ts`](src/lib/supabase.ts)
+   activates automatically (the dev console logs the active data source).
+
+Auth will use an **email magic link** (no SMS/phone) — privacy-minimal. Wiring the
+reducer store to Supabase queries + realtime is the next increment, done against
+your live project so it's verified.
 
 ## Roadmap (next increments)
 
