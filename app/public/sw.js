@@ -1,6 +1,6 @@
 // Minimal network-first service worker (offline shell). Real caching strategy TBD.
 const CACHE = "unggun-v1";
-const SHELL = ["/", "/index.html", "/icon.svg", "/manifest.webmanifest"];
+const SHELL = ["./", "./index.html", "./icon.svg", "./manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)));
@@ -24,6 +24,6 @@ self.addEventListener("fetch", (event) => {
         caches.open(CACHE).then((c) => c.put(request, copy)).catch(() => {});
         return res;
       })
-      .catch(() => caches.match(request).then((r) => r || caches.match("/index.html")))
+      .catch(() => caches.match(request).then((r) => r || caches.match("./index.html")))
   );
 });

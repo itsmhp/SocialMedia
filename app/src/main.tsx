@@ -13,6 +13,6 @@ createRoot(document.getElementById("root")!).render(
 // Register the service worker only for the web PWA (not inside the native app).
 if ("serviceWorker" in navigator && import.meta.env.PROD && !Capacitor.isNativePlatform()) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker.register("sw.js").catch(() => {});
   });
 }

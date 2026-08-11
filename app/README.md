@@ -58,6 +58,20 @@ projects.
 **Store accounts (the only unavoidable cost):** Google Play $25 one-time,
 Apple Developer $99/year.
 
+## Deploy the web / PWA
+
+The production build uses **relative asset paths**, so it runs at a domain root
+or a subpath unchanged.
+
+**GitHub Pages (already set up).** [`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml)
+builds `app/` and deploys on every push to `main`. One-time: repo **Settings →
+Pages → Source: GitHub Actions** (needs a public repo, or GitHub Pro). Then it's
+live at `https://<user>.github.io/<repo>/`.
+
+**Vercel / Netlify / Cloudflare Pages (root-domain, a few clicks).** Connect the
+repo and set **Root Directory = `app`**, build command `npm run build`, output
+directory `dist`. All have a free tier with no server to run.
+
 ## What works now
 
 - **Chat** tab (the core): live 24h **countdown**, a fun ephemeral group chat,
