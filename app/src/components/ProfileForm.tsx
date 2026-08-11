@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { randomHandle } from "../lib/handles";
 
 const AVATARS = [
   "🦊", "🐱", "🐼", "🐧", "🦁", "🐨",
@@ -13,12 +14,14 @@ export function ProfileForm({
   submitLabel,
   onSubmit,
   onCancel,
+  secondaryLabel = "Cancel",
 }: {
   initialName: string;
   initialAvatar: string;
   submitLabel: string;
   onSubmit: (name: string, avatar: string) => void;
   onCancel?: () => void;
+  secondaryLabel?: string;
 }) {
   const [name, setName] = useState(initialName);
   const [avatar, setAvatar] = useState(initialAvatar);
@@ -31,17 +34,30 @@ export function ProfileForm({
   return (
     <div className="pform">
       <label className="field-label" htmlFor="handle">Your handle</label>
-      <input
-        id="handle"
-        className="field"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        onKeyDown={(e) => { if (e.key === "Enter") submit(); }}
-        placeholder="e.g. dusk_fox"
-        maxLength={16}
-        autoComplete="off"
-        autoFocus
-      />
+      <div className="handle-row">
+        <input
+          id="handle"
+          name="handle"
+          className="field"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          onKeyDown={(event) => { if (event.key === "Enter") submit(); }}
+          placeholder="e.g. dusk_fox"
+          maxLength={16}
+          autoComplete="off"
+          spellCheck={false}
+          autoFocus
+        />
+        <button
+          type="button"
+          className="handle-random"
+          title="Generate a random handle"
+          aria-label="Generate a random handle"
+          onClick={() => setName(randomHandle(name))}
+        >
+          <span aria-hidden="true">🎲</span> Random
+        </button>
+      </div>
       <div className="field-label">Pick a face</div>
       <div className="ava-grid">
         {AVATARS.map((a) => (
@@ -59,7 +75,7 @@ export function ProfileForm({
       </div>
       <div className="pform-actions">
         {onCancel && (
-          <button type="button" className="btn-ghost" onClick={onCancel}>Cancel</button>
+          <button type="button" className="btn-ghost" onClick={onCancel}>{secondaryLabel}</button>
         )}
         <button type="button" className="btn-primary" disabled={!canSubmit} onClick={submit}>
           {submitLabel}

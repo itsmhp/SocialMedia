@@ -76,8 +76,10 @@ directory `dist`. All have a free tier with no server to run.
 
 ## What works now
 
-- **First-run profile:** privacy-minimal handle + emoji avatar, editable later and
-  saved on this device.
+- **First-install journey:** three swipeable introductions explain rooms,
+  extend-by-vote and Bara before profile setup. The privacy-minimal handle can be
+  typed or randomized, paired with an emoji avatar, edited later and saved on
+  this device.
 - **Rooms:** open the room switcher, light a private room with a spark, choose a
   12h/24h lifetime and local circle members, then switch among active rooms.
 - **Chat** (the core): messages + reactions, an absolute **countdown** that

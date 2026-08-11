@@ -16,7 +16,7 @@ repository adapter can be connected and honestly called multi-user.
 - atomic join with row locking, capacity enforcement, and removed-member denial;
 - server-side extension majority resolution per cycle;
 - idempotent server-side fade/Bara generation before raw chat deletion;
-- 12 local tests, including static security contract checks.
+- 15 local tests, including static security contract checks.
 
 ## What is not yet verified
 

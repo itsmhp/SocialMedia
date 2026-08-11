@@ -43,12 +43,19 @@ The current working tree now also contains the code foundation for that next gat
 - report evidence retention plus block/report policies;
 - magic-link session client and conditional account UI;
 - typed room/invite/message/reaction/vote/report/block/Realtime adapter;
-- static schema/auth/invite contract tests (12 tests total).
+- lifecycle, schema/auth/invite and random-handle contract tests (15 tests total).
 
 This does **not** change the readiness verdict to multi-user. A live Supabase project
 and three authenticated test users are required to execute the SQL, verify RLS and
 Realtime, and then connect the adapter to the React store. The exact gate is documented
 in [`supabase/README.md`](supabase/README.md).
+
+### First-install UX update
+
+First-run users now see three swipeable introduction pages covering the core room,
+extend-vote and Bara loop before creating a profile. Profile setup can generate a
+schema-valid random handle, supports Back/Skip, persists completion across reload, and
+editing an existing profile opens directly without replaying the introduction.
 
 ## Executive verdict
 
