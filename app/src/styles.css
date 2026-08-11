@@ -114,7 +114,7 @@ body {
 .btn-send { background: linear-gradient(180deg, var(--ember2), var(--ember)); color: #2a1204; font-weight: 800; border: 0; border-radius: 20px; padding: 10px 16px; cursor: pointer; }
 
 /* Extend-by-vote */
-.vote-card { background: linear-gradient(180deg, rgba(255, 122, 69, .16), var(--card)); border: 1px solid rgba(255, 122, 69, .45); border-radius: 16px; padding: 12px 13px; margin-top: 4px; box-shadow: 0 6px 18px rgba(255, 122, 69, .15); }
+.vote-card { background: linear-gradient(180deg, rgba(255, 122, 69, .16), var(--card)); border: 1px solid rgba(255, 122, 69, .45); border-radius: 16px; padding: 12px 13px; margin: 0 0 12px; box-shadow: 0 6px 18px rgba(255, 122, 69, .15); }
 .vote-head { font-size: 13.5px; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
 .vote-head b { color: var(--ember2); font-variant-numeric: tabular-nums; }
 .vote-bar { height: 8px; background: #0f0a06; border-radius: 6px; overflow: hidden; margin-bottom: 6px; }

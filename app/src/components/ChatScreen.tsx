@@ -27,15 +27,15 @@ export function ChatScreen() {
     <section className="screen active">
       <div className="room-banner">
         {open
-          ? "⏳ Almost out of time — vote below to keep the fire alive."
+          ? "⏳ Almost out of time — vote now to keep the fire alive."
           : `🔥 ${room.spark}`}
       </div>
+      {open && <ExtendVoteCard />}
       <div className="presence">🔒 {memberCount(room)} {plural(memberCount(room), "member")} · this chat fades with the room</div>
       <div className="chat">
         {room.messages.map((message) => (
           <MessageBubble key={message.id} m={message} />
         ))}
-        {open && <ExtendVoteCard />}
       </div>
       <Composer />
     </section>
