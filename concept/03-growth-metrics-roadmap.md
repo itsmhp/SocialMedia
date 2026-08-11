@@ -1,6 +1,6 @@
 # 3. Growth, Metrics, Roadmap, Monetization (later)
 
-[⬅️ 2. Indonesia & Latent Needs](02-indonesia-dan-latent-needs.md) · [Concept](README.md)
+[⬅️ 2. Indonesia & Latent Needs](02-indonesia-and-latent-needs.md) · [Concept](README.md)
 
 ## North-star metric
 
@@ -54,7 +54,7 @@ The focus right now = **find users**. Once it's sticky, options that **don't rui
 
 ## The most concrete next steps
 
-1. Run the [14-day no-app experiment](../validation/02-eksperimen-14-hari.md).
+1. Run the [14-day no-app experiment](../validation/02-14-day-experiment.md).
 2. Don't build a feed, prompts, mini-games, or a full account system during the test phase.
 3. If GO, build a lightweight PWA for create/vote/lock/RSVP/check-in.
 4. If ITERATE, focus on activity crews or campus organizations.

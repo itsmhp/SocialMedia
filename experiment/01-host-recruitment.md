@@ -1,6 +1,6 @@
 # 1. Recruit 8 Hosts
 
-[⬅️ Kit](README.md) · [2. Create & vote on Plans ➡️](02-buat-dan-voting-rencana.md)
+[⬅️ Kit](README.md) · [2. Create & vote on Plans ➡️](02-create-and-vote-plans.md)
 
 Target: **8 hosts** who have a real group of **4–12 friends**, confirmed within **2 days**.
 

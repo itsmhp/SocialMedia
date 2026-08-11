@@ -1,6 +1,6 @@
 # 1. Landscape & Data (2026)
 
-[⬅️ Index](README.md) · Next: [2. What People Want Now ➡️](02-keinginan-sekarang.md)
+[⬅️ Index](README.md) · Next: [2. What People Want Now ➡️](02-current-wants.md)
 
 ## 1a. Global
 

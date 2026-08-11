@@ -1,6 +1,6 @@
 # 3. What People NEED but Don't Yet Realize (LATENT NEEDS)
 
-[⬅️ 2. Wants](02-keinginan-sekarang.md) · [Index](README.md) · [4. Opportunity ➡️](04-peluang-whitespace.md)
+[⬅️ 2. Wants](02-current-wants.md) · [Index](README.md) · [4. Opportunity ➡️](04-whitespace-opportunities.md)
 
 The most important part: things people **feel the pain of**, but don't yet know there's a product for.
 
@@ -18,7 +18,7 @@ The most important part: things people **feel the pain of**, but don't yet know 
 
 > ⚠️ **Warning on #5 (AI companion):** demand is huge, but Character.ai faces **serious lawsuits & a ban on users under 18 (Nov 2025)** over safety.
 >
-> **Our product stance:** we answer the "companionship & being heard" need with **real human connection** (a circle of close friends) — see [`../concept/02-indonesia-dan-latent-needs.md`](../concept/02-indonesia-dan-latent-needs.md).
+> **Our product stance:** we answer the "companionship & being heard" need with **real human connection** (a circle of close friends) — see [`../concept/02-indonesia-and-latent-needs.md`](../concept/02-indonesia-and-latent-needs.md).
 
 ```mermaid
 quadrantChart

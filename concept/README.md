@@ -1,7 +1,7 @@
 # Product Concept: Unggun v2 — make plans happen
 
 > Working name: **Unggun** (from *campfire*). Alternatives: **Bara**, **Riung**, **Kumpul**.
-> Status: **conditional pivot** after [GPT-5.6 Sol validation](../validation/01-gpt-5.6-sol-validation.md). Not ready to be fully built until the [14-day experiment](../validation/02-eksperimen-14-hari.md) passes.
+> Status: **conditional pivot** after [GPT-5.6 Sol validation](../validation/01-gpt-5.6-sol-validation.md). Not ready to be fully built until the [14-day experiment](../validation/02-14-day-experiment.md) passes.
 
 ## Manifesto (positioning)
 
@@ -74,9 +74,9 @@ flowchart LR
 
 ## Concept document map
 
-1. [MVP features + human moderation](01-fitur-mvp.md)
-2. [Indonesia beachhead + latent needs mapping](02-indonesia-dan-latent-needs.md)
-3. [Growth, metrics, roadmap, monetization-later](03-growth-metrik-roadmap.md)
+1. [MVP features + human moderation](01-mvp-features.md)
+2. [Indonesia beachhead + latent needs mapping](02-indonesia-and-latent-needs.md)
+3. [Growth, metrics, roadmap, monetization-later](03-growth-metrics-roadmap.md)
 4. [Independent validation & concept comparison](../validation/README.md)
 
-> This is the best current hypothesis, not the truth. Build the MVP only if the [GO](../validation/02-eksperimen-14-hari.md#go) threshold is met.
+> This is the best current hypothesis, not the truth. Build the MVP only if the [GO](../validation/02-14-day-experiment.md#go) threshold is met.

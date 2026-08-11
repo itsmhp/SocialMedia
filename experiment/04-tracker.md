@@ -1,6 +1,6 @@
 # 4. Tracker & GO / ITERATE / KILL Dashboard
 
-[⬅️ 3. WhatsApp templates](03-template-whatsapp.md) · [Kit](README.md)
+[⬅️ 3. WhatsApp templates](03-whatsapp-templates.md) · [Kit](README.md)
 
 Use [tracker-template.csv](tracker-template.csv) (import into Google Sheets / Excel). One **row = one Plan**.
 

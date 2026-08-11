@@ -1,10 +1,10 @@
 # 2. Indonesia Beachhead + Latent Needs Mapping
 
-[⬅️ 1. MVP Features](01-fitur-mvp.md) · [Concept](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrik-roadmap.md)
+[⬅️ 1. MVP Features](01-mvp-features.md) · [Concept](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrics-roadmap.md)
 
 ## Why Indonesia + campus?
 
-From the [landscape data](../research/01-lanskap-dan-data.md):
+From the [landscape data](../research/01-landscape-and-data.md):
 
 - DataReportal 2026 estimates **230M internet users** (80.5% penetration) and **180M social identities** at the end of 2025.
 - APJII 2024 estimates Gen Z as the largest group of internet users (**34.4%**).

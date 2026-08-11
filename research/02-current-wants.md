@@ -1,6 +1,6 @@
 # 2. What People WANT Now (conscious needs)
 
-[⬅️ 1. Landscape](01-lanskap-dan-data.md) · [Index](README.md) · [3. Latent Needs ➡️](03-latent-needs.md)
+[⬅️ 1. Landscape](01-landscape-and-data.md) · [Index](README.md) · [3. Latent Needs ➡️](03-latent-needs.md)
 
 These are the things people **know** they want, and will name if asked:
 
@@ -13,4 +13,4 @@ These are the things people **know** they want, and will name if asked:
 
 > ⚠️ These are **table stakes**: necessary, but **not enough** to win — because every big competitor already offers them. True differentiation lives in the [next document: latent needs](03-latent-needs.md).
 
-> **Note on our product:** we meet need #2 ("easy content creation") through daily prompts, manual templates, unpolished photos & voice notes. See [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md).
+> **Note on our product:** we meet need #2 ("easy content creation") through daily prompts, manual templates, unpolished photos & voice notes. See [`../concept/01-mvp-features.md`](../concept/01-mvp-features.md).

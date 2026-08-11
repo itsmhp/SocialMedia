@@ -1,6 +1,6 @@
 # 4. Opportunity / Whitespace
 
-[⬅️ 3. Latent Needs](03-latent-needs.md) · [Index](README.md) · [5. Recommendations ➡️](05-rekomendasi.md)
+[⬅️ 3. Latent Needs](03-latent-needs.md) · [Index](README.md) · [5. Recommendations ➡️](05-recommendations.md)
 
 ## Lessons from new players
 

@@ -1,6 +1,6 @@
 # 2. Create & Vote on Plans (No App)
 
-[⬅️ 1. Recruitment](01-rekrutmen-host.md) · [Kit](README.md) · [3. WhatsApp templates ➡️](03-template-whatsapp.md)
+[⬅️ 1. Recruitment](01-host-recruitment.md) · [Kit](README.md) · [3. WhatsApp templates ➡️](03-whatsapp-templates.md)
 
 Core flow: **host creates a Plan → vote on times via WhatsApp Poll → lock → commit to attend.** Everything inside WhatsApp; voting uses **WhatsApp's built-in Poll feature** (zero extra installs).
 
@@ -28,7 +28,7 @@ Fill in the following fields (the host fills them in, or you help fill them duri
 ## Lock & commit
 
 1. Pick the option with the most votes that's realistic.
-2. Announce the final time + place (templates are in [document 3](03-template-whatsapp.md)).
+2. Announce the final time + place (templates are in [document 3](03-whatsapp-templates.md)).
 3. Ask for a **commit to attend**: a second Poll `Coming [day]?` (options: "I'm in ✅" / "Can't make it 😭") or a ✅ reaction.
 
 ## Rules to keep the test honest

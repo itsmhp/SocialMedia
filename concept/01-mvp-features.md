@@ -1,6 +1,6 @@
 # 1. MVP Features + Human Moderation
 
-[⬅️ Concept](README.md) · [2. Indonesia & Latent Needs ➡️](02-indonesia-dan-latent-needs.md)
+[⬅️ Concept](README.md) · [2. Indonesia & Latent Needs ➡️](02-indonesia-and-latent-needs.md)
 
 ## Core MVP features (deterministic logic)
 

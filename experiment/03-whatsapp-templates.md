@@ -1,6 +1,6 @@
 # 3. WhatsApp Templates (Ready to Copy)
 
-[⬅️ 2. Create & vote](02-buat-dan-voting-rencana.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
+[⬅️ 2. Create & vote](02-create-and-vote-plans.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
 
 Replace `[...]` to fit the plan. Casual tone; adjust to your group's style. Everything is written & sent by a human.
 

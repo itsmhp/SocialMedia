@@ -1,6 +1,6 @@
 # 5. Recommendations for Your Platform
 
-[⬅️ 4. Opportunity](04-peluang-whitespace.md) · [Index](README.md)
+[⬅️ 4. Opportunity](04-whitespace-opportunities.md) · [Index](README.md)
 
 > **Update 11 August 2026:** GPT-5.6 Sol's independent validation shifts the recommendation to **Plan-first**. This document is the early line of thinking; the latest decision is in [`../validation/`](../validation/README.md) and [`../concept/`](../concept/README.md).
 
@@ -49,9 +49,9 @@ timeline
 ## Risks to watch for
 
 - **Cold-start** (empty at first) & **retention** (not just acquisition).
-- **Moderation & safety** (children, harmful content) — rely on social design + human review (see [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md)).
+- **Moderation & safety** (children, harmful content) — rely on social design + human review (see [`../concept/01-mvp-features.md`](../concept/01-mvp-features.md)).
 - **Risk of being seen as "not sophisticated enough"** → make *human-first* a strength, not a weakness.
 
 ## Next steps
 
-The beachhead is narrowed to a group of 4–12 first-year students at one founder-accessible campus; the atom is now the **Plan**, not the daily Moment. Next, run the [14-day no-app experiment](../validation/02-eksperimen-14-hari.md).
+The beachhead is narrowed to a group of 4–12 first-year students at one founder-accessible campus; the atom is now the **Plan**, not the daily Moment. Next, run the [14-day no-app experiment](../validation/02-14-day-experiment.md).

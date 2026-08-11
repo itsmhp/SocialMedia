@@ -2,7 +2,7 @@
 
 **Date:** 11 August 2026 · **Focus:** the ~30 top social apps, their shared winning patterns, plus case studies of **BeReal** & **setlog**.
 
-[⬅️ 5. Recommendations](05-rekomendasi.md) · [Index](README.md)
+[⬅️ 5. Recommendations](05-recommendations.md) · [Index](README.md)
 
 ## Executive Summary (TL;DR)
 

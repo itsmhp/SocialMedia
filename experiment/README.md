@@ -1,6 +1,6 @@
 # Experiment Kit — 14-Day Test (No Code)
 
-A **ready-to-use** toolkit for running the [14-day experiment](../validation/02-eksperimen-14-hari.md) that serves as the **GO** gate before building the Unggun v2 app.
+A **ready-to-use** toolkit for running the [14-day experiment](../validation/02-14-day-experiment.md) that serves as the **GO** gate before building the Unggun v2 app.
 
 > Principle: **no writing code.** Everything runs through WhatsApp + 2 small forms (Tally/Google Forms) + 1 spreadsheet.
 
@@ -19,9 +19,9 @@ Everything else (scripts, forms, templates, tracker) is already prepared in this
 
 ## Kit contents
 
-1. [Recruit 8 hosts](01-rekrutmen-host.md)
-2. [Create & vote on Plans](02-buat-dan-voting-rencana.md)
-3. [Ready-to-copy WhatsApp templates](03-template-whatsapp.md)
+1. [Recruit 8 hosts](01-host-recruitment.md)
+2. [Create & vote on Plans](02-create-and-vote-plans.md)
+3. [Ready-to-copy WhatsApp templates](03-whatsapp-templates.md)
 4. [Tracker & GO/ITERATE/KILL dashboard](04-tracker.md) + [CSV](tracker-template.csv)
 
 ## 14-day flow (summary)

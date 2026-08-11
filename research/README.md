@@ -4,12 +4,12 @@
 
 ## Table of contents
 
-1. [Landscape & Data](01-lanskap-dan-data.md)
-2. [What People Want Now](02-keinginan-sekarang.md)
+1. [Landscape & Data](01-landscape-and-data.md)
+2. [What People Want Now](02-current-wants.md)
 3. [Latent Needs — what people don't yet realize](03-latent-needs.md)
-4. [Opportunity / Whitespace](04-peluang-whitespace.md)
-5. [Recommendations for Your Platform](05-rekomendasi.md)
-6. [Study: Top Social Apps on the App Store — why they win (BeReal & setlog)](06-studi-top-appstore.md)
+4. [Opportunity / Whitespace](04-whitespace-opportunities.md)
+5. [Recommendations for Your Platform](05-recommendations.md)
+6. [Study: Top Social Apps on the App Store — why they win (BeReal & setlog)](06-top-appstore-study.md)
 
 ## Follow-up validation
 
