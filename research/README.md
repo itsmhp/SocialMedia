@@ -9,6 +9,7 @@
 3. [Latent Needs — yang belum disadari](03-latent-needs.md)
 4. [Peluang / Whitespace](04-peluang-whitespace.md)
 5. [Rekomendasi untuk Platform-mu](05-rekomendasi.md)
+6. [Studi: Sosmed Teratas App Store — kenapa mereka menang (BeReal & setlog)](06-studi-top-appstore.md)
 
 ## Validasi lanjutan
 
