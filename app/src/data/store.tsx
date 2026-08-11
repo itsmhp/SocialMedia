@@ -6,7 +6,7 @@ import {
   type Dispatch,
   type ReactNode,
 } from "react";
-import type { AppState, Message, Moment, Room, ScreenName } from "../types";
+import type { AppState, Message, Moment, Room, ScreenName, SettingsPage } from "../types";
 import { HOUR_MS, secondsLeft, selectedRoom, settleExpiredRooms } from "./lifecycle";
 import { loadAppState, saveAppState } from "./localState";
 import { createSeedState } from "./seed";
@@ -16,6 +16,10 @@ export const MOMENT_REACTIONS = ["❤️", "😂", "🔥", "🙌"] as const;
 
 export type Action =
   | { type: "SET_SCREEN"; screen: ScreenName }
+  | { type: "OPEN_SETTINGS" }
+  | { type: "OPEN_SETTINGS_PAGE"; page: SettingsPage }
+  | { type: "SETTINGS_BACK" }
+  | { type: "CLOSE_SETTINGS" }
   | { type: "OPEN_ROOM_LIST" }
   | { type: "OPEN_CREATE_ROOM" }
   | { type: "CLOSE_CREATE_ROOM" }
@@ -31,8 +35,10 @@ export type Action =
   | { type: "NEXT_GAME" }
   | { type: "TICK"; now: number }
   | { type: "SET_PROFILE"; name: string; avatar: string }
-  | { type: "OPEN_PROFILE_EDIT" }
-  | { type: "CLOSE_PROFILE_EDIT" }
+  | { type: "REPLAY_INTRO" }
+  | { type: "FINISH_INTRO_REPLAY" }
+  | { type: "CLEAR_LOCAL_ACTIVITY" }
+  | { type: "RESET_APP"; userId: string; now: number }
   | { type: "TOAST"; msg: string }
   | { type: "CLEAR_TOAST" };
 
@@ -61,6 +67,24 @@ export function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case "SET_SCREEN":
       return { ...state, screen: action.screen, roomListOpen: false };
+
+    case "OPEN_SETTINGS":
+      return { ...state, settingsStack: ["home"], roomListOpen: false };
+
+    case "OPEN_SETTINGS_PAGE":
+      return {
+        ...state,
+        settingsStack: state.settingsStack.length
+          ? [...state.settingsStack, action.page]
+          : ["home", action.page],
+        roomListOpen: false,
+      };
+
+    case "SETTINGS_BACK":
+      return { ...state, settingsStack: state.settingsStack.slice(0, -1) };
+
+    case "CLOSE_SETTINGS":
+      return { ...state, settingsStack: [] };
 
     case "OPEN_ROOM_LIST":
       return { ...state, screen: "chat", roomListOpen: true };
@@ -275,13 +299,48 @@ export function reducer(state: AppState, action: Action): AppState {
     }
 
     case "SET_PROFILE":
-      return { ...state, me: { ...state.me, name: action.name, avatar: action.avatar }, onboarded: true, editingProfile: false };
+      return { ...state, me: { ...state.me, name: action.name, avatar: action.avatar }, onboarded: true };
 
-    case "OPEN_PROFILE_EDIT":
-      return { ...state, editingProfile: true };
+    case "REPLAY_INTRO":
+      return { ...state, replayingIntro: true };
 
-    case "CLOSE_PROFILE_EDIT":
-      return { ...state, editingProfile: false };
+    case "FINISH_INTRO_REPLAY":
+      return { ...state, replayingIntro: false };
+
+    case "CLEAR_LOCAL_ACTIVITY": {
+      const votes = Object.fromEntries(
+        [state.me, ...state.friends].map((member) => [member.id, 0]),
+      );
+      return {
+        ...state,
+        streak: 0,
+        moments: [],
+        game: { ...state.game, idx: 0, votes, mine: null },
+        rooms: [],
+        activeRoomId: null,
+        baras: [],
+        toast: "Local activity cleared",
+      };
+    }
+
+    case "RESET_APP":
+      return {
+        screen: "chat",
+        settingsStack: [],
+        now: action.now,
+        onboarded: false,
+        replayingIntro: false,
+        roomListOpen: false,
+        creatingRoom: false,
+        me: { id: action.userId, name: "You", avatar: "🦊" },
+        streak: 0,
+        friends: [],
+        moments: [],
+        game: { prompts: state.game.prompts, idx: 0, votes: { [action.userId]: 0 }, mine: null },
+        rooms: [],
+        activeRoomId: null,
+        baras: [],
+      };
 
     case "TOAST":
       return { ...state, toast: action.msg };

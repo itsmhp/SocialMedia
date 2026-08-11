@@ -1,3 +1,4 @@
+import { Settings } from "lucide-react";
 import { extendOpen, useStore } from "../data/store";
 import { memberCount, secondsLeft, selectedRoom } from "../data/lifecycle";
 import { fmtTime } from "../lib/time";
@@ -19,13 +20,25 @@ export function Header() {
           </div>
         </div>
       </button>
-      {!showingRooms && room.status === "active" ? (
-        <div className={"countdown" + (urgent ? " urgent" : "")} title="Time until this room fades">
-          <span>{fmtTime(secondsLeft(room, state.now))}</span>
-          <small>left 🔥</small>
-        </div>
-      ) : null}
-      {!showingRooms && room.status === "faded" ? <div className="bara-chip">Bara</div> : null}
+      <div className="topbar-actions">
+        {!showingRooms && room.status === "active" ? (
+          <div className={"countdown" + (urgent ? " urgent" : "")} title="Time until this room fades">
+            <span>{fmtTime(secondsLeft(room, state.now))}</span>
+            <small>left 🔥</small>
+          </div>
+        ) : null}
+        {!showingRooms && room.status === "faded" ? <div className="bara-chip">Bara</div> : null}
+        <button
+          type="button"
+          className="settings-entry"
+          onClick={() => dispatch({ type: "OPEN_SETTINGS" })}
+          aria-label="Open Settings"
+          title="Settings"
+        >
+          <span aria-hidden="true">{state.me.avatar}</span>
+          <Settings size={13} aria-hidden="true" />
+        </button>
+      </div>
     </header>
   );
 }

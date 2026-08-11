@@ -1,5 +1,5 @@
 const TOKEN_PATTERN = /^[a-f0-9]{48}$/;
-const PENDING_INVITE_KEY = "unggun.pendingInvite";
+export const PENDING_INVITE_KEY = "unggun.pendingInvite";
 
 export function normalizeInviteToken(value: string): string | null {
   const token = value.trim().toLowerCase();
@@ -52,10 +52,11 @@ export function pendingInviteToken(): string | null {
   }
 }
 
-export function clearPendingInviteToken(): void {
+export function clearPendingInviteToken(): boolean {
   try {
     sessionStorage.removeItem(PENDING_INVITE_KEY);
+    return true;
   } catch {
-    // A blocked storage API should not prevent normal local app use.
+    return false;
   }
 }

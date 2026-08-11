@@ -80,6 +80,14 @@ directory `dist`. All have a free tier with no server to run.
   extend-by-vote and Bara before profile setup. The privacy-minimal handle can be
   typed or randomized, paired with an emoji avatar, edited later and saved on
   this device.
+- **Settings and profile hub:** a visible avatar/gear opens Profile, Account,
+  Notifications, Privacy & Safety, Data, Help and About without adding a fifth
+  tab. Profile edits warn before discarding changes; notification categories and
+  quiet hours persist separately from room data.
+- **Local data controls:** clear room activity while retaining the profile, or
+  reset the entire app back to first-install onboarding. Both destructive actions
+  require confirmation. Privacy, Terms, Community Guidelines, support and
+  open-source license pages are available in-app.
 - **Rooms:** open the room switcher, light a private room with a spark, choose a
   12h/24h lifetime and local circle members, then switch among active rooms.
 - **Chat** (the core): messages + reactions, an absolute **countdown** that
@@ -111,7 +119,7 @@ src/
     localState.ts     versioned local persistence
     store.tsx         Context + pure reducer — the seam to swap in Supabase
     lifecycle.test.ts lifecycle/reducer/persistence regression tests
-  components/         Rooms, CreateRoom, Chat, Vote, Bara, Memories, profile
+  components/         Rooms, Chat, Bara, Memories, profile, Settings and policies
 ```
 
 All state changes flow through the reducer in `data/store.tsx`. Swapping the mock

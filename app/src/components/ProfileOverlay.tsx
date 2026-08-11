@@ -11,9 +11,10 @@ export function ProfileOverlay() {
   const firstRun = !state.onboarded;
   const [introComplete, setIntroComplete] = useState(false);
   const [introPage, setIntroPage] = useState(0);
-  const showingIntro = firstRun && !introComplete;
-  const close = firstRun ? () => setIntroComplete(false) : () => dispatch({ type: "CLOSE_PROFILE_EDIT" });
-  const dialogRef = useDialogFocus(!state.onboarded || state.editingProfile, close);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const showingIntro = state.replayingIntro || (firstRun && !introComplete);
+  const close = state.replayingIntro ? () => dispatch({ type: "FINISH_INTRO_REPLAY" }) : undefined;
+  const dialogRef = useDialogFocus(firstRun || state.replayingIntro, close);
 
   useEffect(() => {
     if (!showingIntro) return;
@@ -23,38 +24,44 @@ export function ProfileOverlay() {
     return () => window.cancelAnimationFrame(frame);
   }, [showingIntro, dialogRef]);
 
-  if (state.onboarded && !state.editingProfile) return null;
+  if (state.onboarded && !state.replayingIntro) return null;
 
   const submit = (name: string, avatar: string) => {
-    saveProfile({ id: state.me.id, name, avatar });
+    if (!saveProfile({ id: state.me.id, name, avatar })) {
+      setSaveError("This device could not save your profile. Check browser storage and try again.");
+      return;
+    }
+    setSaveError(null);
     dispatch({ type: "SET_PROFILE", name, avatar });
   };
 
   return (
-    <div ref={dialogRef} className="overlay" role="dialog" aria-modal="true" aria-labelledby="profile-title" tabIndex={-1}>
+    <div ref={dialogRef} className="overlay" role="dialog" aria-modal="true" aria-label={showingIntro ? "Introduction" : undefined} aria-labelledby={showingIntro ? undefined : "profile-title"} tabIndex={-1}>
       {showingIntro ? (
         <OnboardingIntro
           index={introPage}
           onIndexChange={setIntroPage}
-          onComplete={() => setIntroComplete(true)}
+          onComplete={() => {
+            if (state.replayingIntro) dispatch({ type: "FINISH_INTRO_REPLAY" });
+            else setIntroComplete(true);
+          }}
         />
       ) : (
         <div className="onb">
           <div className="onb-flame">🔥</div>
-          <span className="eyebrow">{firstRun ? "Almost there" : "Settings"}</span>
-          <h1 className="onb-title" id="profile-title">{firstRun ? "Make it yours" : "Your profile"}</h1>
+          <span className="eyebrow">Almost there</span>
+          <h1 className="onb-title" id="profile-title">Make it yours</h1>
           <p className="onb-sub">
-            {firstRun
-              ? "Pick a handle and a face. No real name needed — it's just how your circle sees you."
-              : "Change how your circle sees you. Saved on this device."}
+            Pick a handle and a face. No real name needed — it's just how your circle sees you.
           </p>
           <ProfileForm
-            initialName={firstRun ? "" : state.me.name}
+            initialName=""
             initialAvatar={state.me.avatar}
-            submitLabel={firstRun ? "Enter Unggun 🔥" : "Save"}
+            submitLabel="Enter Unggun 🔥"
+            error={saveError}
             onSubmit={submit}
-            onCancel={close}
-            secondaryLabel={firstRun ? "Back" : "Cancel"}
+            onCancel={() => setIntroComplete(false)}
+            secondaryLabel="Back"
           />
         </div>
       )}

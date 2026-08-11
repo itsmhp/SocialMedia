@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { randomHandle } from "../lib/handles";
 
 const AVATARS = [
@@ -15,6 +15,9 @@ export function ProfileForm({
   onSubmit,
   onCancel,
   secondaryLabel = "Cancel",
+  submitting = false,
+  error,
+  onDirtyChange,
 }: {
   initialName: string;
   initialAvatar: string;
@@ -22,13 +25,21 @@ export function ProfileForm({
   onSubmit: (name: string, avatar: string) => void;
   onCancel?: () => void;
   secondaryLabel?: string;
+  submitting?: boolean;
+  error?: string | null;
+  onDirtyChange?: (dirty: boolean) => void;
 }) {
   const [name, setName] = useState(initialName);
   const [avatar, setAvatar] = useState(initialAvatar);
   const canSubmit = name.trim().length > 0;
+  const dirty = name !== initialName || avatar !== initialAvatar;
+
+  useEffect(() => {
+    onDirtyChange?.(dirty);
+  }, [dirty, onDirtyChange]);
 
   const submit = () => {
-    if (canSubmit) onSubmit(name.trim(), avatar);
+    if (canSubmit && !submitting) onSubmit(name.trim(), avatar);
   };
 
   return (
@@ -40,6 +51,7 @@ export function ProfileForm({
           name="handle"
           className="field"
           value={name}
+          disabled={submitting}
           onChange={(event) => setName(event.target.value)}
           onKeyDown={(event) => { if (event.key === "Enter") submit(); }}
           placeholder="e.g. dusk_fox"
@@ -54,6 +66,7 @@ export function ProfileForm({
           title="Generate a random handle"
           aria-label="Generate a random handle"
           onClick={() => setName(randomHandle(name))}
+          disabled={submitting}
         >
           <span aria-hidden="true">🎲</span> Random
         </button>
@@ -66,6 +79,7 @@ export function ProfileForm({
             type="button"
             className={"ava-opt" + (avatar === a ? " active" : "")}
             onClick={() => setAvatar(a)}
+            disabled={submitting}
             aria-label={"avatar " + a}
             aria-pressed={avatar === a}
           >
@@ -73,11 +87,12 @@ export function ProfileForm({
           </button>
         ))}
       </div>
+      {error ? <div className="profile-save-error" role="alert">{error}</div> : null}
       <div className="pform-actions">
         {onCancel && (
-          <button type="button" className="btn-ghost" onClick={onCancel}>{secondaryLabel}</button>
+          <button type="button" className="btn-ghost" disabled={submitting} onClick={onCancel}>{secondaryLabel}</button>
         )}
-        <button type="button" className="btn-primary" disabled={!canSubmit} onClick={submit}>
+        <button type="button" className="btn-primary" disabled={!canSubmit || submitting} onClick={submit}>
           {submitLabel}
         </button>
       </div>

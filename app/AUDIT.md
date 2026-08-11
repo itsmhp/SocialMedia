@@ -57,6 +57,29 @@ extend-vote and Bara loop before creating a profile. Profile setup can generate 
 schema-valid random handle, supports Back/Skip, persists completion across reload, and
 editing an existing profile opens directly without replaying the introduction.
 
+### Settings and profile update
+
+The first Settings milestone is now implemented locally:
+
+- a visible header avatar/gear opens a secondary Settings stack and Back returns
+  to the previously active bottom tab;
+- Profile, Account, Notifications, Privacy & Safety, Data, Help and About groups
+  expose the existing editor/cloud account plus truthful local-alpha status;
+- notification categories and quiet hours use separate versioned preference
+  storage without requesting system permission prematurely;
+- profile editing warns before discarding unsaved changes and only commits local
+  profile state after a configured signed-in cloud update succeeds;
+- clear activity preserves profile/onboarding while removing rooms, Moments,
+  game votes and Bara; full reset removes local profile/preferences and returns
+  to a genuinely empty first-install state;
+- Privacy Policy, Terms, Community Guidelines, public support and dependency
+  license destinations are accessible in-app.
+
+Current verification: 29/29 Vitest tests, production TypeScript/Vite build,
+zero editor diagnostics, and browser checks at 320x568, 390x844 and 1440x900.
+No horizontal overflow was found; keyboard/focus, unsaved-change confirmation,
+preference reload, prior-tab return, clear and reset flows were exercised.
+
 ## Executive verdict
 
 At the audited baseline, Unggun was a coherent **interactive prototype**. After the
@@ -92,7 +115,8 @@ two-browser closed-alpha gate next.
 
 | Capability | Maturity | Audit note |
 | --- | --- | --- |
-| First-run handle + emoji avatar | Functional locally | Stored in `localStorage`; edit/cancel works. No account identity or storage-failure feedback. |
+| First-run handle + emoji avatar | Functional locally | Stored in `localStorage`; Settings edit/randomize/save/cancel and discard warning work. Signed-in cloud-first update errors are surfaced. |
+| Settings and local data controls | Functional locally | Secondary navigation, versioned preferences, quiet hours, policy/support/license pages, confirmed clear and full reset work. Notification delivery and cloud deletion remain future work. |
 | Chat composition | Functional locally | Messages are length-capped and persist across reload. No network delivery, retry, delete, or realtime yet. |
 | Message reactions | Functional locally | Toggle state persists; multi-user voter records remain L1 backend work. |
 | Countdown | Functional locally | Absolute `expiresAt` reconciles reload/background time and triggers deterministic expiry. |
@@ -108,7 +132,7 @@ two-browser closed-alpha gate next.
 | Memories | Functional locally | Shows only generated Bara and factual room counts; fictional hangout/streak content was removed. |
 | PWA | Partial | Manifest and service worker exist; production icons/update/offline UX are incomplete. |
 | Native apps | Foundation only | Capacitor + Android scaffold exist; no completed release path or device verification. |
-| Automated tests | Initial coverage | Five domain/reducer/persistence tests pass; committed browser E2E and RLS tests remain. |
+| Automated tests | Initial coverage | 29 domain/reducer/persistence/contract tests pass; committed browser E2E and live RLS tests remain. |
 
 ## P0 - Core blockers
 

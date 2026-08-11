@@ -91,12 +91,27 @@ export interface Bara {
 
 export type ScreenName = "chat" | "moments" | "play" | "memories";
 
+export type SettingsPage =
+  | "home"
+  | "profile"
+  | "account"
+  | "notifications"
+  | "privacy"
+  | "data"
+  | "help"
+  | "about"
+  | "privacy-policy"
+  | "terms"
+  | "guidelines"
+  | "licenses";
+
 export interface AppState {
   screen: ScreenName;
+  settingsStack: SettingsPage[];
   toast?: string;
   now: number;
   onboarded: boolean;
-  editingProfile: boolean;
+  replayingIntro: boolean;
   roomListOpen: boolean;
   creatingRoom: boolean;
   me: Me;

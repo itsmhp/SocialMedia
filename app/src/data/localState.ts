@@ -70,3 +70,12 @@ export function saveAppState(state: AppState): void {
     // The in-memory app remains usable when storage is unavailable.
   }
 }
+
+export function clearAppState(): boolean {
+  try {
+    localStorage.removeItem(APP_STATE_KEY);
+    return true;
+  } catch {
+    return false;
+  }
+}

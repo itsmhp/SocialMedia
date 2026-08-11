@@ -1,6 +1,5 @@
 import { useStore } from "../data/store";
 import { plural } from "../lib/text";
-import { CloudAccountCard } from "./CloudAccountCard";
 
 export function MemoriesScreen() {
   const { state, dispatch } = useStore();
@@ -16,9 +15,8 @@ export function MemoriesScreen() {
           <div className="profile-name">{state.me.name}</div>
           <div className="profile-sub">your handle · saved on this device</div>
         </div>
-        <button className="btn-small" onClick={() => dispatch({ type: "OPEN_PROFILE_EDIT" })}>Edit</button>
+        <button className="btn-small" onClick={() => dispatch({ type: "OPEN_SETTINGS_PAGE", page: "profile" })}>Edit</button>
       </div>
-      <CloudAccountCard />
       <div className="memory-title-row">
         <h3>Your Bara</h3>
         <span>{state.baras.length} kept</span>

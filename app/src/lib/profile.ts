@@ -1,12 +1,12 @@
 import type { Me } from "../types";
 import { makeId } from "./id";
 
-const KEY = "unggun.profile";
+export const PROFILE_KEY = "unggun.profile";
 
 /** Reads the saved profile from this device, or null on first run / bad data. */
 export function loadProfile(): Me | null {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = localStorage.getItem(PROFILE_KEY);
     if (!raw) return null;
     const p = JSON.parse(raw) as Partial<Me>;
     if (p && typeof p.name === "string" && typeof p.avatar === "string") {
@@ -24,10 +24,20 @@ export function loadProfile(): Me | null {
   return null;
 }
 
-export function saveProfile(me: Me): void {
+export function saveProfile(me: Me): boolean {
   try {
-    localStorage.setItem(KEY, JSON.stringify(me));
+    localStorage.setItem(PROFILE_KEY, JSON.stringify(me));
+    return true;
   } catch {
-    // ignore unavailable storage (e.g. private mode)
+    return false;
+  }
+}
+
+export function clearProfile(): boolean {
+  try {
+    localStorage.removeItem(PROFILE_KEY);
+    return true;
+  } catch {
+    return false;
   }
 }

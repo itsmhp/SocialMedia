@@ -51,9 +51,10 @@ export function createSeedState(now = Date.now()): AppState {
 
   return {
     screen: "chat",
+    settingsStack: [],
     now,
     onboarded: savedProfile !== null,
-    editingProfile: false,
+    replayingIntro: false,
     roomListOpen: false,
     creatingRoom: false,
     me,

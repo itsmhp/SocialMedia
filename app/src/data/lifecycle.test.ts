@@ -49,9 +49,10 @@ function appState(): AppState {
   const room = activeRoom();
   return {
     screen: "chat",
+    settingsStack: [],
     now: NOW,
     onboarded: true,
-    editingProfile: false,
+    replayingIntro: false,
     roomListOpen: false,
     creatingRoom: false,
     me: { id: "user_me", name: "Same face", avatar: "🦊" },
@@ -145,5 +146,54 @@ describe("room lifecycle", () => {
     const restoredMessages = restored.rooms[0].messages;
     expect(restoredMessages[restoredMessages.length - 1]?.id).toBe("message_persisted");
     expect(restored.rooms[0].expiresAt).toBe(sent.rooms[0].expiresAt);
+  });
+});
+
+describe("settings state", () => {
+  it("returns from Settings without changing the active bottom tab", () => {
+    const state = { ...appState(), screen: "memories" as const };
+    const opened = reducer(state, { type: "OPEN_SETTINGS" });
+    const nested = reducer(opened, { type: "OPEN_SETTINGS_PAGE", page: "profile" });
+    const home = reducer(nested, { type: "SETTINGS_BACK" });
+    const closed = reducer(home, { type: "SETTINGS_BACK" });
+
+    expect(nested.settingsStack).toEqual(["home", "profile"]);
+    expect(closed.settingsStack).toEqual([]);
+    expect(closed.screen).toBe("memories");
+  });
+
+  it("clears activity while retaining the profile and circle contacts", () => {
+    const state = { ...appState(), streak: 3, moments: [{
+      id: "moment_one",
+      authorId: "user_me",
+      who: "Same face",
+      avatar: "🦊",
+      mood: "🔥",
+      time: "now",
+      createdAt: NOW,
+      text: "A moment",
+      reactions: {},
+      mine: [],
+    }] };
+    const cleared = reducer(state, { type: "CLEAR_LOCAL_ACTIVITY" });
+
+    expect(cleared.me).toEqual(state.me);
+    expect(cleared.friends).toEqual(state.friends);
+    expect(cleared.rooms).toEqual([]);
+    expect(cleared.moments).toEqual([]);
+    expect(cleared.baras).toEqual([]);
+    expect(cleared.streak).toBe(0);
+    expect(cleared.game.mine).toBeNull();
+  });
+
+  it("resets to an empty first-install state", () => {
+    const reset = reducer(appState(), { type: "RESET_APP", userId: "user_fresh", now: NOW + 1 });
+
+    expect(reset.onboarded).toBe(false);
+    expect(reset.me.id).toBe("user_fresh");
+    expect(reset.friends).toEqual([]);
+    expect(reset.rooms).toEqual([]);
+    expect(reset.moments).toEqual([]);
+    expect(reset.baras).toEqual([]);
   });
 });
