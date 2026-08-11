@@ -44,8 +44,16 @@
         { id: "c3", who: "Sasa", avatar: "🐱", text: "just saw a cat that looks EXACTLY like Bagas lmaooo", time: "20:16", reactions: { "😂": 4, "❤️": 0, "🔥": 2 }, mine: [] },
         { id: "c4", who: "Bagas", avatar: "⚡", text: "excuse me i am far more handsome 💅", time: "20:16", reactions: { "😂": 5, "❤️": 1, "🔥": 0 }, mine: [] },
         { id: "c5", who: "Nadia", avatar: "🌙", text: "this room fades tomorrow and i already miss the chaos 🥲", time: "20:18", reactions: { "😂": 1, "❤️": 3, "🔥": 0 }, mine: [] },
+        { id: "c6", who: "Raka", avatar: "🎧", text: "wait the countdown says under 2h?? i'm not done being unhinged 😩", time: "20:19", reactions: { "😂": 2, "❤️": 1, "🔥": 0 }, mine: [] },
       ],
-      remaining: 5 * 3600 + 59 * 60 + 41,
+      remaining: 1 * 3600 + 59 * 60 + 30,
+      extend: {
+        thresholdSec: 2 * 3600,
+        members: 6,
+        keep: ["🌸", "🎧", "🐱"],
+        myVote: null,
+        resolved: false,
+      },
     },
   };
 
@@ -61,7 +69,9 @@
   function showScreen(name) {
     document.querySelectorAll(".screen").forEach((s) => s.classList.toggle("active", s.id === "screen-" + name));
     document.querySelectorAll(".nav-btn").forEach((b) => b.classList.toggle("active", b.dataset.screen === name));
-    $(".scroll").scrollTo({ top: 0, behavior: "smooth" });
+    const sc = $(".scroll");
+    if (name === "chat") sc.scrollTop = sc.scrollHeight;
+    else sc.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function renderFeed() {
@@ -153,8 +163,9 @@
 
   function renderChat() {
     const box = $("#chat");
-    box.innerHTML = state.chat.messages
+    const msgs = state.chat.messages
       .map((m) => {
+        if (m.system) return `<div class="sys-msg">${escapeHtml(m.text)}</div>`;
         const mine = m.who === "You";
         return `<div class="msg ${mine ? "mine" : ""}" data-id="${m.id}">
             <div class="who">${mine ? "You" : m.avatar + " " + m.who}<span class="t">${m.time}</span></div>
@@ -170,6 +181,45 @@
           </div>`;
       })
       .join("");
+    box.innerHTML = msgs + renderExtendCard();
+  }
+
+  function renderExtendCard() {
+    const ex = state.chat.extend;
+    const open = !ex.resolved && state.chat.remaining <= ex.thresholdSec;
+    if (!open) return "";
+    const majority = Math.floor(ex.members / 2) + 1;
+    const keep = ex.keep.length;
+    const pct = Math.min(100, Math.round((keep / majority) * 100));
+    return `<div class="vote-card">
+        <div class="vote-head">⏳ This room fades in <b class="vote-clock">${fmtShort(state.chat.remaining)}</b> — keep the fire going?</div>
+        <div class="vote-bar"><i style="width:${pct}%"></i></div>
+        <div class="vote-meta"><b>${keep}</b> of ${ex.members} want to keep it · need <b>${majority}</b></div>
+        <div class="vote-actions">
+          <button class="vote-btn keep ${ex.myVote === "keep" ? "on" : ""}" data-vote="keep">🔥 Keep it 24h more</button>
+          <button class="vote-btn fade ${ex.myVote === "fade" ? "on" : ""}" data-vote="fade">Let it fade</button>
+        </div>
+      </div>`;
+  }
+
+  function castExtendVote(choice) {
+    const ex = state.chat.extend;
+    if (ex.resolved) return;
+    const me = state.you.avatar;
+    ex.myVote = choice;
+    ex.keep = ex.keep.filter((a) => a !== me);
+    if (choice === "keep") ex.keep.push(me);
+    const majority = Math.floor(ex.members / 2) + 1;
+    if (ex.keep.length >= majority) {
+      ex.resolved = true;
+      state.chat.remaining += 24 * 3600;
+      state.chat.messages.push({ id: "sys" + Date.now(), system: true, text: "🔥 The circle voted to keep the fire going — this room now glows for 24h more." });
+      toast("Room extended +24h 🔥");
+    } else if (choice === "fade") {
+      toast("Your vote: let it fade 🌙");
+    }
+    renderChat();
+    updateCountdownUI();
   }
 
   function reactMessage(id, e) {
@@ -207,10 +257,33 @@
     return `${p(h)}:${p(m)}:${p(s)}`;
   }
 
-  function tickCountdown() {
-    if (state.chat.remaining > 0) state.chat.remaining -= 1;
+  function fmtShort(sec) {
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const p = (n) => String(n).padStart(2, "0");
+    return `${p(h)}:${p(m)}`;
+  }
+
+  function updateCountdownUI() {
     const el = $("#countdown");
     if (el) el.textContent = fmtTime(state.chat.remaining);
+    const ex = state.chat.extend;
+    const urgent = !ex.resolved && state.chat.remaining <= ex.thresholdSec;
+    const cd = $(".countdown");
+    if (cd) cd.classList.toggle("urgent", urgent);
+    const clock = $(".vote-clock");
+    if (clock) clock.textContent = fmtShort(state.chat.remaining);
+    const banner = $(".room-banner");
+    if (banner) banner.textContent = urgent
+      ? "⏳ Almost out of time — vote below to keep the fire alive."
+      : "🔥 This room fades in 24h — be silly, it won't last.";
+  }
+
+  function tickCountdown() {
+    if (state.chat.remaining > 0) state.chat.remaining -= 1;
+    updateCountdownUI();
+    const ex = state.chat.extend;
+    if (!ex.resolved && state.chat.remaining <= ex.thresholdSec && !$(".vote-card")) renderChat();
   }
 
   function bumpStreak() {
@@ -266,8 +339,10 @@
     $("#game-next").addEventListener("click", nextGame);
 
     $("#chat").addEventListener("click", (e) => {
-      const b = e.target.closest(".mreact");
-      if (b) reactMessage(b.dataset.id, b.dataset.emoji);
+      const r = e.target.closest(".mreact");
+      if (r) { reactMessage(r.dataset.id, r.dataset.emoji); return; }
+      const v = e.target.closest(".vote-btn");
+      if (v) castExtendVote(v.dataset.vote);
     });
     const sendChat = () => {
       const inp = $("#chat-text");
@@ -281,5 +356,7 @@
     $("#chat-text").addEventListener("keydown", (e) => {
       if (e.key === "Enter") { e.preventDefault(); sendChat(); }
     });
+
+    requestAnimationFrame(() => { const s = $(".scroll"); s.scrollTop = s.scrollHeight; });
   });
 })();

@@ -2,6 +2,8 @@
 
 [⬅️ 1. MVP Features](01-mvp-features.md) · [Concept](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrics-roadmap.md)
 
+> **Direction update (Aug 2026):** core is now **fun ephemeral group chat first**; meetups are a phase-2 wedge. The beachhead + latent-needs mapping below still holds — a livelier, lower-stakes place for a small circle. Canonical direction: [4. Rooms, lanes & design principles](04-rooms-and-lanes.md).
+
 ## Why Indonesia + campus?
 
 From the [landscape data](../research/01-landscape-and-data.md):

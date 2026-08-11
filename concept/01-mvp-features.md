@@ -2,6 +2,8 @@
 
 [⬅️ Concept](README.md) · [2. Indonesia & Latent Needs ➡️](02-indonesia-and-latent-needs.md)
 
+> **Direction update (Aug 2026):** the core has shifted to a **fun ephemeral group chat** (rooms that fade in 12–24h, kept alive by an **extend vote**). The "Plan / meet up" flow described below is now a **phase-2 wedge**, not the first thing built. See [4. Rooms, lanes & design principles](04-rooms-and-lanes.md) for the canonical current direction; treat this page as background on the meetup wedge + the human-moderation model (still valid).
+
 ## Core MVP features (deterministic logic)
 
 1. **Create a Plan in ≤30 seconds** — activity, area/place, and 2–3 time options.

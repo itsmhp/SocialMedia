@@ -1,24 +1,24 @@
-# Product Concept: Unggun v2 — make plans happen
+# Product Concept: Unggun — fun rooms that don't last forever
 
 > Working name: **Unggun** (from *campfire*). Alternatives: **Bara**, **Riung**, **Kumpul**.
-> Status: **conditional pivot** after [GPT-5.6 Sol validation](../validation/01-gpt-5.6-sol-validation.md). Not ready to be fully built until the [14-day experiment](../validation/02-14-day-experiment.md) passes.
+> Status (Aug 2026): **direction = a fun, ephemeral group chat first.** Real-life meetups ("Plans") are demoted to a later, mid-game add-on. The canonical current direction is [4. Rooms, lanes & design principles](04-rooms-and-lanes.md); docs 1–3 predate this pivot and are kept as background. Not ready to fully build until the [validation](../validation/README.md) gate is met.
 
 ## Manifesto (positioning)
 
-**Unggun helps small groups stop saying "someday" and actually meet up.** The host creates a plan, friends pick a time, everyone commits, then keeps a private recap — warm, lightweight, and **100% human-made**.
+**Unggun is a fun, low-stakes group chat for your small circle — in rooms that don't last forever.** You light a room, everyone piles in to be silly for a night, and when the countdown ends the chat fades — leaving only a few saved highlights (a *Bara*). If the circle loves a room, they can **vote to keep the fire going** for another 24h.
 
-- 🔒 **Private plans, not public broadcasts.** The host invites the people who matter.
-- 🔗 **Everything in one app.** Invite your circle in, then vote, RSVP, and keep recaps all inside Unggun — no plans lost in a group chat.
-- ⏹️ **Finite, not endless.** No *infinite scroll* or obligation to post every day.
-- 🤝 **Success = people actually show up**, not screen time, followers, or likes.
+- 🔥 **Ephemeral by default.** A room glows for 12–24h, then fades — no endless backlog, no pressure to keep up.
+- 🗳️ **Kept alive together.** Near the end, the room can vote to *extend* — the fun continues only if the circle wants it.
+- 🔒 **Small & private.** Your chosen people, not a public audience. No followers, no public likes.
+- 🤝 **100% human-made.** No algorithmic feed deciding what you see or say.
 
 ## Core concept in 3 questions
 
 | Question | Unggun's answer |
 | --- | --- |
-| **Atom** (core unit) | **Plan** — activity + area/place + 2–3 time options + list of people. |
-| **First community** (beachhead) | A group of **4–12 first-year students** on a single campus the founder can reach, who already try to arrange meals, study sessions, workouts, or hangouts in their group chats. |
-| **Why they come back** | The next plan is easier to create, participants can become hosts, and every meetup has a private recap. The rhythm is event-driven, not forced daily. |
+| **Atom** (core unit) | **Room** — a fun, ephemeral group chat (12–24h countdown) for a small circle, kept alive only by an **extend vote**. |
+| **First community** (beachhead) | A group of **4–12 first-year students** on one reachable campus who already have a lively group chat and want a livelier, lower-stakes place to just be themselves. |
+| **Why they come back** | The room is fun *and* finite (FOMO + no backlog to catch up on), the circle keeps beloved rooms alive by vote, and every room leaves a warm *Bara* recap. Meeting up IRL is a later add-on, not the core. |
 
 ```mermaid
 mindmap
@@ -26,58 +26,61 @@ mindmap
     Principles
       Fully human-made
       Small circles - private
-      Finite not endless
+      Ephemeral not endless
       Feel better
     Beachhead
       Group of 4-12 first-year students
       One reachable campus
     Atom
-      Plan
-      Activity place time options
+      Room
+      Fun ephemeral group chat
     Core features
-      Invite circle via code
-      Vote on times
-      RSVP and reminders
-      Check-in and recap
+      Light a room 12-24h
+      Chat and react
+      Play together
+      Extend by vote
+      Bara recap
     Anti-features
       No public feed
       No followers or likes
       No algorithm
 ```
 
-## Plan loop
+## Room loop
 
 ```mermaid
 journey
-    title From Talk to Meetup
-    section Create
-      Host creates a Plan in 30 seconds: 4: Host
-      Invite the circle into the app: 5: Host
-    section Decide
-      Friends vote on times in-app: 4: Friend
-      Host locks the time and place: 5: Host
-    section Show Up and Repeat
-      Participants check in: 5: Everyone
-      Private recap and create the next version: 4: Everyone
+    title A night in an Unggun room
+    section Light it
+      Someone lights a room - a vibe or prompt: 5: Host
+      The circle piles in: 5: Everyone
+    section Glow
+      Chat, react, play - be silly: 5: Everyone
+      Countdown ticks down: 3: Everyone
+    section Keep or fade
+      Near the end, vote to extend 24h: 4: Everyone
+      If it fades, keep a Bara recap: 4: Everyone
 ```
 
 ## Growth loop
 
 ```mermaid
 flowchart LR
-    A[Host creates a Plan] --> B[Invite the circle<br/>into the app]
-    B --> C[Friends vote and show up]
-    C --> D[Private recap]
-    D --> E[Participants create<br/>the next Plan]
-    E --> B
+    A[Light a room] --> B[Circle piles in<br/>to be silly]
+    B --> C[Fun chat + reactions + play]
+    C --> D{Countdown<br/>almost up}
+    D -->|vote to keep| C
+    D -->|let it fade| E[Bara recap]
+    E --> A
 ```
 
 ## Concept document map
 
-1. [MVP features + human moderation](01-mvp-features.md)
-2. [Indonesia beachhead + latent needs mapping](02-indonesia-and-latent-needs.md)
-3. [Growth, metrics, roadmap, monetization-later](03-growth-metrics-roadmap.md)
-4. [Rooms, lanes & design principles (latest direction)](04-rooms-and-lanes.md)
-5. [Independent validation & concept comparison](../validation/README.md)
+- 4. **[Rooms, lanes & design principles](04-rooms-and-lanes.md) — the canonical current direction (chat-first + extend-by-vote). Start here.**
+- Background (predate the Aug 2026 chat-first pivot; still useful):
+  - 1. [MVP features + human moderation](01-mvp-features.md) — now the phase-2 meetup wedge + the moderation model.
+  - 2. [Indonesia beachhead + latent needs mapping](02-indonesia-and-latent-needs.md)
+  - 3. [Growth, metrics, roadmap, monetization-later](03-growth-metrics-roadmap.md)
+  - 5. [Independent validation & concept comparison](../validation/README.md) — validated the meetup framing; the chat-first core needs its own light validation.
 
-> This is the best current hypothesis, not the truth. Build the MVP only if the [GO](../validation/02-14-day-experiment.md#go) threshold is met.
+> This is the best current hypothesis, not the truth. The prototype in [`prototype/`](../prototype/index.html) demonstrates the chat-first room + extend-by-vote loop.

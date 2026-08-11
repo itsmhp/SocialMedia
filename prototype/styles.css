@@ -167,3 +167,22 @@ body {
 .composer input { flex: 1; min-width: 0; background: #171009; color: var(--text); border: 1px solid var(--line); border-radius: 20px; padding: 10px 14px; font: inherit; }
 .composer input::placeholder { color: #8a7a6d; }
 .btn-send { background: linear-gradient(180deg, var(--ember2), var(--ember)); color: #2a1204; font-weight: 800; border: 0; border-radius: 20px; padding: 10px 16px; cursor: pointer; }
+
+/* Extend-by-vote */
+.countdown.urgent { border-color: var(--ember); background: rgba(255, 122, 69, .22); animation: pulseUrge 1.3s infinite; }
+.countdown.urgent span { color: var(--ember2); }
+@keyframes pulseUrge { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 122, 69, .5); } 50% { box-shadow: 0 0 0 6px rgba(255, 122, 69, 0); } }
+.sys-msg { align-self: center; text-align: center; font-size: 12px; color: var(--ember2); background: rgba(255, 122, 69, .1); border: 1px solid rgba(255, 122, 69, .3); border-radius: 12px; padding: 7px 12px; margin: 2px auto; max-width: 92%; line-height: 1.4; }
+.vote-card { background: linear-gradient(180deg, rgba(255, 122, 69, .16), var(--card)); border: 1px solid rgba(255, 122, 69, .45); border-radius: 16px; padding: 12px 13px; margin-top: 4px; box-shadow: 0 6px 18px rgba(255, 122, 69, .15); }
+.vote-head { font-size: 13.5px; font-weight: 600; margin-bottom: 10px; line-height: 1.4; }
+.vote-head b { color: var(--ember2); font-variant-numeric: tabular-nums; }
+.vote-bar { height: 8px; background: #0f0a06; border-radius: 6px; overflow: hidden; margin-bottom: 6px; }
+.vote-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--ember), var(--ember2)); transition: width .35s ease; }
+.vote-meta { font-size: 11.5px; color: var(--muted); margin-bottom: 11px; }
+.vote-meta b { color: var(--text); }
+.vote-actions { display: flex; gap: 8px; }
+.vote-btn { flex: 1; border-radius: 12px; padding: 9px 10px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1px solid var(--line); transition: .12s; }
+.vote-btn.keep { background: linear-gradient(180deg, var(--ember2), var(--ember)); color: #2a1204; border: 0; }
+.vote-btn.fade { background: #1a130d; color: var(--muted); }
+.vote-btn.on { outline: 2px solid var(--ember2); outline-offset: 1px; }
+.vote-btn.fade.on { color: var(--text); border-color: var(--muted); }

@@ -2,6 +2,8 @@
 
 [⬅️ 2. Indonesia & Latent Needs](02-indonesia-and-latent-needs.md) · [Concept](README.md)
 
+> **Direction update (Aug 2026):** core is now **fun ephemeral group chat first**; meetups (and the "Plans That Happen" north-star below) are demoted to a phase-2 wedge. For the chat-first core, the working north-star is **rooms that get kept alive** — e.g. a healthy share of rooms reaching an **extend vote** and a lively **return rate** to active rooms — with "Plans That Happen" retained for when the meetup wedge ships. Canonical direction: [4. Rooms, lanes & design principles](04-rooms-and-lanes.md).
+
 ## North-star metric
 
 Not raw DAU, but **Plans That Happen** = a plan with **≥3 participants who check in**.
