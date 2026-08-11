@@ -12,7 +12,7 @@ import { Toast } from "./components/Toast";
 function Screens() {
   const { state } = useStore();
   return (
-    <main className="scroll" id="scroll">
+    <main className={"scroll" + (state.screen === "chat" ? " chat-scroll" : "")} id="scroll">
       {state.screen === "chat" && <ChatScreen />}
       {state.screen === "moments" && <MomentsScreen />}
       {state.screen === "play" && <PlayScreen />}
