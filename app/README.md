@@ -1,0 +1,78 @@
+# Unggun — app
+
+Fun group chat **rooms that don't last forever**. A room glows for 12–24h, the
+circle can **vote to keep the fire going** (+24h), and when it finally fades it
+leaves a small **Bara** recap. Human-first, small circles, no algorithmic feed.
+
+> This is the real app (the earlier clickable demo lives in [`../prototype/`](../prototype/index.html)).
+> The concept and its gate live in [`../concept/`](../concept/README.md) and [`../validation/`](../validation/README.md).
+
+## Stack
+
+- **Vite + React + TypeScript** single-page app, shipped as an installable **PWA**.
+- **Supabase-ready** (Postgres + Auth + Realtime + Storage) — not wired yet; the
+  app currently runs on an in-memory mock store so it works with zero setup.
+- Static hosting (Cloudflare Pages / Vercel / Netlify free tier) — no server to run.
+
+Chosen for a 2-person, no-budget team: one codebase, $0 hosting, realtime built
+in, and it reuses the existing web prototype's design.
+
+## Run it
+
+```bash
+cd app
+npm install
+npm run dev      # http://localhost:5173
+```
+
+Other scripts: `npm run build` (type-check + production build), `npm run preview`
+(serve the build, incl. the service worker).
+
+## What works now
+
+- **Chat** tab (the core): live 24h **countdown**, a fun ephemeral group chat,
+  tap-to-react, and the **extend-by-vote** card near expiry — a majority "keep"
+  adds +24h, drops a system note, and resets the countdown.
+- Installable PWA shell (manifest + offline service worker).
+- Moments / Play / Memories tabs are placeholders for now.
+
+## Structure
+
+```
+src/
+  main.tsx            app entry + service-worker registration
+  App.tsx             phone shell: Header + active screen + BottomNav + Toast
+  types.ts            domain types (Message, Room, ExtendVote, ...)
+  styles.css          ember/campfire theme
+  lib/time.ts         countdown formatting
+  data/
+    seed.ts           mock seed data (room near expiry)
+    store.tsx         Context + reducer store — the seam to swap in Supabase
+  components/         Header, BottomNav, ChatScreen, MessageBubble,
+                      ExtendVoteCard, Composer, Placeholder, Toast
+```
+
+All state changes flow through the reducer in `data/store.tsx`. Swapping the mock
+for Supabase means: load a room's messages there, subscribe to Realtime inserts
+that `dispatch` into the same reducer, and send mutations to Postgres.
+
+## Roadmap (next increments)
+
+1. **Wire Supabase**
+   - Tables (sketch): `rooms(id, name, created_at, expires_at, resolved)`,
+     `room_members(room_id, user_id, avatar)`, `messages(id, room_id, user_id, body, created_at)`,
+     `reactions(message_id, user_id, emoji)`, `extend_votes(room_id, user_id, choice)`.
+   - **Row-Level Security** so only a room's members can read/write it (enforces
+     the private, self-contained rule).
+   - **Realtime** subscription on `messages` + `extend_votes`.
+   - **Auth:** email magic link (no SMS/phone) — privacy-minimal.
+   - A DB job/trigger fades rooms past `expires_at` and writes the Bara recap.
+2. **Web Push** for the countdown / "the room is voting to stay alive" re-engagement hook.
+3. Port **Moments / Play / Memories** from the prototype.
+4. Real **PNG app icons** (192/512, maskable) + install prompt polish.
+5. Deploy to a free static host + share link for the 14-day test.
+
+## Constraints (kept)
+
+No AI features. English by default. Small private circles, ephemeral by design,
+privacy-minimal (handle + emoji avatar; no real name/GPS; email magic link).
