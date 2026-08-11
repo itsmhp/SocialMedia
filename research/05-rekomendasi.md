@@ -10,7 +10,8 @@ Konteksmu: *seru-seruan, buat semua orang, fokus cari user dulu.* Terjemahannya 
 4. **Mesin pertumbuhan built-in** — ada **nilai walau sendiri**, lalu **ajakan** yang natural.
 5. **Kaitkan ke dunia nyata** (hook IRL) — pembeda kuat & anti-sepi.
 6. **Mobile-first & dekat messaging** (realita Indonesia).
-7. **Keamanan & moderasi sejak hari-1** — apalagi jika menyentuh anak muda / fitur AI.
+7. **Keamanan & moderasi sejak hari-1** — apalagi jika menyentuh anak muda.
+8. **Keputusan sadar: TANPA AI.** Produk dirancang **100% manusia** (tanpa chatbot/feed/generasi/moderasi AI). Di tengah kelelahan & "AI slop", *human-first* justru jadi diferensiasi (lihat [`../concept/`](../concept/README.md)).
 
 ```mermaid
 flowchart LR
@@ -45,8 +46,8 @@ timeline
 
 ## Risiko yang harus diwaspadai
 - **Cold-start** (sepi di awal) & **retensi** (bukan cuma akuisisi).
-- **Moderasi & keamanan** (anak, konten berbahaya).
-- **Etika AI** bila memakai fitur companion.
+- **Moderasi & keamanan** (anak, konten berbahaya) — karena **tanpa AI moderation**, andalkan desain sosial + tinjauan manusia (lihat [`../concept/01-fitur-mvp-tanpa-ai.md`](../concept/01-fitur-mvp-tanpa-ai.md)).
+- **"Tanpa AI" dianggap kurang canggih** → jadikan *human-first* sebagai kekuatan, bukan kelemahan.
 
 ## Langkah berikutnya
-Kunci **beachhead + atom**, lalu susun 1 konsep produk konkret + prototipe *loop* harian.
+Beachhead + atom sudah dikunci di [`../concept/`](../concept/README.md) → **Unggun** (mahasiswa 1 kampus; atom = "Momen" harian). Berikutnya: pilih kampus percontohan + rakit prototipe *loop* harian.

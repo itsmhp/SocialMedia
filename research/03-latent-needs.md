@@ -16,7 +16,9 @@ Bagian terpenting: hal yang orang **rasakan sakitnya**, tapi belum tahu ada prod
 | 8 | **Menemukan "orang gue"** | Susah nemu komunitas seminat | Reddit/Discord/RedNote (minat > follow) |
 | 9 | **Waktu yang berarti** (anti-doomscroll) | Nyesel habis 2 jam nge-scroll | Gerakan "time well spent" |
 
-> ⚠️ **Peringatan #5 (AI companion):** permintaannya besar, tapi Character.ai menghadapi **gugatan serius & larangan pengguna <18 (Nov 2025)** terkait keselamatan. Jika menyentuh area ini, **keamanan & etika wajib jadi fondasi**, bukan tambahan.
+> ⚠️ **Peringatan #5 (AI companion):** permintaannya besar, tapi Character.ai menghadapi **gugatan serius & larangan pengguna <18 (Nov 2025)** terkait keselamatan.
+>
+> 🚫 **Sikap produk kita:** kita **TIDAK** memakai AI companion. Kebutuhan "ditemani & didengar" kita jawab dengan **koneksi manusia nyata** (lingkaran teman dekat) — lihat [`../concept/02-indonesia-dan-latent-needs.md`](../concept/02-indonesia-dan-latent-needs.md).
 
 ```mermaid
 quadrantChart

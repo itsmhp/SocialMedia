@@ -2,13 +2,17 @@
 
 Proyek platform media sosial yang untuk saat ini berfokus pada **fase riset & penemuan konsep**: memahami media sosial seperti apa yang benar-benar dibutuhkan orang pada 2026 — termasuk kebutuhan yang **belum mereka sadari** — sebelum menulis satu baris kode produk.
 
-> Status: 🔬 **Discovery / Riset.** Belum ada kode aplikasi. Fokus saat ini: menemukan **beachhead**, **atom konten**, dan **loop harian** yang tepat.
+> Status: 🔬 **Discovery / Konsep.** Belum ada kode aplikasi. Sudah ada **konsep produk v1**: [`concept/`](concept/).
+
+> 🚫 **Keputusan produk: TANPA AI.** "Unggun" sengaja **100% manusia** — tanpa chatbot, konten buatan mesin, feed/rekomendasi AI, atau moderasi AI. Ini positioning inti (lihat [`concept/`](concept/)).
 
 ## Isi repo
-- [`research/`](research/) — hasil riset mendalam (lanskap data, keinginan pengguna, *latent needs*, peluang, rekomendasi), lengkap dengan diagram Mermaid.
+- [`research/`](research/) — hasil riset mendalam (lanskap, keinginan, *latent needs*, peluang, rekomendasi) + diagram Mermaid.
+- [`concept/`](concept/) — **konsep produk "Unggun"** (nongkrong online tanpa AI): beachhead, atom, fitur MVP, growth, roadmap.
 
 ## Cara baca
-Mulai dari [`research/README.md`](research/README.md) untuk ringkasan eksekutif + daftar isi.
+- Riset → mulai [`research/README.md`](research/README.md).
+- Konsep produk → mulai [`concept/README.md`](concept/README.md).
 
 ## Prinsip yang memandu proyek ini
 1. **"Untuk semua orang" itu tujuan, bukan titik start** — mulai dari satu komunitas padat.

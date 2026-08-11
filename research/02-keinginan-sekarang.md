@@ -12,3 +12,5 @@ Ini hal yang orang **tahu** mereka mau, dan akan mereka sebut kalau ditanya:
 6. **Monetisasi kreator** — dari hobi jadi cuan.
 
 > ⚠️ Ini **"meja taruhan" (table stakes)**: perlu ada, tapi **tidak cukup** untuk menang — karena semua pesaing besar sudah menyediakannya. Diferensiasi sejati ada di [dokumen berikutnya: latent needs](03-latent-needs.md).
+
+> 🚫 **Catatan produk kita:** kebutuhan #2 ("bikin konten mudah") kita penuhi **tanpa AI** — lewat prompt harian, template manual, foto apa adanya & voice note. Lihat [`../concept/01-fitur-mvp-tanpa-ai.md`](../concept/01-fitur-mvp-tanpa-ai.md).
