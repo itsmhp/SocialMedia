@@ -109,7 +109,7 @@ body {
 
 .sys-msg { align-self: center; text-align: center; font-size: 12px; color: var(--ember2); background: rgba(255, 122, 69, .1); border: 1px solid rgba(255, 122, 69, .3); border-radius: 12px; padding: 7px 12px; margin: 2px auto; max-width: 92%; line-height: 1.4; }
 
-.composer { position: sticky; bottom: 0; z-index: 3; display: flex; gap: 8px; margin-top: 12px; padding: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 8px 20px rgba(0, 0, 0, .4); }
+.composer { position: sticky; bottom: 6px; z-index: 3; display: flex; gap: 8px; margin-top: 12px; padding: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 8px 20px rgba(0, 0, 0, .4); }
 .composer input { flex: 1; min-width: 0; background: #171009; color: var(--text); border: 1px solid var(--line); border-radius: 20px; padding: 10px 14px; font: inherit; }
 .composer input::placeholder { color: #8a7a6d; }
 .btn-send { background: linear-gradient(180deg, var(--ember2), var(--ember)); color: #2a1204; font-weight: 800; border: 0; border-radius: 20px; padding: 10px 16px; cursor: pointer; }
