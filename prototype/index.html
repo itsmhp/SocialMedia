@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unggun — prototipe</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="phone">
+    <header class="topbar">
+      <div class="circle">
+        <div class="flame">🔥</div>
+        <div>
+          <div class="circle-name">Geng Senja</div>
+          <div class="circle-sub">6 orang · lingkaran privat</div>
+        </div>
+      </div>
+      <div class="streak" title="hari beruntun">
+        <span id="streak-num">5</span><small>hari 🔥</small>
+      </div>
+    </header>
+
+    <main class="scroll">
+      <!-- LINGKARAN -->
+      <section id="screen-lingkaran" class="screen active">
+        <div class="prompt-card">
+          <div class="prompt-label">Prompt Hari Ini</div>
+          <div id="prompt-text" class="prompt-text">Apa satu hal kecil yang bikin kamu senyum hari ini? 😊</div>
+          <div class="compose">
+            <textarea id="compose-text" rows="2" placeholder="Bagikan momen apa adanya ke lingkaran…"></textarea>
+            <div class="mood-row" id="mood-row">
+              <button class="mood active" data-mood="😊">😊</button>
+              <button class="mood" data-mood="😌">😌</button>
+              <button class="mood" data-mood="🥰">🥰</button>
+              <button class="mood" data-mood="😂">😂</button>
+              <button class="mood" data-mood="😮‍💨">😮‍💨</button>
+              <button class="mood" data-mood="🎶">🎶</button>
+              <button class="mood" data-mood="🔥">🔥</button>
+            </div>
+            <button id="compose-btn" class="btn-primary">Bagikan Momen</button>
+          </div>
+        </div>
+        <div class="feed" id="feed"></div>
+        <div class="finite-note">— itu semua momen hari ini · besok kita mulai lagi 🌙 —</div>
+      </section>
+
+      <!-- MAIN -->
+      <section id="screen-main" class="screen">
+        <div class="section-head"><h2>Main Bareng</h2><span>murni seru-seruan, tanpa AI</span></div>
+        <div class="game-card">
+          <div class="game-q">Paling mungkin… <b id="game-prompt">telat ke kelas pagi ⏰</b></div>
+          <div class="game-options" id="game-options"></div>
+          <button id="game-next" class="btn-ghost">Ganti pertanyaan 🔀</button>
+        </div>
+      </section>
+
+      <!-- AYO KETEMU -->
+      <section id="screen-ketemu" class="screen">
+        <div class="section-head"><h2>Ayo Ketemu</h2><span>biar wacana jadi nyata</span></div>
+        <div class="meetup-card">
+          <div class="meetup-title" id="meetup-title">Ngopi + ngobrol santai ☕</div>
+          <div class="meetup-place" id="meetup-place">📍 Kopi Senja — deket gerbang belakang</div>
+          <div class="meetup-sub">Pilih waktu yang kamu bisa 👇</div>
+          <div class="meetup-options" id="meetup-options"></div>
+          <div id="meetup-status" class="meetup-status"></div>
+          <button id="meetup-lock" class="btn-primary">Kunci waktu &amp; ajak</button>
+        </div>
+      </section>
+
+      <!-- KENANGAN -->
+      <section id="screen-kenangan" class="screen">
+        <div class="section-head"><h2>Kenangan</h2><span>hangat, bukan angka pamer</span></div>
+        <div class="streak-big">🔥 <b id="streak-num2">5</b> hari beruntun</div>
+        <div class="recap">Minggu ini bareng Geng Senja: <b>12 momen</b> · <b>1 nongkrong beneran</b> · <b>34 reaksi hangat</b>.</div>
+        <div class="mem-grid">
+          <div class="mem">☕</div><div class="mem">🐈</div><div class="mem">🎧</div>
+          <div class="mem">🌙</div><div class="mem">📚</div><div class="mem">✨</div>
+        </div>
+        <div class="no-vanity">Tanpa follower. Tanpa like publik. Cuma kamu &amp; orang-orang terdekat. 💛</div>
+      </section>
+    </main>
+
+    <nav class="bottomnav">
+      <button class="nav-btn active" data-screen="lingkaran">🏠<span>Lingkaran</span></button>
+      <button class="nav-btn" data-screen="main">🎲<span>Main</span></button>
+      <button class="nav-btn" data-screen="ketemu">📍<span>Ketemu</span></button>
+      <button class="nav-btn" data-screen="kenangan">📸<span>Kenangan</span></button>
+    </nav>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -12,6 +12,7 @@ Proyek platform media sosial yang untuk saat ini berfokus pada **fase riset & pe
 - [`concept/`](concept/) — **konsep produk "Unggun"** (nongkrong online tanpa AI): beachhead, atom, fitur MVP, growth, roadmap.
 - [`validation/`](validation/) — validasi independen GPT-5.6 Sol, perbandingan konsep, dan eksperimen 14 hari sebelum membangun aplikasi.
 - [`experiment/`](experiment/) — **kit siap-pakai** (tanpa kode/AI) untuk menjalankan uji 14 hari: rekrutmen, form, template WhatsApp, dan tracker.
+- [`prototype/`](prototype/) — **prototipe klik** Unggun (HTML statis, tanpa AI): buka [`prototype/index.html`](prototype/index.html) di browser.
 
 ## Cara baca
 
@@ -19,6 +20,7 @@ Proyek platform media sosial yang untuk saat ini berfokus pada **fase riset & pe
 - Konsep produk → mulai [`concept/README.md`](concept/README.md).
 - Validasi / keputusan terbaru → mulai [`validation/README.md`](validation/README.md).
 - Mulai eksekusi sekarang → [`experiment/README.md`](experiment/README.md).
+- Coba prototipe (klik-klik) → buka [`prototype/index.html`](prototype/index.html) di browser.
 
 ## Prinsip yang memandu proyek ini
 
