@@ -1,39 +1,39 @@
 # 3. Message Templates (Ready to Copy)
 
-[⬅️ 2. Create & vote](02-create-and-vote-plans.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
+[⬅️ 2. Run a room](02-create-and-vote-plans.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
 
-Replace `[...]` to fit the plan. Casual tone; adjust to your group's style. Everything is written & sent by a human.
+Replace `[...]` to fit your crew. Casual tone; adjust to your group's style. Everything is written & sent by a human.
 
-## a. Initial invite (host → group)
+## a. Light the room (host → new group)
 
-> Guys, let's **[activity]** together! I'll sort it out so it actually happens instead of being just talk 😅 Hang on, I'll drop a poll for the time.
+> ok welcome to tonight's room 🔥 it only lasts ~24h then it's gone, so be as unhinged as you want. no screenshots to the outside world 🤫
 
-## b. Time-poll caption
+## b. Spark options (pick one to kick it off)
 
-> When should we **[activity]**? Mark **all** the times you can make 👇
+> confess your most embarrassing moment of the week 👀
+>
+> unpopular opinion time — go 🌶️
+>
+> post the last photo in your camera roll, no context 📸
+>
+> who in this room is most likely to [___]? 😏
 
-## c. Lock the time
+## c. Mid-room nudge (if it stalls)
 
-> It's set! **[activity]** · **[day, date, time]** · **[place/landmark]**. If you're coming, react ✅ or type "I'm in".
+> it got quiet 👀 the room's still ticking down… someone say something dumb
 
-## d. Reminder 1 day before
+## d. Extend poll (near expiry)
 
-> Reminder: tomorrow **[activity]** at **[time]** at **[place]**. See you there 🙌
+> ⏳ this room fades in ~2h. keep it alive 24h more? 🔥 keep it / 🌙 let it fade
 
-## e. Reminder 2 hours before
+## e. Extended (majority said keep)
 
-> 2 hours to go until **[activity]** at **[place]**. Start heading over 🚶
+> 🔥 WE LIVE. room extended +24h — carry on being menaces
 
-## f. Check-in (day of, in the group)
+## f. Bara recap (if it fades)
 
-> Whoever's arrived, drop your location / a photo here 📍
+> that's a wrap on this room 🌙 here's the Bara — top 3 moments: [line 1] · [line 2] · [line 3]. gone now, but we were there 💛
 
-Measurable alternative (optional): a 10-second check-in → `[Tally check-in link]`.
+## g. Next room (retention test)
 
-## g. Recap (after the event)
-
-> That was fun! Drop **1 favorite photo** / **1 word** for today 📸
-
-## h. Re-invite (retention test)
-
-> Let's do it again sometime? 😆 Who wants to **host** next week's plan? I'll help set up the poll.
+> who's lighting the next room? 😆 not gonna beg — but you know you want to

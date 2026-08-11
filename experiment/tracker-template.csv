@@ -1,2 +1,2 @@
-plan_id,host,community,activity,date_created,invites_sent,votes_in,locked,rsvp_yes,attended,plan_happened,repeat_participants,participant_became_host,notes
-P00,EXAMPLE -- delete this row,Campus X,lunch,2026-08-12,8,6,Y,5,4,Y,0,0,example row
+room_id,host,circle,spark,date_lit,members_invited,members_posted,messages,lively,extend_vote,extended,returned_48h,next_room_by_other,notes
+R00,EXAMPLE -- delete this row,Dusk Crew,confess your week,2026-08-12,8,6,42,Y,Y,Y,Y,N,example row

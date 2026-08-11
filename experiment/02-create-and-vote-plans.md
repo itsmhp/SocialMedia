@@ -1,38 +1,32 @@
-# 2. Create & Vote on Plans (No App)
+# 2. Light & Run a Room (No App)
 
 [⬅️ 1. Recruitment](01-host-recruitment.md) · [Kit](README.md) · [3. Message templates ➡️](03-message-templates.md)
 
-Core flow: **host creates a Plan → vote on times → lock → commit to attend.** Run it with a quick poll in the crew's group chat (most chat apps have polls) or a 30-second form. This is a manual stand-in for the app — the real product keeps it all in-app.
+Core flow: **light a room → be silly while the countdown runs → near expiry, vote to keep it alive → it extends or fades into a Bara recap.** Run it in a throwaway group chat with its built-in poll. This is a manual stand-in for the app — the real product keeps it all in-app and automates the countdown, the vote, and the recap.
 
-## "Create a Plan" form (Tally / Google Forms, ~30 seconds)
+## Light the room (~30 seconds)
 
-Fill in the following fields (the host fills them in, or you help fill them during the interview):
+1. The host spins up a **fresh throwaway group** (WhatsApp/Discord/Telegram) with just the circle.
+2. Name it something fun + finite, e.g. `🔥 tonight only — Dusk Crew`.
+3. Drop a **spark** to kick it off — a prompt or vibe (templates in [document 3](03-message-templates.md)), e.g. *"ok confess your most embarrassing moment of the week 👀"*.
+4. Announce the **countdown**: *"this room goes quiet in ~24h — be silly while it lasts."*
 
-1. **Host name**
-2. **What to do** (activity) — e.g. lunch, study session, futsal, coffee
-3. **Where** (place / landmark)
-4. **Time option 1** (day + time)
-5. **Time option 2**
-6. **Time option 3** (optional)
-7. **Roughly who you'll invite** (names) — optional
+> Log the basics in the [tracker](04-tracker.md): who's invited, and (at the end) how many posted + roughly how many messages.
 
-> Why a form first? So the data is **uniform & measurable**. Confident hosts can run the poll themselves in the group chat — just still record the results in the [tracker](04-tracker.md).
+## Keep it lively
 
-## Vote on times = a quick poll or form
+1. Once it's going, **step back and observe** — you start the fire, the circle keeps it burning.
+2. If it stalls, the host drops one more spark (a follow-up prompt, a photo, a "hot take"). Don't force it.
+3. Roughly count, at the end, **how many of the circle posted** and **how many messages/reactions** the room got — that's the liveliness signal.
 
-1. Post a poll with the 2–3 time options in the crew's group chat (or send a 30-second form).
-2. Question: `When should we [activity]?`
-3. Options: copy **Time option 1/2/3** from the form.
-4. Allow **multiple answers** so people can mark every time that works for them.
+## Extend vote near expiry
 
-## Lock & commit
-
-1. Pick the option with the most votes that's realistic.
-2. Announce the final time + place (templates are in [document 3](03-message-templates.md)).
-3. Ask for a **commit to attend**: a second quick poll `Coming [day]?` (options: "I'm in ✅" / "Can't make it 😭") or a ✅ reaction.
+1. When the room is ~2 hours from the announced expiry, post the **extend poll**: `Keep this room alive 24h more?` — options: `🔥 keep it` / `🌙 let it fade`.
+2. If a **majority** picks 🔥, keep the room going another 24h and note it. If not, **let it fade**.
+3. When a room fades, drop a tiny **Bara recap**: 3–5 saved highlights (funniest lines, best photo) — then stop posting there.
 
 ## Rules to keep the test honest
 
-- **Don't** be the one chasing every single person; the product must run on its own. You only start it, then **observe**.
-- Note if the host keeps falling back to regular chat (it means the tool isn't useful enough yet).
-- One deciding question at the end: **"Without our help, would this plan still have happened?"**
+- **Don't** carry the room yourself — if it only lives because *you* keep posting, it's not real. You light it, then **observe**.
+- Note if the circle drifts back to their normal group chat instead of the room (the room isn't pulling its weight yet).
+- One deciding question at the end: **"Would this have happened in your normal group chat — or did 'it fades' / 'keep it alive' make it different?"**
