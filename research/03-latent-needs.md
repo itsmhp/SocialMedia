@@ -1,38 +1,38 @@
-# 3. Apa yang Orang BUTUH tapi Belum Sadari (LATENT NEEDS)
+# 3. What People NEED but Don't Yet Realize (LATENT NEEDS)
 
-[⬅️ 2. Keinginan](02-keinginan-sekarang.md) · [Indeks](README.md) · [4. Peluang ➡️](04-peluang-whitespace.md)
+[⬅️ 2. Wants](02-keinginan-sekarang.md) · [Index](README.md) · [4. Opportunity ➡️](04-peluang-whitespace.md)
 
-Bagian terpenting: hal yang orang **rasakan sakitnya**, tapi belum tahu ada produknya.
+The most important part: things people **feel the pain of**, but don't yet know there's a product for.
 
-| # | Kebutuhan laten | "Sakit" yang dirasakan | Bukti / sinyal |
-|---|---|---|---|
-| 1 | **Merasa lebih baik** setelah scroll (*social health*) | Buka app → makin insecure/cemas | Tren detox, dumb phone, Surgeon General 2023; Bluesky dipuji "Shangri-La" |
-| 2 | **Ruang kecil & privat** (*digital campfire*) | Capek "tampil" di panggung publik | HBR "Antisocial Social Media" (2020); grup chat; Fizz (kampus) |
-| 3 | **Jembatan ke dunia nyata** | Ribuan follower tapi kesepian | Partiful (acara), Jagat (lokasi, 10 jt+ di SEA) |
-| 4 | **Dilihat tanpa tekanan sempurna** | Takut posting karena harus "estetik" | BeReal, Dispo (kamera jadul), Made With Friends |
-| 5 | **Ditemani & didengar tanpa dihakimi** | Butuh curhat/teman kapan saja | Character.ai 3,5 jt/hari, mayoritas 16–30 ⚠️ |
-| 6 | **Ekspresi diri & identitas** | Profil generik, terasa "bukan gue" | Noplace (nostalgia MySpace, kustomisasi) |
-| 7 | **Kontrol atas algoritma** | Merasa "dikendalikan" feed | Bluesky: pilih algoritma sendiri, anti-toxicity, tanpa iklan |
-| 8 | **Menemukan "orang gue"** | Susah nemu komunitas seminat | Reddit/Discord/RedNote (minat > follow) |
-| 9 | **Waktu yang berarti** (anti-doomscroll) | Nyesel habis 2 jam nge-scroll | Gerakan "time well spent" |
+| # | Latent need | The "pain" felt | Evidence / signal |
+| --- | --- | --- | --- |
+| 1 | **Feeling better** after scrolling (*social health*) | Open the app → feel more insecure/anxious | Detox trend, dumb phone, Surgeon General 2023; Bluesky praised as "Shangri-La" |
+| 2 | **A small & private space** (*digital campfire*) | Tired of "performing" on a public stage | HBR "Antisocial Social Media" (2020); group chats; Fizz (campus) |
+| 3 | **A bridge to the real world** | Thousands of followers but lonely | Partiful (events), Jagat (location, 10M+ in SEA) |
+| 4 | **Being seen without the pressure to be perfect** | Afraid to post because it has to be "aesthetic" | BeReal, Dispo (retro camera), Made With Friends |
+| 5 | **Companionship & being heard without judgment** | Need to vent/have a friend anytime | Character.ai 3.5M/day, mostly 16–30 ⚠️ |
+| 6 | **Self-expression & identity** | Generic profiles that feel "not me" | Noplace (MySpace nostalgia, customization) |
+| 7 | **Control over the algorithm** | Feeling "controlled" by the feed | Bluesky: pick your own algorithm, anti-toxicity, no ads |
+| 8 | **Finding "my people"** | Hard to find a like-minded community | Reddit/Discord/RedNote (interest > follow) |
+| 9 | **Time that matters** (anti-doomscroll) | Regret after 2 hours of scrolling | The "time well spent" movement |
 
-> ⚠️ **Peringatan #5 (AI companion):** permintaannya besar, tapi Character.ai menghadapi **gugatan serius & larangan pengguna <18 (Nov 2025)** terkait keselamatan.
+> ⚠️ **Warning on #5 (AI companion):** demand is huge, but Character.ai faces **serious lawsuits & a ban on users under 18 (Nov 2025)** over safety.
 >
-> **Sikap produk kita:** kebutuhan "ditemani & didengar" kita jawab dengan **koneksi manusia nyata** (lingkaran teman dekat) — lihat [`../concept/02-indonesia-dan-latent-needs.md`](../concept/02-indonesia-dan-latent-needs.md).
+> **Our product stance:** we answer the "companionship & being heard" need with **real human connection** (a circle of close friends) — see [`../concept/02-indonesia-dan-latent-needs.md`](../concept/02-indonesia-dan-latent-needs.md).
 
 ```mermaid
 quadrantChart
-    title Peta Kebutuhan - Intensitas Sakit vs Kesadaran User
-    x-axis Belum Disadari --> Sudah Disadari
-    y-axis Sakit Ringan --> Sakit Kuat
-    quadrant-1 Diminta terang-terangan
-    quadrant-2 EMAS - laten & menyakitkan
+    title Needs Map - Pain Intensity vs User Awareness
+    x-axis Not Yet Realized --> Already Realized
+    y-axis Mild Pain --> Strong Pain
+    quadrant-1 Explicitly requested
+    quadrant-2 GOLD - latent & painful
     quadrant-3 Nice-to-have
-    quadrant-4 Fitur meja taruhan
-    "Merasa lebih baik": [0.2, 0.85]
-    "Ruang kecil privat": [0.25, 0.78]
-    "Jembatan ke dunia nyata": [0.3, 0.72]
-    "Tanpa tekanan tampil": [0.35, 0.7]
-    "Hiburan video pendek": [0.9, 0.6]
-    "Bikin konten mudah": [0.8, 0.45]
+    quadrant-4 Table-stakes features
+    "Feeling better": [0.2, 0.85]
+    "Small private space": [0.25, 0.78]
+    "Bridge to the real world": [0.3, 0.72]
+    "No pressure to perform": [0.35, 0.7]
+    "Short-video entertainment": [0.9, 0.6]
+    "Easy content creation": [0.8, 0.45]
 ```

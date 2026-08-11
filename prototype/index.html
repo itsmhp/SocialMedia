@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unggun — prototipe</title>
+  <title>Unggun — prototype</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,23 +12,23 @@
       <div class="circle">
         <div class="flame">🔥</div>
         <div>
-          <div class="circle-name">Geng Senja</div>
-          <div class="circle-sub">6 orang · lingkaran privat</div>
+          <div class="circle-name">Dusk Crew</div>
+          <div class="circle-sub">6 people · private circle</div>
         </div>
       </div>
-      <div class="streak" title="hari beruntun">
-        <span id="streak-num">5</span><small>hari 🔥</small>
+      <div class="streak" title="day streak">
+        <span id="streak-num">5</span><small>days 🔥</small>
       </div>
     </header>
 
     <main class="scroll">
-      <!-- LINGKARAN -->
-      <section id="screen-lingkaran" class="screen active">
+      <!-- CIRCLE -->
+      <section id="screen-circle" class="screen active">
         <div class="prompt-card">
-          <div class="prompt-label">Prompt Hari Ini</div>
-          <div id="prompt-text" class="prompt-text">Apa satu hal kecil yang bikin kamu senyum hari ini? 😊</div>
+          <div class="prompt-label">Today's Prompt</div>
+          <div id="prompt-text" class="prompt-text">What's one little thing that made you smile today? 😊</div>
           <div class="compose">
-            <textarea id="compose-text" rows="2" placeholder="Bagikan momen apa adanya ke lingkaran…"></textarea>
+            <textarea id="compose-text" rows="2" placeholder="Share an unfiltered moment with your circle…"></textarea>
             <div class="mood-row" id="mood-row">
               <button class="mood active" data-mood="😊">😊</button>
               <button class="mood" data-mood="😌">😌</button>
@@ -38,54 +38,54 @@
               <button class="mood" data-mood="🎶">🎶</button>
               <button class="mood" data-mood="🔥">🔥</button>
             </div>
-            <button id="compose-btn" class="btn-primary">Bagikan Momen</button>
+            <button id="compose-btn" class="btn-primary">Share Moment</button>
           </div>
         </div>
         <div class="feed" id="feed"></div>
-        <div class="finite-note">— itu semua momen hari ini · besok kita mulai lagi 🌙 —</div>
+        <div class="finite-note">— that's all today's moments · we start again tomorrow 🌙 —</div>
       </section>
 
-      <!-- MAIN -->
-      <section id="screen-main" class="screen">
-        <div class="section-head"><h2>Main Bareng</h2><span>murni seru-seruan</span></div>
+      <!-- PLAY -->
+      <section id="screen-play" class="screen">
+        <div class="section-head"><h2>Play Together</h2><span>just for fun</span></div>
         <div class="game-card">
-          <div class="game-q">Paling mungkin… <b id="game-prompt">telat ke kelas pagi ⏰</b></div>
+          <div class="game-q">Most likely to… <b id="game-prompt">be late to morning class ⏰</b></div>
           <div class="game-options" id="game-options"></div>
-          <button id="game-next" class="btn-ghost">Ganti pertanyaan 🔀</button>
+          <button id="game-next" class="btn-ghost">New question 🔀</button>
         </div>
       </section>
 
-      <!-- AYO KETEMU -->
-      <section id="screen-ketemu" class="screen">
-        <div class="section-head"><h2>Ayo Ketemu</h2><span>biar wacana jadi nyata</span></div>
+      <!-- LET'S MEET UP -->
+      <section id="screen-meetup" class="screen">
+        <div class="section-head"><h2>Let's Meet Up</h2><span>turn talk into a real plan</span></div>
         <div class="meetup-card">
-          <div class="meetup-title" id="meetup-title">Ngopi + ngobrol santai ☕</div>
-          <div class="meetup-place" id="meetup-place">📍 Kopi Senja — deket gerbang belakang</div>
-          <div class="meetup-sub">Pilih waktu yang kamu bisa 👇</div>
+          <div class="meetup-title" id="meetup-title">Coffee + a chill chat ☕</div>
+          <div class="meetup-place" id="meetup-place">📍 Dusk Coffee — near the back gate</div>
+          <div class="meetup-sub">Pick a time that works for you 👇</div>
           <div class="meetup-options" id="meetup-options"></div>
           <div id="meetup-status" class="meetup-status"></div>
-          <button id="meetup-lock" class="btn-primary">Kunci waktu &amp; ajak</button>
+          <button id="meetup-lock" class="btn-primary">Lock the time &amp; invite</button>
         </div>
       </section>
 
-      <!-- KENANGAN -->
-      <section id="screen-kenangan" class="screen">
-        <div class="section-head"><h2>Kenangan</h2><span>hangat, bukan angka pamer</span></div>
-        <div class="streak-big">🔥 <b id="streak-num2">5</b> hari beruntun</div>
-        <div class="recap">Minggu ini bareng Geng Senja: <b>12 momen</b> · <b>1 nongkrong beneran</b> · <b>34 reaksi hangat</b>.</div>
+      <!-- MEMORIES -->
+      <section id="screen-memories" class="screen">
+        <div class="section-head"><h2>Memories</h2><span>warm, not vanity metrics</span></div>
+        <div class="streak-big">🔥 <b id="streak-num2">5</b> day streak</div>
+        <div class="recap">This week with Dusk Crew: <b>12 moments</b> · <b>1 real hangout</b> · <b>34 warm reactions</b>.</div>
         <div class="mem-grid">
           <div class="mem">☕</div><div class="mem">🐈</div><div class="mem">🎧</div>
           <div class="mem">🌙</div><div class="mem">📚</div><div class="mem">✨</div>
         </div>
-        <div class="no-vanity">Tanpa follower. Tanpa like publik. Cuma kamu &amp; orang-orang terdekat. 💛</div>
+        <div class="no-vanity">No followers. No public likes. Just you &amp; your closest people. 💛</div>
       </section>
     </main>
 
     <nav class="bottomnav">
-      <button class="nav-btn active" data-screen="lingkaran">🏠<span>Lingkaran</span></button>
-      <button class="nav-btn" data-screen="main">🎲<span>Main</span></button>
-      <button class="nav-btn" data-screen="ketemu">📍<span>Ketemu</span></button>
-      <button class="nav-btn" data-screen="kenangan">📸<span>Kenangan</span></button>
+      <button class="nav-btn active" data-screen="circle">🏠<span>Circle</span></button>
+      <button class="nav-btn" data-screen="play">🎲<span>Play</span></button>
+      <button class="nav-btn" data-screen="meetup">📍<span>Meet</span></button>
+      <button class="nav-btn" data-screen="memories">📸<span>Memories</span></button>
     </nav>
   </div>
 

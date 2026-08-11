@@ -1,18 +1,18 @@
-# Unggun — Prototipe Klik
+# Unggun — Clickable Prototype
 
-Prototipe statis yang bisa langsung diklik. **Buka `index.html` di browser** (dobel-klik) — tidak perlu install, tidak perlu internet, tidak ada build.
+A static prototype you can click through right away. **Open `index.html` in a browser** (double-click) — no install, no internet, no build.
 
-## Yang bisa dicoba
+## What to try
 
-- **Lingkaran:** baca momen teman, bagikan momenmu (pilih mood + tulis), kasih reaksi.
-- **Main:** game "Paling mungkin…" — voting antar teman, murni seru-seruan.
-- **Ayo Ketemu:** voting waktu nongkrong → **kunci** → jadi beneran (ada reminder).
-- **Kenangan:** streak & rekap hangat — tanpa follower, tanpa like publik.
+- **Circle:** read friends' moments, share your own (pick a mood + write), react.
+- **Play:** the "Most likely to…" game — vote among friends, just for fun.
+- **Let's Meet Up:** vote on a hangout time → **lock** → it actually happens (with reminders).
+- **Memories:** streak & a warm recap — no followers, no public likes.
 
-## Sikap (Claude ambil alih)
+## Stance (Claude taking the wheel)
 
-Bias ke **aksi**: gabungkan **loop campfire yang fun** (momen, reaksi, main bareng) dengan **wedge "rencana jadi"** (Ayo Ketemu). Dibikin dulu biar kerasa, baru ditunjukkan ke orang beneran untuk reaksi. Tetap **100% buatan manusia**.
+Bias to **action**: combine the **fun campfire loop** (moments, reactions, playing together) with the **"plans that happen" wedge** (Let's Meet Up). Build it first so it feels real, then show it to real people for reactions. Still **100% human-made**.
 
-## Teknis
+## Technical
 
-HTML + CSS + JS vanilla, tanpa dependency. Semua data hanya contoh (di-seed) dan hidup di memori browser — refresh untuk reset.
+Vanilla HTML + CSS + JS, no dependencies. All data is just seeded examples living in browser memory — refresh to reset.

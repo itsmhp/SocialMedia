@@ -1,82 +1,82 @@
-# Konsep Produk: Unggun v2 — bikin rencana jadi
+# Product Concept: Unggun v2 — make plans happen
 
-> Nama kerja: **Unggun** (dari *api unggun*). Alternatif: **Bara**, **Riung**, **Kumpul**.
-> Status: **pivot bersyarat** setelah [validasi GPT-5.6 Sol](../validation/01-gpt-5.6-sol-validation.md). Belum layak dibangun penuh sebelum [eksperimen 14 hari](../validation/02-eksperimen-14-hari.md) lulus.
+> Working name: **Unggun** (from *campfire*). Alternatives: **Bara**, **Riung**, **Kumpul**.
+> Status: **conditional pivot** after [GPT-5.6 Sol validation](../validation/01-gpt-5.6-sol-validation.md). Not ready to be fully built until the [14-day experiment](../validation/02-eksperimen-14-hari.md) passes.
 
 ## Manifesto (positioning)
 
-**Unggun membantu grup kecil berhenti berkata “kapan-kapan” dan benar-benar bertemu.** Host membuat rencana, teman memilih waktu, semua berkomitmen, lalu menyimpan recap privat — hangat, ringan, dan **100% manusia**.
+**Unggun helps small groups stop saying "someday" and actually meet up.** The host creates a plan, friends pick a time, everyone commits, then keeps a private recap — warm, lightweight, and **100% human-made**.
 
-- 🔒 **Rencana privat, bukan siaran publik.** Host mengundang orang yang relevan.
-- 🔗 **Bekerja lewat WhatsApp.** Tamu bisa voting dan RSVP dari tautan tanpa wajib instal.
-- ⏹️ **Selesai, bukan tanpa henti.** Tidak ada *infinite scroll* atau kewajiban posting harian.
-- 🤝 **Keberhasilan = orang benar-benar hadir**, bukan waktu layar, follower, atau like.
+- 🔒 **Private plans, not public broadcasts.** The host invites the people who matter.
+- 🔗 **Works through WhatsApp.** Guests can vote and RSVP from a link without having to install anything.
+- ⏹️ **Finite, not endless.** No *infinite scroll* or obligation to post every day.
+- 🤝 **Success = people actually show up**, not screen time, followers, or likes.
 
-## Inti konsep dalam 3 pertanyaan
+## Core concept in 3 questions
 
-| Pertanyaan | Jawaban Unggun |
+| Question | Unggun's answer |
 | --- | --- |
-| **Atom** (unit inti) | **Rencana** — aktivitas + area/tempat + 2–3 opsi waktu + daftar orang. |
-| **Komunitas pertama** (beachhead) | Grup **4–12 maba** di satu kampus yang dapat dijangkau founder dan sudah mengatur makan, belajar, olahraga, atau nongkrong lewat WhatsApp. |
-| **Kenapa kembali** | Rencana berikutnya lebih mudah dibuat, peserta bisa menjadi host, dan setiap pertemuan punya recap privat. Ritmenya event-driven, bukan dipaksa harian. |
+| **Atom** (core unit) | **Plan** — activity + area/place + 2–3 time options + list of people. |
+| **First community** (beachhead) | A group of **4–12 first-year students** on a single campus the founder can reach, who already arrange meals, study sessions, workouts, or hangouts over WhatsApp. |
+| **Why they come back** | The next plan is easier to create, participants can become hosts, and every meetup has a private recap. The rhythm is event-driven, not forced daily. |
 
 ```mermaid
 mindmap
   root((Unggun))
-    Prinsip
-      Sepenuhnya buatan manusia
-      Lingkaran kecil - privat
-      Selesai bukan tanpa henti
-      Merasa lebih baik
+    Principles
+      Fully human-made
+      Small circles - private
+      Finite not endless
+      Feel better
     Beachhead
-      Grup 4-12 maba
-      Satu kampus terjangkau
+      Group of 4-12 first-year students
+      One reachable campus
     Atom
-      Rencana
-      Aktivitas tempat opsi waktu
-    Fitur inti
+      Plan
+      Activity place time options
+    Core features
       Link via WhatsApp
-      Voting waktu
-      RSVP dan reminder
-      Check-in dan recap
-    Anti-fitur
-      Tak ada feed publik
-      Tak ada follower atau like
-      Tak ada algoritma
+      Vote on times
+      RSVP and reminders
+      Check-in and recap
+    Anti-features
+      No public feed
+      No followers or likes
+      No algorithm
 ```
 
-## Loop Rencana
+## Plan loop
 
 ```mermaid
 journey
-    title Dari Wacana Menjadi Pertemuan
-    section Buat
-      Host membuat Rencana dalam 30 detik: 4: Host
-      Bagikan tautan ke WhatsApp: 5: Host
-    section Putuskan
-      Teman voting tanpa instal: 4: Teman
-      Host mengunci waktu dan tempat: 5: Host
-    section Hadir dan Ulang
-      Peserta check-in: 5: Semua
-      Recap privat dan buat versi berikutnya: 4: Semua
+    title From Talk to Meetup
+    section Create
+      Host creates a Plan in 30 seconds: 4: Host
+      Share the link to WhatsApp: 5: Host
+    section Decide
+      Friends vote without installing: 4: Friend
+      Host locks the time and place: 5: Host
+    section Show Up and Repeat
+      Participants check in: 5: Everyone
+      Private recap and create the next version: 4: Everyone
 ```
 
 ## Growth loop
 
 ```mermaid
 flowchart LR
-    A[Host membuat Rencana] --> B[Bagikan link<br/>ke WhatsApp]
-    B --> C[Teman voting dan hadir]
-    C --> D[Recap privat]
-    D --> E[Peserta membuat<br/>Rencana berikutnya]
+    A[Host creates a Plan] --> B[Share the link<br/>to WhatsApp]
+    B --> C[Friends vote and show up]
+    C --> D[Private recap]
+    D --> E[Participants create<br/>the next Plan]
     E --> B
 ```
 
-## Peta dokumen konsep
+## Concept document map
 
-1. [Fitur MVP + moderasi manusia](01-fitur-mvp.md)
-2. [Beachhead Indonesia + pemetaan latent needs](02-indonesia-dan-latent-needs.md)
-3. [Growth, metrik, roadmap, monetisasi-nanti](03-growth-metrik-roadmap.md)
-4. [Validasi independen & perbandingan konsep](../validation/README.md)
+1. [MVP features + human moderation](01-fitur-mvp.md)
+2. [Indonesia beachhead + latent needs mapping](02-indonesia-dan-latent-needs.md)
+3. [Growth, metrics, roadmap, monetization-later](03-growth-metrik-roadmap.md)
+4. [Independent validation & concept comparison](../validation/README.md)
 
-> Ini hipotesis terbaik saat ini, bukan kebenaran. Bangun MVP hanya jika ambang [GO](../validation/02-eksperimen-14-hari.md#go) tercapai.
+> This is the best current hypothesis, not the truth. Build the MVP only if the [GO](../validation/02-eksperimen-14-hari.md#go) threshold is met.

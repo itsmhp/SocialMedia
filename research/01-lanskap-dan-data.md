@@ -1,16 +1,16 @@
-# 1. Lanskap & Data (2026)
+# 1. Landscape & Data (2026)
 
-[⬅️ Indeks](README.md) · Lanjut: [2. Keinginan Sekarang ➡️](02-keinginan-sekarang.md)
+[⬅️ Index](README.md) · Next: [2. What People Want Now ➡️](02-keinginan-sekarang.md)
 
 ## 1a. Global
 
-- ~**5,24 miliar** identitas pengguna sosmed; rata-rata **~2,5 jam/hari** — lebih dari sepertiga total waktu online.
-- Feb 2025: **94,4%** pengguna internet 16+ membuka jejaring sosial — **melebihi** yang membuka mesin pencari (82,3%). "Social search" naik: **44% Gen Z** & **33% milenial** mencari info produk **terutama** dari sosmed.
-- **Krisis atensi:** fokus rata-rata di perangkat turun ke **~47 detik** (dulu ~2,5 menit); Gen Z lepas fokus dari iklan dalam **~1,3 detik**. Video >60 detik dianggap "stressful"; **11–17 detik** paling optimal.
-- **Keaslian** jadi mata uang: minat "social media authenticity" **+225%**; nano-influencer (1K–10K) punya **engagement tertinggi (~4%)**.
-- **Sinyal lelah:** tren *social detox*, *digital minimalism*, penjualan *dumb phone* naik; peringatan **US Surgeon General (2023)** soal sosmed & kesehatan mental remaja.
+- ~**5.24 billion** social-media user identities; on average **~2.5 hours/day** — more than a third of total time online.
+- Feb 2025: **94.4%** of internet users aged 16+ opened a social network — **more than** those who opened a search engine (82.3%). "Social search" is rising: **44% of Gen Z** & **33% of millennials** look up product info **primarily** on social media.
+- **Attention crisis:** average focus on a device has dropped to **~47 seconds** (previously ~2.5 minutes); Gen Z loses focus on an ad within **~1.3 seconds**. Videos over 60 seconds are seen as "stressful"; **11–17 seconds** is most optimal.
+- **Authenticity** has become currency: interest in "social media authenticity" is **+225%**; nano-influencers (1K–10K) have the **highest engagement (~4%)**.
+- **Fatigue signals:** trends of *social detox*, *digital minimalism*, and rising *dumb phone* sales; the **US Surgeon General (2023)** warning about social media & teen mental health.
 
-## 1b. Amerika Serikat (Pew, 20 Nov 2025) — usia menentukan
+## 1b. United States (Pew, 20 Nov 2025) — age decides
 
 | Platform | 18–29 | 30–49 | 50–64 | 65+ |
 | --- | --- | --- | --- | --- |
@@ -21,34 +21,34 @@
 | Reddit | **48%** | 35% | 16% | 6% |
 | Facebook | 68% | 80% | 74% | 57% |
 
-➡️ Anak muda memadati platform **visual, video pendek, & komunitas**; Facebook "menua".
+➡️ Young people crowd into **visual, short-video, & community** platforms; Facebook is "aging".
 
-## 1c. Indonesia (Digital 2026 + APJII 2024) — pasar utamamu
+## 1c. Indonesia (Digital 2026 + APJII 2024) — your primary market
 
-- DataReportal memperkirakan **230 jt individu** memakai internet pada Oktober 2025 (**80,5%** penetrasi) dan mencatat **331 jt koneksi seluler aktif** (**116%** populasi).
-- DataReportal mencatat **180 jt identitas pengguna media sosial aktif** (**62,9%** populasi); **78,2%** basis pengguna internet memakai sedikitnya satu platform sosial. Angka identitas tidak selalu sama dengan orang unik.
-- Median usia penduduk Indonesia **30,4 tahun**, sehingga pasar tetap relatif muda.
-- *Ad-planning tools* memperkirakan jangkauan Instagram **108 jt** dan TikTok **180 jt pengguna usia 18+**. Ini adalah estimasi jangkauan iklan, **bukan MAU terverifikasi**, dan tidak boleh dibandingkan langsung antarplatform.
-- Sebagai pembanding metodologis, survei tatap muka APJII 2024 (8.720 responden, 38 provinsi, *margin of error* 1,1%) memperkirakan **221,6 jt pengguna internet** atau **79,5%** penetrasi; Gen Z menyumbang kelompok terbesar (**34,4%**).
-- Baseline perilaku Digital 2024 tetap menunjukkan pola **mobile-first, hiburan-first, dan messaging-first**, tetapi angka durasi/pemakaian aplikasi 2024 tidak diperlakukan sebagai angka terkini 2026.
+- DataReportal estimates **230M individuals** used the internet as of October 2025 (**80.5%** penetration) and recorded **331M active mobile connections** (**116%** of the population).
+- DataReportal counts **180M active social-media user identities** (**62.9%** of the population); **78.2%** of the internet-user base uses at least one social platform. Identity figures are not always the same as unique people.
+- The median age of Indonesia's population is **30.4 years**, so the market remains relatively young.
+- *Ad-planning tools* estimate Instagram's reach at **108M** and TikTok's at **180M users aged 18+**. These are ad-reach estimates, **not verified MAU**, and must not be compared directly across platforms.
+- As a methodological comparison, the APJII 2024 face-to-face survey (8,720 respondents, 38 provinces, *margin of error* 1.1%) estimates **221.6M internet users**, or **79.5%** penetration; Gen Z makes up the largest group (**34.4%**).
+- The Digital 2024 behavioral baseline still shows **mobile-first, entertainment-first, and messaging-first** patterns, but the 2024 duration/app-usage figures are not treated as current 2026 numbers.
 
-> **Catatan metodologi:** DataReportal memperingatkan bahwa perubahan besar jumlah identitas sosial dapat berasal dari koreksi data sumber dan metode deduplikasi, bukan hanya perubahan perilaku nyata. APJII dan DataReportal juga memakai metode serta tanggal pengukuran berbeda.
+> **Methodology note:** DataReportal warns that large changes in the number of social identities can stem from source-data corrections and deduplication methods, not just real behavioral change. APJII and DataReportal also use different methods and measurement dates.
 
-➡️ Kesimpulan yang cukup kuat: Indonesia **muda, sangat terkoneksi, dan mobile-first**. Kesimpulan bahwa pengguna pasti menginginkan produk tertentu masih harus diuji secara langsung.
+➡️ A reasonably strong conclusion: Indonesia is **young, highly connected, and mobile-first**. The conclusion that users definitely want a particular product still has to be tested directly.
 
 ```mermaid
 timeline
-    title Evolusi Era Media Sosial
-    2004-2011 : Era Jaringan/Teks : Friendster, Facebook
-    2010-2016 : Era Visual : Instagram, Snapchat
-    2016-2021 : Era Video & Algoritma : TikTok, Reels
-    2021-2024 : Era Fragmentasi & Keaslian : BeReal, Discord, Bluesky
-    2024-2026 : Era AI & Campfire : AI companion, grup kecil, komunitas minat
+    title Evolution of the Social Media Eras
+    2004-2011 : Network/Text Era : Friendster, Facebook
+    2010-2016 : Visual Era : Instagram, Snapchat
+    2016-2021 : Video & Algorithm Era : TikTok, Reels
+    2021-2024 : Fragmentation & Authenticity Era : BeReal, Discord, Bluesky
+    2024-2026 : AI & Campfire Era : AI companion, small groups, interest communities
 ```
 
-## Sumber
+## Sources
 
 - [Pew Research Center — Social Media Fact Sheet](https://www.pewresearch.org/internet/fact-sheet/social-media/) (2025).
 - [DataReportal — Digital 2026: Indonesia](https://datareportal.com/reports/digital-2026-indonesia).
 - [APJII — Jumlah Pengguna Internet Indonesia Tembus 221 Juta Orang](https://apjii.or.id/berita/d/apjii-jumlah-pengguna-internet-indonesia-tembus-221-juta-orang) (7 Feb 2024).
-- [Meltwater × We Are Social — Digital Indonesia 2024](https://www.meltwater.com/en/blog/social-media-statistics-indonesia) (baseline historis).
+- [Meltwater × We Are Social — Digital Indonesia 2024](https://www.meltwater.com/en/blog/social-media-statistics-indonesia) (historical baseline).

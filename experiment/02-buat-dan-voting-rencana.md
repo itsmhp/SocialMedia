@@ -1,38 +1,38 @@
-# 2. Buat & Voting Rencana (Tanpa App)
+# 2. Create & Vote on Plans (No App)
 
-[⬅️ 1. Rekrutmen](01-rekrutmen-host.md) · [Kit](README.md) · [3. Template WhatsApp ➡️](03-template-whatsapp.md)
+[⬅️ 1. Recruitment](01-rekrutmen-host.md) · [Kit](README.md) · [3. WhatsApp templates ➡️](03-template-whatsapp.md)
 
-Inti alur: **host bikin Rencana → voting waktu lewat WhatsApp Poll → kunci → komit hadir.** Semua di dalam WhatsApp; voting pakai **fitur Poll bawaan WhatsApp** (nol instal tambahan).
+Core flow: **host creates a Plan → vote on times via WhatsApp Poll → lock → commit to attend.** Everything inside WhatsApp; voting uses **WhatsApp's built-in Poll feature** (zero extra installs).
 
-## Form "Buat Rencana" (Tally / Google Forms, ~30 detik)
+## "Create a Plan" form (Tally / Google Forms, ~30 seconds)
 
-Isi field berikut (host yang isi, atau kamu bantu isikan saat wawancara):
+Fill in the following fields (the host fills them in, or you help fill them during the interview):
 
-1. **Nama host**
-2. **Mau ngapain** (aktivitas) — mis. makan siang, belajar bareng, futsal, ngopi
-3. **Di mana** (tempat / patokan)
-4. **Opsi waktu 1** (hari + jam)
-5. **Opsi waktu 2**
-6. **Opsi waktu 3** (opsional)
-7. **Kira-kira ngajak siapa** (nama) — opsional
+1. **Host name**
+2. **What to do** (activity) — e.g. lunch, study session, futsal, coffee
+3. **Where** (place / landmark)
+4. **Time option 1** (day + time)
+5. **Time option 2**
+6. **Time option 3** (optional)
+7. **Roughly who you'll invite** (names) — optional
 
-> Kenapa lewat form dulu? Biar datanya **seragam & terukur**. Host yang sudah pede boleh langsung bikin Poll sendiri di grup — tetap catat hasilnya di [tracker](04-tracker.md).
+> Why a form first? So the data is **uniform & measurable**. Confident hosts can make the Poll themselves in the group — just still record the results in the [tracker](04-tracker.md).
 
-## Voting waktu = WhatsApp Poll
+## Vote on times = WhatsApp Poll
 
-1. Buka grup → **Lampirkan / Attach → Poll**.
-2. Pertanyaan: `Kapan kita [aktivitas]?`
-3. Opsi: salin **Opsi waktu 1/2/3** dari form.
-4. Aktifkan "**Allow multiple answers**" supaya orang bisa menandai semua waktu yang bisa.
+1. Open the group → **Attach → Poll**.
+2. Question: `When should we [activity]?`
+3. Options: copy **Time option 1/2/3** from the form.
+4. Enable "**Allow multiple answers**" so people can mark every time that works for them.
 
-## Kunci & komit
+## Lock & commit
 
-1. Pilih opsi dengan suara terbanyak yang realistis.
-2. Umumkan waktu + tempat final (template ada di [dokumen 3](03-template-whatsapp.md)).
-3. Minta **komit hadir**: Poll kedua `Dtg [hari]?` (opsi: "Gas ✅" / "Ga bisa 😭") atau reaksi ✅.
+1. Pick the option with the most votes that's realistic.
+2. Announce the final time + place (templates are in [document 3](03-template-whatsapp.md)).
+3. Ask for a **commit to attend**: a second Poll `Coming [day]?` (options: "I'm in ✅" / "Can't make it 😭") or a ✅ reaction.
 
-## Aturan biar tesnya jujur
+## Rules to keep the test honest
 
-- **Jangan** kamu yang mengejar-ngejar tiap orang; produk harus jalan sendiri. Kamu hanya menyalakan, lalu **mengamati**.
-- Catat kalau host tetap balik ke chat biasa (artinya alat belum cukup berguna).
-- Satu pertanyaan penentu di akhir: **"Tanpa bantuan kami, rencana ini tetap kejadian nggak?"**
+- **Don't** be the one chasing every single person; the product must run on its own. You only start it, then **observe**.
+- Note if the host keeps falling back to regular chat (it means the tool isn't useful enough yet).
+- One deciding question at the end: **"Without our help, would this plan still have happened?"**

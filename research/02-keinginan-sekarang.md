@@ -1,16 +1,16 @@
-# 2. Apa yang Orang INGINKAN Sekarang (kebutuhan yang disadari)
+# 2. What People WANT Now (conscious needs)
 
-[⬅️ 1. Lanskap](01-lanskap-dan-data.md) · [Indeks](README.md) · [3. Latent Needs ➡️](03-latent-needs.md)
+[⬅️ 1. Landscape](01-lanskap-dan-data.md) · [Index](README.md) · [3. Latent Needs ➡️](03-latent-needs.md)
 
-Ini hal yang orang **tahu** mereka mau, dan akan mereka sebut kalau ditanya:
+These are the things people **know** they want, and will name if asked:
 
-1. **Hiburan cepat / bunuh bosan** — video pendek mendominasi waktu & belanja iklan.
-2. **Bikin konten tanpa ribet** — AI untuk caption, gambar, dan video.
-3. **Keaslian** — orang percaya UGC & micro/nano-creator lebih dari selebriti/brand.
-4. **Cari & belanja di dalam app** — social search + social commerce (US $67B'23 → $144B'27).
-5. **Tetap terhubung** — messaging tetap tulang punggung (di Indonesia: WhatsApp).
-6. **Monetisasi kreator** — dari hobi jadi cuan.
+1. **Quick entertainment / killing boredom** — short video dominates both time & ad spend.
+2. **Creating content without hassle** — AI for captions, images, and video.
+3. **Authenticity** — people trust UGC & micro/nano-creators more than celebrities/brands.
+4. **Search & shop inside the app** — social search + social commerce (US $67B'23 → $144B'27).
+5. **Staying connected** — messaging remains the backbone (in Indonesia: WhatsApp).
+6. **Creator monetization** — turning a hobby into income.
 
-> ⚠️ Ini **"meja taruhan" (table stakes)**: perlu ada, tapi **tidak cukup** untuk menang — karena semua pesaing besar sudah menyediakannya. Diferensiasi sejati ada di [dokumen berikutnya: latent needs](03-latent-needs.md).
+> ⚠️ These are **table stakes**: necessary, but **not enough** to win — because every big competitor already offers them. True differentiation lives in the [next document: latent needs](03-latent-needs.md).
 
-> **Catatan produk kita:** kebutuhan #2 ("bikin konten mudah") kita penuhi lewat prompt harian, template manual, foto apa adanya & voice note. Lihat [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md).
+> **Note on our product:** we meet need #2 ("easy content creation") through daily prompts, manual templates, unpolished photos & voice notes. See [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md).

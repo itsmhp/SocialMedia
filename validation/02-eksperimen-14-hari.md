@@ -1,94 +1,94 @@
-# Eksperimen Permintaan 14 Hari — Tanpa Aplikasi
+# 14-Day Demand Experiment — Without an App
 
-[⬅️ Indeks validasi](README.md) · [Verdict GPT-5.6 Sol](01-gpt-5.6-sol-validation.md)
+[⬅️ Validation index](README.md) · [GPT-5.6 Sol verdict](01-gpt-5.6-sol-validation.md)
 
-> 🧰 **Perkakas siap-pakai** untuk menjalankan eksperimen ini (skrip rekrutmen, form, template WhatsApp, tracker) ada di [`../experiment/`](../experiment/README.md).
+> 🧰 **Ready-to-use tooling** for running this experiment (recruitment scripts, forms, WhatsApp templates, tracker) is in [`../experiment/`](../experiment/README.md).
 
-## Tujuan
+## Goal
 
-Menguji apakah mahasiswa benar-benar ingin memakai alur **Rencana → voting → komit → hadir → ulang**, sebelum membangun aplikasi.
+Test whether students genuinely want to use the **Plan → vote → commit → attend → repeat** flow, before building an app.
 
-## Alat
+## Tools
 
-- WhatsApp untuk distribusi;
-- Tally atau Google Forms untuk membuat/voting Rencana;
-- spreadsheet manual untuk status, RSVP, check-in, dan repeat;
-- pengingat manual dengan template tetap.
+- WhatsApp for distribution;
+- Tally or Google Forms to create/vote on Plans;
+- a manual spreadsheet for status, RSVP, check-in, and repeat;
+- manual reminders with a fixed template.
 
-## Sampel minimum
+## Minimum sample
 
-- **8 host** dari satu kampus;
-- masing-masing punya grup nyata 4–12 orang;
-- total **≥60 undangan unik**;
-- aktivitas tidak harus pesta: makan, belajar, olahraga, kopi, nonton, atau nongkrong.
+- **8 hosts** from a single campus;
+- each with a real group of 4–12 people;
+- **≥60 unique invitations** in total;
+- the activity doesn’t have to be a party: meals, studying, sports, coffee, movies, or hanging out.
 
-## Protokol
+## Protocol
 
-### Hari 1–2: rekrut & baseline
+### Days 1–2: recruit & baseline
 
-1. Cari 8 calon host yang dalam 30 hari terakhir kesulitan menyamakan jadwal grup.
-2. Tanyakan bagaimana mereka biasanya mengatur waktu dan kapan rencana terakhir gagal.
-3. Jangan menjual “media sosial baru”; tawarkan hasil: **“bantu bikin rencana grupmu benar-benar jadi.”**
+1. Find 8 candidate hosts who, in the last 30 days, struggled to align a group’s schedule.
+2. Ask how they usually coordinate timing and when their last plan fell through.
+3. Don’t sell a “new social media”; offer the outcome: **“help make your group’s plan actually happen.”**
 
-### Hari 3–7: tes aktivasi
+### Days 3–7: activation test
 
-1. Host mengisi: aktivitas, area/tempat, dan 2–3 opsi waktu.
-2. Founder membuat link voting dan host membagikannya sendiri ke WhatsApp.
-3. Peserta voting tanpa instal aplikasi.
-4. Host mengunci pilihan dan mengirim RSVP/komit hadir.
+1. The host fills in: activity, area/place, and 2–3 time options.
+2. The founder creates the voting link and the host shares it to WhatsApp themselves.
+3. Participants vote without installing an app.
+4. The host locks the choice and sends the RSVP/commitment to attend.
 
-### Hari 8–11: tes outcome
+### Days 8–11: outcome test
 
-1. Kirim pengingat H-1 dan H-2 jam.
-2. Catat acara jadi/batal dan peserta yang hadir.
-3. Minta satu foto recap privat atau satu kalimat “yang paling seru” (opsional).
+1. Send reminders one day before and two hours before.
+2. Record whether the event happened/was canceled and who attended.
+3. Ask for one private recap photo or one sentence on “the best part” (optional).
 
-### Hari 12–14: tes repeat & growth
+### Days 12–14: repeat & growth test
 
-1. Jangan meminta semua orang membuat acara kedua.
-2. Tawarkan tombol/link “buat versi berikutnya” setelah recap.
-3. Ukur siapa yang membuat Rencana kedua dan siapa yang berubah dari peserta menjadi host tanpa dorongan personal founder.
+1. Don’t ask everyone to create a second event.
+2. Offer a “create the next version” button/link after the recap.
+3. Measure who creates a second Plan and who turns from participant into host without personal prompting from the founder.
 
-## Ambang keputusan
+## Decision thresholds
 
-| Metrik | Rumus | PASS |
+| Metric | Formula | PASS |
 | --- | --- | ---: |
-| Aktivasi host | host yang mengirim Rencana / 8 host | **≥5/8** |
-| Voting/RSVP | peserta yang merespons / undangan terkirim | **≥40%** |
-| Rencana Jadi | rencana yang terlaksana / rencana dibuat | **≥50%** |
-| Kehadiran | hadir / RSVP “ya” | **≥60%** |
-| Repeat participant | peserta yang ikut rencana kedua / peserta pertama | **≥30%** |
-| Peserta → host organik | peserta yang membuat Rencana / peserta pertama | **≥25%** |
+| Host activation | hosts who send a Plan / 8 hosts | **≥5/8** |
+| Voting/RSVP | participants who respond / invitations sent | **≥40%** |
+| Plans That Happen | plans carried out / plans created | **≥50%** |
+| Attendance | attended / RSVP “yes” | **≥60%** |
+| Repeat participant | participants in a second plan / first-time participants | **≥30%** |
+| Participant → organic host | participants who create a Plan / first-time participants | **≥25%** |
 
 ### GO
 
-Semua metrik inti (aktivasi, Rencana Jadi, kehadiran) lulus dan minimal satu metrik pertumbuhan (repeat atau peserta→host) lulus.
+All core metrics (activation, Plans That Happen, attendance) pass and at least one growth metric (repeat or participant→host) passes.
 
 ### ITERATE
 
-Rencana Jadi lulus tetapi repeat/host conversion gagal. Uji fokus pada kru aktivitas berulang atau organisasi kampus, bukan feed sosial.
+Plans That Happen passes but repeat/host conversion fails. Test a focus on a recurring activity crew or campus organizations, not a social feed.
 
 ### KILL
 
-Aktivasi <5/8 **atau** Rencana Jadi <50%. Jangan membangun aplikasi sosial penuh; masalah atau wedge belum cukup kuat.
+Activation <5/8 **or** Plans That Happen <50%. Don’t build a full social app; the problem or wedge isn’t strong enough yet.
 
-## Asumsi paling berisiko
+## Riskiest assumptions
 
-1. Calon host menganggap koordinasi WhatsApp cukup menyakitkan.
-2. Host bersedia membuat link eksternal.
-3. Tamu merespons tanpa wajib instal.
-4. Voting menghasilkan keputusan, bukan polling tanpa akhir.
-5. Komit hadir meningkatkan kehadiran.
-6. Recap membuat orang ingin mengulang.
-7. Peserta bersedia menjadi host berikutnya.
-8. Satu kampus cukup padat untuk penyebaran organik.
-9. Pendekatan human-first meningkatkan kepercayaan walau bukan alasan utama penggunaan.
+1. Candidate hosts find WhatsApp coordination painful enough.
+2. Hosts are willing to create an external link.
+3. Guests respond without being required to install.
+4. Voting produces a decision, not an endless poll.
+5. Committing to attend increases attendance.
+6. The recap makes people want to do it again.
+7. Participants are willing to be the next host.
+8. A single campus is dense enough for organic spread.
+9. A human-first approach increases trust even if it isn’t the main reason for use.
 
-## Data yang harus dicatat
+## Data to record
 
-- waktu dari link dibuat sampai dibagikan;
-- jumlah undangan, vote, RSVP, hadir;
-- alasan batal/no-show;
-- siapa yang mengingatkan grup;
-- apakah host tetap memakai WhatsApp di samping link;
-- NPS bukan prioritas; pertanyaan utama: **“Tanpa bantuan kami, apakah rencana ini tetap akan terjadi?”**
+- time from link creation to sharing;
+- number of invitations, votes, RSVPs, attendees;
+- reasons for cancellation/no-show;
+- who reminded the group;
+- whether the host keeps using WhatsApp alongside the link;
+- NPS is not a priority; the key question: **“Without our help, would this plan still happen?”**

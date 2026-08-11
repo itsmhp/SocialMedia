@@ -1,61 +1,61 @@
-# 3. Growth, Metrik, Roadmap, Monetisasi (nanti)
+# 3. Growth, Metrics, Roadmap, Monetization (later)
 
-[⬅️ 2. Indonesia & Latent Needs](02-indonesia-dan-latent-needs.md) · [Konsep](README.md)
+[⬅️ 2. Indonesia & Latent Needs](02-indonesia-dan-latent-needs.md) · [Concept](README.md)
 
 ## North-star metric
 
-Bukan DAU mentah, tetapi **Rencana Jadi** = rencana dengan **≥3 peserta yang check-in**.
+Not raw DAU, but **Plans That Happen** = a plan with **≥3 participants who check in**.
 
-Metrik pendukung: aktivasi host, respons voting, rasio rencana terlaksana, kehadiran/RSVP, *repeat plan* 14/30 hari, dan konversi peserta→host.
+Supporting metrics: host activation, vote response, ratio of plans carried out, attendance/RSVP, *repeat plan* at 14/30 days, and participant→host conversion.
 
 ## Growth loops
 
 ```mermaid
 flowchart LR
-    A[Host membuat Rencana] --> B[Link dibagikan via WhatsApp]
-    B --> C[Peserta voting dan hadir]
-    C --> D[Recap privat]
-    D --> E[Peserta menjadi host]
+    A[Host creates a Plan] --> B[Link shared via WhatsApp]
+    B --> C[Participants vote and show up]
+    C --> D[Private recap]
+    D --> E[Participants become hosts]
     E --> B
 ```
 
-## Roadmap bertahap (growth-first, bukan monetisasi-first)
+## Phased roadmap (growth-first, not monetization-first)
 
 ```mermaid
 timeline
-    title Roadmap Unggun
-    Fase 0 - No-code : 8 host + 60 undangan : uji 14 hari
-    Fase 1 - MVP : buat + vote + lock + RSVP : link tanpa instal
-    Fase 2 - Outcome : reminder + check-in + recap : ukur Rencana Jadi
-    Fase 3 - Repeat : clone plan + peserta jadi host : retensi 30 hari
-    Fase 4 - Expand : kru aktivitas atau organisasi : kampus kedua
+    title Unggun Roadmap
+    Phase 0 - No-code : 8 hosts + 60 invitations : 14-day test
+    Phase 1 - MVP : create + vote + lock + RSVP : install-free link
+    Phase 2 - Outcome : reminder + check-in + recap : measure Plans That Happen
+    Phase 3 - Repeat : clone plan + participants become hosts : 30-day retention
+    Phase 4 - Expand : activity crews or organizations : second campus
 ```
 
-## Monetisasi (NANTI — bukan sekarang)
+## Monetization (LATER — not now)
 
-Fokus sekarang = **cari user**. Saat sudah lengket, opsi yang **tidak merusak vibe**:
+The focus right now = **find users**. Once it's sticky, options that **don't ruin the vibe**:
 
-- Kustomisasi kosmetik lingkaran (tema, stiker).
-- Fitur premium lingkaran (kapasitas lebih, arsip Kenangan).
-- Kemitraan **acara & kampus** (bukan iklan feed).
-- ❌ Tanpa iklan yang mengganggu, ❌ tanpa jual data.
+- Cosmetic circle customization (themes, stickers).
+- Premium circle features (more capacity, Memories archive).
+- **Event & campus** partnerships (not feed ads).
+- ❌ No intrusive ads, ❌ no selling data.
 
-## Risiko & mitigasi
+## Risks & mitigations
 
-| Risiko | Mitigasi |
+| Risk | Mitigation |
 | --- | --- |
-| **WhatsApp sudah cukup** | Link harus memberi consensus + commitment; kill jika tidak |
-| **Host tidak mau membuat link** | Form ≤30 detik; ukur aktivasi ≥5/8 |
-| **Rencana dibuat tetapi batal** | Voting + lock + reminder; target ≥50% terlaksana |
-| **Retensi rendah** | Recap + clone; target repeat participant ≥30% |
-| **Moderasi manual mahal** | Undangan privat, kontrol host, tinjauan manusia |
-| **Dianggap kalah canggih** | Jadikan *human-first* sebagai kampanye & kekuatan |
-| **WhatsApp incumbent** | Lengkapi (momen + main + janjian), jangan gantikan chat |
+| **WhatsApp is already enough** | The link must deliver consensus + commitment; kill it if not |
+| **Hosts don't want to create a link** | ≤30-second form; measure activation ≥5/8 |
+| **Plans get created but fall through** | Voting + lock + reminder; target ≥50% carried out |
+| **Low retention** | Recap + clone; target repeat participant ≥30% |
+| **Expensive manual moderation** | Private invitations, host control, human review |
+| **Seen as less sophisticated** | Make *human-first* the campaign and the strength |
+| **WhatsApp incumbent** | Complement it (moments + play together + meetups), don't replace chat |
 
-## Langkah paling konkret berikutnya
+## The most concrete next steps
 
-1. Jalankan [eksperimen 14 hari tanpa aplikasi](../validation/02-eksperimen-14-hari.md).
-2. Jangan membuat feed, prompt, mini-game, atau sistem akun penuh selama fase tes.
-3. Jika GO, buat PWA ringan untuk create/vote/lock/RSVP/check-in.
-4. Jika ITERATE, fokus pada kru aktivitas atau organisasi kampus.
-5. Jika KILL, hentikan tesis aplikasi sosial sebelum membangun lebih jauh.
+1. Run the [14-day no-app experiment](../validation/02-eksperimen-14-hari.md).
+2. Don't build a feed, prompts, mini-games, or a full account system during the test phase.
+3. If GO, build a lightweight PWA for create/vote/lock/RSVP/check-in.
+4. If ITERATE, focus on activity crews or campus organizations.
+5. If KILL, stop the social-app thesis before building any further.

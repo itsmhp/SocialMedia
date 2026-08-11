@@ -1,37 +1,37 @@
-# 2. Beachhead Indonesia + Pemetaan Latent Needs
+# 2. Indonesia Beachhead + Latent Needs Mapping
 
-[⬅️ 1. Fitur MVP](01-fitur-mvp.md) · [Konsep](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrik-roadmap.md)
+[⬅️ 1. MVP Features](01-fitur-mvp.md) · [Concept](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrik-roadmap.md)
 
-## Kenapa Indonesia + kampus?
+## Why Indonesia + campus?
 
-Dari [data lanskap](../research/01-lanskap-dan-data.md):
+From the [landscape data](../research/01-lanskap-dan-data.md):
 
-- DataReportal 2026 memperkirakan **230 jt pengguna internet** (80,5% penetrasi) dan **180 jt identitas sosial** pada akhir 2025.
-- APJII 2024 memperkirakan Gen Z sebagai kelompok pengguna internet terbesar (**34,4%**).
-- Indonesia tetap **muda dan mobile-first**, tetapi data makro tidak membuktikan demand Unggun.
-- Pelajaran produk: jangan lawan WhatsApp; gunakan WhatsApp sebagai jalur distribusi.
+- DataReportal 2026 estimates **230M internet users** (80.5% penetration) and **180M social identities** at the end of 2025.
+- APJII 2024 estimates Gen Z as the largest group of internet users (**34.4%**).
+- Indonesia remains **young and mobile-first**, but macro data doesn't prove demand for Unggun.
+- Product lesson: don't fight WhatsApp; use WhatsApp as a distribution channel.
 
-**Kampus = beachhead ideal** (pola Facebook@Harvard, Fizz@Stanford):
+**Campus = the ideal beachhead** (the Facebook@Harvard, Fizz@Stanford pattern):
 
-- Jaringan **padat** dan pertemuan berulang memberi lingkungan tes yang cepat.
-- Maba sering membangun ulang lingkaran sosial, tetapi intensitas masalah harus diwawancarai langsung.
-- Aktivitas makan, belajar, olahraga, dan nongkrong memberi use case berfrekuensi lebih tinggi daripada pesta besar.
-- Pilih kampus berdasarkan **akses founder**, bukan nama atau ukuran semata.
+- **Dense** networks and recurring meetups create a fast testing environment.
+- First-year students often rebuild their social circles, but the intensity of the problem has to be interviewed for directly.
+- Meals, studying, sports, and hangouts are higher-frequency use cases than big parties.
+- Choose a campus based on **founder access**, not name or size alone.
 
-> Alternatif beachhead kalau kamu lebih dekat ke sana: komunitas hobi padat (pecinta buku, komunitas lari/sepeda, fanbase, band lokal) atau geng SMA/kuliah. Pola & fitur sama.
+> An alternative beachhead if you're closer to one: dense hobby communities (book lovers, running/cycling groups, fandoms, local bands) or high-school/college friend groups. Same pattern and features.
 
-## Pemetaan: Latent Need → Fitur Unggun
+## Mapping: Latent Need → Unggun Feature
 
-| Latent need (riset) | Dijawab Unggun dengan |
+| Latent need (research) | How Unggun answers it |
 | --- | --- |
-| Merasa lebih baik (*social health*) | Mengoptimalkan pertemuan nyata, bukan waktu layar |
-| Ruang kecil & privat (*campfire*) | Rencana berbasis undangan |
-| Jembatan ke dunia nyata | Voting → komit → check-in |
-| Dilihat tanpa tekanan tampil | Tidak ada feed atau vanity metric pada MVP |
-| **Ditemani & didengar** | Pertemuan manusia nyata |
-| Ekspresi diri & identitas | Bukan prioritas MVP |
-| Kontrol atas algoritma | Tidak ada recommendation feed |
-| Menemukan "orang gue" | Belum dijawab pada MVP; grup dibawa dari WhatsApp |
-| Waktu yang berarti | Alur selesai ketika keputusan dan pertemuan terjadi |
+| Feeling better (*social health*) | Optimizing for real meetups, not screen time |
+| Small & private space (*campfire*) | Invitation-based Plans |
+| A bridge to the real world | Voting → commit → check-in |
+| Being seen without pressure to perform | No feed or vanity metrics in the MVP |
+| **Being accompanied & heard** | Real human meetups |
+| Self-expression & identity | Not an MVP priority |
+| Control over the algorithm | No recommendation feed |
+| Finding "my people" | Not addressed in the MVP; groups are brought over from WhatsApp |
+| Meaningful time | The flow ends when a decision and a meetup happen |
 
-➡️ Klaim lama “menjawab 9 dari 9” terlalu kuat. Unggun v2 fokus pada tiga kebutuhan yang paling konkret: **koordinasi, pertemuan nyata, dan hubungan privat**. Kebutuhan lain sengaja tidak dipaksakan ke MVP.
+➡️ The old claim of "answering 9 out of 9" was too strong. Unggun v2 focuses on the three most concrete needs: **coordination, real meetups, and private connection**. Other needs are deliberately not forced into the MVP.

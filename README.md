@@ -1,35 +1,35 @@
-# SocialMedia — Riset & Konsep
+# SocialMedia — Research & Concept
 
-Proyek platform media sosial yang untuk saat ini berfokus pada **fase riset & penemuan konsep**: memahami media sosial seperti apa yang benar-benar dibutuhkan orang pada 2026 — termasuk kebutuhan yang **belum mereka sadari** — sebelum menulis satu baris kode produk.
+A social media platform project currently focused on the **research & concept-discovery phase**: understanding what kind of social media people actually need in 2026 — including the needs they **don't yet realize** — before writing a single line of product code.
 
-> Status: **Discovery / Validasi.** Belum ada kode aplikasi. Konsep v2 sedang diuji: [`concept/`](concept/).
+> Status: **Discovery / Validation.** No app code yet. Concept v2 is under test: [`concept/`](concept/).
 
-## Isi repo
+## Repo contents
 
-- [`research/`](research/) — hasil riset mendalam (lanskap, keinginan, *latent needs*, peluang, rekomendasi) + diagram Mermaid.
-- [`concept/`](concept/) — **konsep produk "Unggun"** (nongkrong online): beachhead, atom, fitur MVP, growth, roadmap.
-- [`validation/`](validation/) — validasi independen GPT-5.6 Sol, perbandingan konsep, dan eksperimen 14 hari sebelum membangun aplikasi.
-- [`experiment/`](experiment/) — **kit siap-pakai** (tanpa kode) untuk menjalankan uji 14 hari: rekrutmen, form, template WhatsApp, dan tracker.
-- [`prototype/`](prototype/) — **prototipe klik** Unggun (HTML statis): buka [`prototype/index.html`](prototype/index.html) di browser.
+- [`research/`](research/) — in-depth research (landscape, wants, *latent needs*, opportunities, recommendations) + Mermaid diagrams.
+- [`concept/`](concept/) — **the "Unggun" product concept** (hanging out online): beachhead, atom, MVP features, growth, roadmap.
+- [`validation/`](validation/) — independent GPT-5.6 Sol validation, concept comparison, and a 14-day experiment before building the app.
+- [`experiment/`](experiment/) — a **ready-to-run kit** (no code) for running the 14-day test: recruitment, forms, WhatsApp templates, and a tracker.
+- [`prototype/`](prototype/) — the **clickable prototype** of Unggun (static HTML): open [`prototype/index.html`](prototype/index.html) in a browser.
 
-## Cara baca
+## How to read
 
-- Riset → mulai [`research/README.md`](research/README.md).
-- Konsep produk → mulai [`concept/README.md`](concept/README.md).
-- Validasi / keputusan terbaru → mulai [`validation/README.md`](validation/README.md).
-- Mulai eksekusi sekarang → [`experiment/README.md`](experiment/README.md).
-- Coba prototipe (klik-klik) → buka [`prototype/index.html`](prototype/index.html) di browser.
+- Research → start at [`research/README.md`](research/README.md).
+- Product concept → start at [`concept/README.md`](concept/README.md).
+- Validation / latest decision → start at [`validation/README.md`](validation/README.md).
+- Start executing now → [`experiment/README.md`](experiment/README.md).
+- Try the prototype (click around) → open [`prototype/index.html`](prototype/index.html) in a browser.
 
-## Prinsip yang memandu proyek ini
+## Principles guiding this project
 
-1. **"Untuk semua orang" itu tujuan, bukan titik start** — mulai dari satu komunitas padat.
-2. **Sukses = pengguna merasa lebih baik**, bukan sekadar banyak like (*social health by design*).
-3. **Fokus cari user dulu**, monetisasi belakangan.
+1. **"For everyone" is the goal, not the starting point** — start from one dense community.
+2. **Success = users feel better**, not just more likes (*social health by design*).
+3. **Find users first**, monetize later.
 
-## Sumber & metode
+## Sources & method
 
-Semua klaim penting mengacu ke sumber publik (Pew Research, DataReportal/We Are Social via Meltwater & Exploding Topics, Wikipedia, HBR). Lihat bagian **Sumber** di tiap dokumen riset.
+Every important claim references public sources (Pew Research, DataReportal/We Are Social via Meltwater & Exploding Topics, Wikipedia, HBR). See the **Sources** section in each research document.
 
 ---
 
-*Dibuat sebagai fondasi diskusi produk. Data Indonesia telah diperbarui ke Digital 2026 dan dibedakan dari baseline historis Digital 2024.*
+*Built as a foundation for product discussion. Indonesia data has been updated to Digital 2026 and distinguished from the historical Digital 2024 baseline.*

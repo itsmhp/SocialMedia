@@ -1,10 +1,10 @@
-// Unggun — prototipe interaktif. 100% statis, tanpa build, tanpa internet.
+// Unggun — interactive prototype. 100% static, no build, no internet.
 (function () {
   "use strict";
 
   const state = {
     streak: 5,
-    you: { name: "Kamu", avatar: "🦊" },
+    you: { name: "You", avatar: "🦊" },
     friends: [
       { name: "Dinda", avatar: "🌸" },
       { name: "Raka", avatar: "🎧" },
@@ -13,37 +13,37 @@
       { name: "Nadia", avatar: "🌙" },
     ],
     moments: [
-      { id: "m1", who: "Dinda", avatar: "🌸", mood: "😌", time: "1 jam lalu",
-        text: "Nemu kopi susu enak deket kampus, wajib cobain ☕",
+      { id: "m1", who: "Dinda", avatar: "🌸", mood: "😌", time: "1h ago",
+        text: "Found an amazing iced latte near campus, you have to try it ☕",
         reactions: { "❤️": 3, "😂": 0, "🔥": 2, "🙌": 0 }, mine: [] },
-      { id: "m2", who: "Raka", avatar: "🎧", mood: "🎶", time: "2 jam lalu",
-        text: "Lagi muter playlist galau, ada yang mau nemenin? wkwk",
+      { id: "m2", who: "Raka", avatar: "🎧", mood: "🎶", time: "2h ago",
+        text: "Playing my sad-boy playlist, anyone want to keep me company? lol",
         reactions: { "❤️": 2, "😂": 1, "🔥": 0, "🙌": 0 }, mine: [] },
-      { id: "m3", who: "Sasa", avatar: "🐱", mood: "🥰", time: "3 jam lalu",
-        text: "Kucing kampus makin gemuk gara-gara aku suapin terus 🐈",
+      { id: "m3", who: "Sasa", avatar: "🐱", mood: "🥰", time: "3h ago",
+        text: "The campus cat keeps getting chubbier because I keep feeding it 🐈",
         reactions: { "❤️": 4, "😂": 0, "🔥": 0, "🙌": 1 }, mine: [] },
-      { id: "m4", who: "Bagas", avatar: "⚡", mood: "😮‍💨", time: "5 jam lalu",
-        text: "Kelar tugas jam 3 pagi. Tolong ajak nongkrong biar waras 😭",
+      { id: "m4", who: "Bagas", avatar: "⚡", mood: "😮‍💨", time: "5h ago",
+        text: "Finished my assignment at 3am. Someone please invite me out so I stay sane 😭",
         reactions: { "❤️": 1, "😂": 2, "🔥": 1, "🙌": 0 }, mine: [] },
     ],
     game: {
       prompts: [
-        "telat ke kelas pagi ⏰",
-        "nraktir kalau lagi ada rezeki 💸",
-        "ketiduran pas nonton bareng 😴",
-        "ngide ngajak nongkrong dadakan ✨",
+        "be late to morning class ⏰",
+        "treat everyone when they've got some cash 💸",
+        "fall asleep during a movie night 😴",
+        "spontaneously plan a hangout ✨",
       ],
       idx: 0,
-      votes: { Kamu: 0, Dinda: 2, Raka: 1, Sasa: 0, Bagas: 3, Nadia: 1 },
+      votes: { You: 0, Dinda: 2, Raka: 1, Sasa: 0, Bagas: 3, Nadia: 1 },
       mine: null,
     },
     meetup: {
-      title: "Ngopi + ngobrol santai ☕",
-      place: "📍 Kopi Senja — deket gerbang belakang",
+      title: "Coffee + a chill chat ☕",
+      place: "📍 Dusk Coffee — near the back gate",
       options: [
-        { id: "a", label: "Jumat 16:00", voters: ["🌸", "🎧"] },
-        { id: "b", label: "Sabtu 10:00", voters: ["🐱", "⚡", "🌙"] },
-        { id: "c", label: "Sabtu 19:00", voters: [] },
+        { id: "a", label: "Fri 16:00", voters: ["🌸", "🎧"] },
+        { id: "b", label: "Sat 10:00", voters: ["🐱", "⚡", "🌙"] },
+        { id: "c", label: "Sat 19:00", voters: [] },
       ],
       mine: null,
       locked: false,
@@ -104,10 +104,10 @@
   function addMoment(text) {
     state.moments.unshift({
       id: "u" + Date.now(),
-      who: "Kamu",
+      who: "You",
       avatar: state.you.avatar,
       mood: currentMood,
-      time: "baru saja",
+      time: "just now",
       text,
       reactions: { "❤️": 0, "😂": 0, "🔥": 0, "🙌": 0 },
       mine: [],
@@ -116,7 +116,7 @@
     const first = $("#feed .card");
     if (first) first.classList.add("pop");
     bumpStreak();
-    toast("Momen dibagikan ke lingkaran ✨");
+    toast("Moment shared with your circle ✨");
   }
 
   function renderGame() {
@@ -161,7 +161,7 @@
         const chosen = state.meetup.locked && state.meetup.chosen === o.id;
         const count = o.voters.length + (mine ? 1 : 0);
         return `<button class="mopt ${mine ? "mine" : ""} ${chosen ? "chosen" : ""}" data-id="${o.id}" ${state.meetup.locked ? "disabled" : ""}>
-            <span class="mlabel">${o.label}${chosen ? " · terkunci ✅" : ""}</span>
+            <span class="mlabel">${o.label}${chosen ? " · locked ✅" : ""}</span>
             <span class="mvoters">${o.voters.map((a) => `<i>${a}</i>`).join("")}${mine ? `<i class="me">${state.you.avatar}</i>` : ""}</span>
             <span class="mcount">${count}</span>
           </button>`;
@@ -172,12 +172,12 @@
     const lockBtn = $("#meetup-lock");
     if (state.meetup.locked) {
       const o = state.meetup.options.find((x) => x.id === state.meetup.chosen);
-      st.innerHTML = `<div class="locked">🎉 Fix! <b>${o.label}</b> di Kopi Senja.<br/>Reminder otomatis dikirim H-1 &amp; 2 jam sebelumnya ⏰</div>`;
+      st.innerHTML = `<div class="locked">🎉 It's on! <b>${o.label}</b> at Dusk Coffee.<br/>Auto reminders sent 1 day &amp; 2 hours before ⏰</div>`;
       lockBtn.disabled = true;
-      lockBtn.textContent = "Sudah dikunci ✅";
+      lockBtn.textContent = "Locked in ✅";
     } else if (state.meetup.mine) {
       const o = state.meetup.options.find((x) => x.id === state.meetup.mine);
-      st.innerHTML = `<div class="picked">Kamu pilih <b>${o.label}</b> ✅</div>`;
+      st.innerHTML = `<div class="picked">You picked <b>${o.label}</b> ✅</div>`;
     } else {
       st.innerHTML = "";
     }
@@ -191,11 +191,11 @@
 
   function lockMeetup() {
     if (state.meetup.locked) return;
-    if (!state.meetup.mine) { toast("Pilih satu waktu dulu ya 🙂"); return; }
+    if (!state.meetup.mine) { toast("Pick a time first 🙂"); return; }
     state.meetup.locked = true;
     state.meetup.chosen = state.meetup.mine;
     renderMeetup();
-    toast("Waktu dikunci! Ngabarin lingkaran… 📣");
+    toast("Time locked! Notifying your circle… 📣");
   }
 
   function bumpStreak() {
@@ -232,7 +232,7 @@
     $("#compose-btn").addEventListener("click", () => {
       const ta = $("#compose-text");
       const text = ta.value.trim();
-      if (!text) { toast("Tulis dulu momennya 🙂"); return; }
+      if (!text) { toast("Write your moment first 🙂"); return; }
       addMoment(text);
       ta.value = "";
     });

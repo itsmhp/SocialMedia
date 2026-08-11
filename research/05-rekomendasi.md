@@ -1,57 +1,57 @@
-# 5. Rekomendasi untuk Platform-mu
+# 5. Recommendations for Your Platform
 
-[⬅️ 4. Peluang](04-peluang-whitespace.md) · [Indeks](README.md)
+[⬅️ 4. Opportunity](04-peluang-whitespace.md) · [Index](README.md)
 
-> **Pembaruan 11 Agustus 2026:** validasi independen GPT-5.6 Sol mengubah rekomendasi menjadi **Rencana-first**. Dokumen ini adalah jalur pemikiran awal; keputusan terbaru ada di [`../validation/`](../validation/README.md) dan [`../concept/`](../concept/README.md).
+> **Update 11 August 2026:** GPT-5.6 Sol's independent validation shifts the recommendation to **Plan-first**. This document is the early line of thinking; the latest decision is in [`../validation/`](../validation/README.md) and [`../concept/`](../concept/README.md).
 
-Konteksmu: *seru-seruan, buat semua orang, fokus cari user dulu.* Terjemahannya jadi strategi:
+Your context: *fun, for everyone, focus on finding users first.* Translated into strategy:
 
-1. **"Buat semua orang" = tujuan, bukan start.** Pilih **1 beachhead** (komunitas padat yang kamu paham).
-2. **Tentukan "atom"-nya** — unit inti: momen harian? klip pendek? prompt main bareng? Pilih satu.
-3. **Rancang loop harian yang menaikkan mood** (*social health by design*) — sukses = "aku merasa lebih baik & terhubung", bukan "aku dapat banyak like".
-4. **Mesin pertumbuhan built-in** — ada **nilai walau sendiri**, lalu **ajakan** yang natural.
-5. **Kaitkan ke dunia nyata** (hook IRL) — pembeda kuat & anti-sepi.
-6. **Mobile-first & dekat messaging** (realita Indonesia).
-7. **Keamanan & moderasi sejak hari-1** — apalagi jika menyentuh anak muda.
-8. **Human-first sebagai diferensiasi.** Produk dirancang **100% buatan manusia**; di tengah kelelahan & "AI slop", pendekatan *human-first* justru jadi pembeda (lihat [`../concept/`](../concept/README.md)).
+1. **"For everyone" = the goal, not the start.** Pick **1 beachhead** (a dense community you understand).
+2. **Define the "atom"** — the core unit: a daily moment? a short clip? a play-together prompt? Pick one.
+3. **Design a daily loop that lifts the mood** (*social health by design*) — success = "I feel better & connected", not "I got lots of likes".
+4. **A built-in growth engine** — there's **value even when alone**, then a natural **invitation**.
+5. **Tie it to the real world** (an IRL hook) — a strong differentiator and antidote to emptiness.
+6. **Mobile-first & close to messaging** (Indonesia's reality).
+7. **Safety & moderation from day 1** — especially if it touches young people.
+8. **Human-first as differentiation.** The product is designed to be **100% human-made**; amid fatigue & "AI slop", a *human-first* approach becomes the very thing that sets it apart (see [`../concept/`](../concept/README.md)).
 
 ```mermaid
 flowchart LR
-    A[Nilai solo<br/>berguna walau sendiri] --> B[Ajak teman<br/>undang/invite]
-    B --> C[Interaksi grup kecil<br/>campfire]
-    C --> D[Kebiasaan harian<br/>daily loop]
-    D --> E[Aktivitas/konten baru]
+    A[Solo value<br/>useful even alone] --> B[Invite friends<br/>invitation]
+    B --> C[Small-group interaction<br/>campfire]
+    C --> D[Daily habit<br/>daily loop]
+    D --> E[New activity/content]
     E --> B
 ```
 
 ```mermaid
 journey
-    title Contoh Daily Loop yang Sehat
-    section Pagi
-      Notifikasi hangat bukan bikin cemas: 4: Pengguna
-      Lihat kabar teman dekat: 5: Pengguna
-    section Siang
-      Ikut prompt / main bareng: 5: Pengguna
-    section Malam
-      Bagikan momen apa adanya: 4: Pengguna
-      Rencana hangout IRL: 3: Pengguna
+    title Example of a Healthy Daily Loop
+    section Morning
+      Warm notification not anxiety-inducing: 4: User
+      See close friends' updates: 5: User
+    section Midday
+      Join a prompt / play together: 5: User
+    section Night
+      Share an unpolished moment: 4: User
+      Plan an IRL hangout: 3: User
 ```
 
 ```mermaid
 timeline
-    title Roadmap Bertahap - Growth First
-    Fase 0 : Pilih beachhead & atom : 1 komunitas padat
-    Fase 1 : MVP loop harian : nilai solo + grup kecil
-    Fase 2 : Growth loops : undangan, remix, hook IRL
-    Fase 3 : Ekspansi : dari 1 suku ke banyak komunitas
+    title Phased Roadmap - Growth First
+    Phase 0 : Pick beachhead & atom : 1 dense community
+    Phase 1 : MVP daily loop : solo value + small group
+    Phase 2 : Growth loops : invitations, remix, IRL hook
+    Phase 3 : Expansion : from 1 tribe to many communities
 ```
 
-## Risiko yang harus diwaspadai
+## Risks to watch for
 
-- **Cold-start** (sepi di awal) & **retensi** (bukan cuma akuisisi).
-- **Moderasi & keamanan** (anak, konten berbahaya) — andalkan desain sosial + tinjauan manusia (lihat [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md)).
-- **Risiko dianggap "kurang canggih"** → jadikan *human-first* sebagai kekuatan, bukan kelemahan.
+- **Cold-start** (empty at first) & **retention** (not just acquisition).
+- **Moderation & safety** (children, harmful content) — rely on social design + human review (see [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md)).
+- **Risk of being seen as "not sophisticated enough"** → make *human-first* a strength, not a weakness.
 
-## Langkah berikutnya
+## Next steps
 
-Beachhead dipersempit ke grup 4–12 maba di satu kampus yang dapat dijangkau founder; atom kini **Rencana**, bukan Momen harian. Berikutnya jalankan [eksperimen 14 hari tanpa aplikasi](../validation/02-eksperimen-14-hari.md).
+The beachhead is narrowed to a group of 4–12 first-year students at one founder-accessible campus; the atom is now the **Plan**, not the daily Moment. Next, run the [14-day no-app experiment](../validation/02-eksperimen-14-hari.md).

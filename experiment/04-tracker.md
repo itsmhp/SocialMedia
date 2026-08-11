@@ -1,49 +1,49 @@
-# 4. Tracker & Dashboard GO / ITERATE / KILL
+# 4. Tracker & GO / ITERATE / KILL Dashboard
 
-[⬅️ 3. Template WhatsApp](03-template-whatsapp.md) · [Kit](README.md)
+[⬅️ 3. WhatsApp templates](03-template-whatsapp.md) · [Kit](README.md)
 
-Gunakan [tracker-template.csv](tracker-template.csv) (impor ke Google Sheets / Excel). Satu **baris = satu Rencana**.
+Use [tracker-template.csv](tracker-template.csv) (import into Google Sheets / Excel). One **row = one Plan**.
 
-## Kolom
+## Columns
 
-| Kolom | Arti |
+| Column | Meaning |
 | --- | --- |
-| `plan_id` | ID rencana (P01, P02, ...) |
-| `host` | nama host |
-| `komunitas` | kampus / komunitas |
-| `aktivitas` | mau ngapain |
-| `tgl_dibuat` | tanggal rencana dibuat |
-| `undangan_terkirim` | jumlah orang diundang |
-| `vote_masuk` | jumlah yang ikut voting |
-| `dikunci` | Y/N — waktu & tempat final diumumkan |
-| `rsvp_ya` | jumlah yang komit hadir |
-| `hadir` | jumlah yang benar-benar check-in |
-| `rencana_jadi` | Y jika terlaksana dengan **>= 3 hadir** |
-| `peserta_ulang` | dari peserta ini, berapa yang ikut rencana ke-2 |
-| `peserta_jadi_host` | berapa peserta yang lalu **bikin** rencana sendiri |
-| `catatan` | alasan batal / no-show, dll. |
+| `plan_id` | plan ID (P01, P02, ...) |
+| `host` | host name |
+| `community` | campus / community |
+| `activity` | what you'll do |
+| `date_created` | date the plan was created |
+| `invites_sent` | number of people invited |
+| `votes_in` | number who voted |
+| `locked` | Y/N — final time & place announced |
+| `rsvp_yes` | number who committed to attend |
+| `attended` | number who actually checked in |
+| `plan_happened` | Y if it happened with **>= 3 attending** |
+| `repeat_participants` | of these participants, how many joined a 2nd plan |
+| `participant_became_host` | how many participants then **created** their own plan |
+| `notes` | reason for cancellation / no-show, etc. |
 
-## Metrik & ambang
+## Metrics & thresholds
 
-| Metrik | Rumus | PASS |
+| Metric | Formula | PASS |
 | --- | --- | ---: |
-| Aktivasi host | host unik dgn >=1 rencana / 8 | >= 5/8 |
-| Respons voting/RSVP | SUM(vote_masuk) / SUM(undangan_terkirim) | >= 40% |
-| Rencana jadi | COUNT(rencana_jadi=Y) / COUNT(baris) | >= 50% |
-| Kehadiran | SUM(hadir) / SUM(rsvp_ya) | >= 60% |
-| Repeat participant | SUM(peserta_ulang) / peserta unik | >= 30% |
-| Peserta -> host | SUM(peserta_jadi_host) / peserta unik | >= 25% |
+| Host activation | unique hosts with >=1 plan / 8 | >= 5/8 |
+| Vote/RSVP response | SUM(votes_in) / SUM(invites_sent) | >= 40% |
+| Plans that happen | COUNT(plan_happened=Y) / COUNT(rows) | >= 50% |
+| Attendance | SUM(attended) / SUM(rsvp_yes) | >= 60% |
+| Repeat participant | SUM(repeat_participants) / unique participants | >= 30% |
+| Participant -> host | SUM(participant_became_host) / unique participants | >= 25% |
 
-Contoh formula Google Sheets (baris data mulai dari 2):
+Example Google Sheets formulas (data rows start at 2):
 
-- Rencana jadi: `=COUNTIF(K2:K, "Y") / COUNTA(A2:A)`
-- Kehadiran: `=SUM(J2:J) / SUM(I2:I)`
-- Respons: `=SUM(G2:G) / SUM(F2:F)`
+- Plans that happen: `=COUNTIF(K2:K, "Y") / COUNTA(A2:A)`
+- Attendance: `=SUM(J2:J) / SUM(I2:I)`
+- Response: `=SUM(G2:G) / SUM(F2:F)`
 
-## Keputusan
+## Decision
 
-- **GO** — aktivasi, rencana-jadi, dan kehadiran **lulus**, plus minimal **satu** metrik pertumbuhan (repeat atau peserta->host) lulus → bangun MVP tipis (create / vote / lock / RSVP / check-in).
-- **ITERATE** — rencana-jadi lulus tapi pertumbuhan gagal → fokus ke kru aktivitas berulang atau alat organisasi kampus.
-- **KILL** — aktivasi < 5/8 **atau** rencana-jadi < 50% → hentikan tesis app sosial; masalah / wedge belum cukup kuat.
+- **GO** — activation, plans-that-happen, and attendance **pass**, plus at least **one** growth metric (repeat or participant->host) passes → build a thin MVP (create / vote / lock / RSVP / check-in).
+- **ITERATE** — plans-that-happen passes but growth fails → focus on recurring-activity crews or campus organization tools.
+- **KILL** — activation < 5/8 **or** plans-that-happen < 50% → stop the social app thesis; the problem / wedge isn't strong enough.
 
-> Pertanyaan kualitatif wajib di tiap host: **"Tanpa bantuan kami, rencana ini tetap terjadi?"** Jawaban "ya, tetap terjadi" = sinyal WhatsApp saja sudah cukup (waspada).
+> Mandatory qualitative question for every host: **"Without our help, would this plan still have happened?"** An answer of "yes, it still would" = a signal that WhatsApp alone is enough (be cautious).

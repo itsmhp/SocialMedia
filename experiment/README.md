@@ -1,51 +1,51 @@
-# Experiment Kit — Uji 14 Hari (Tanpa Kode)
+# Experiment Kit — 14-Day Test (No Code)
 
-Perkakas **siap-pakai** untuk menjalankan [eksperimen 14 hari](../validation/02-eksperimen-14-hari.md) yang menjadi gerbang **GO** sebelum membangun aplikasi Unggun v2.
+A **ready-to-use** toolkit for running the [14-day experiment](../validation/02-eksperimen-14-hari.md) that serves as the **GO** gate before building the Unggun v2 app.
 
-> Prinsip: **tidak menulis kode.** Semua lewat WhatsApp + 2 form kecil (Tally/Google Forms) + 1 spreadsheet.
+> Principle: **no writing code.** Everything runs through WhatsApp + 2 small forms (Tally/Google Forms) + 1 spreadsheet.
 
-## Kenapa ini "pilihan terbaik" sekarang
+## Why this is the "best choice" right now
 
-Validasi GPT-5.6 Sol menempatkan **membangun prototipe/aplikasi sebagai langkah SETELAH permintaan terbukti**. Cara termurah dan tercepat untuk tahu apakah ide ini nyata adalah **menguji apakah rencana benar-benar terjadi** — bukan bikin app dulu. Kalau lolos, kita bangun. Kalau gagal, kita hemat berminggu-minggu koding.
+The GPT-5.6 Sol validation places **building the prototype/app as the step AFTER demand is proven**. The cheapest and fastest way to know whether this idea is real is to **test whether plans actually happen** — not to build the app first. If it passes, we build. If it fails, we save weeks of coding.
 
-## Satu-satunya yang harus KAMU putuskan
+## The only thing YOU need to decide
 
-Pilih **1 komunitas padat yang bisa kamu jangkau langsung**:
+Pick **1 tight-knit community you can reach directly**:
 
-- kampus / angkatan / kelas / UKM tempat kamu berada, **atau**
-- komunitas hobi (lari, buku, band, game) yang kamu ikut aktif.
+- the campus / cohort / class / student club you belong to, **or**
+- a hobby community (running, books, band, games) you're actively part of.
 
-Sisanya (skrip, form, template, tracker) sudah disiapkan di kit ini dan berlaku untuk komunitas mana pun.
+Everything else (scripts, forms, templates, tracker) is already prepared in this kit and works for any community.
 
-## Isi kit
+## Kit contents
 
-1. [Rekrutmen 8 host](01-rekrutmen-host.md)
-2. [Buat & voting Rencana](02-buat-dan-voting-rencana.md)
-3. [Template WhatsApp siap salin](03-template-whatsapp.md)
-4. [Tracker & dashboard GO/ITERATE/KILL](04-tracker.md) + [CSV](tracker-template.csv)
+1. [Recruit 8 hosts](01-rekrutmen-host.md)
+2. [Create & vote on Plans](02-buat-dan-voting-rencana.md)
+3. [Ready-to-copy WhatsApp templates](03-template-whatsapp.md)
+4. [Tracker & GO/ITERATE/KILL dashboard](04-tracker.md) + [CSV](tracker-template.csv)
 
-## Alur 14 hari (ringkas)
+## 14-day flow (summary)
 
 ```mermaid
 flowchart LR
-    A[Hari 1-2<br/>rekrut 8 host] --> B[Hari 3-7<br/>buat Rencana + voting]
-    B --> C[Hari 8-11<br/>reminder + hadir + check-in]
-    C --> D[Hari 12-14<br/>recap + ajak ulang]
-    D --> E{Ambang GO?}
-    E -->|Ya| F[Bangun MVP tipis]
-    E -->|Sebagian| G[Iterate: kru/organisasi]
-    E -->|Tidak| H[Kill tesis app sosial]
+    A[Days 1-2<br/>recruit 8 hosts] --> B[Days 3-7<br/>create Plans + vote]
+    B --> C[Days 8-11<br/>reminder + attend + check-in]
+    C --> D[Days 12-14<br/>recap + re-invite]
+    D --> E{GO threshold?}
+    E -->|Yes| F[Build thin MVP]
+    E -->|Partial| G[Iterate: crew/organization]
+    E -->|No| H[Kill the social app thesis]
 ```
 
-## Ambang lulus (ringkas)
+## Passing thresholds (summary)
 
-| Metrik | PASS |
+| Metric | PASS |
 | --- | ---: |
-| Aktivasi host | >= 5 dari 8 |
-| Respons voting/RSVP | >= 40% |
-| Rencana jadi | >= 50% |
-| Kehadiran | >= 60% RSVP "ya" |
+| Host activation | >= 5 of 8 |
+| Vote/RSVP response | >= 40% |
+| Plans that happen | >= 50% |
+| Attendance | >= 60% of "yes" RSVPs |
 | Repeat participant | >= 30% |
-| Peserta -> host organik | >= 25% |
+| Participant -> organic host | >= 25% |
 
-Detail rumus dan keputusan ada di [tracker](04-tracker.md).
+Formula details and decisions are in the [tracker](04-tracker.md).

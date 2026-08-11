@@ -1,40 +1,40 @@
-# 1. Rekrutmen 8 Host
+# 1. Recruit 8 Hosts
 
-[⬅️ Kit](README.md) · [2. Buat & voting Rencana ➡️](02-buat-dan-voting-rencana.md)
+[⬅️ Kit](README.md) · [2. Create & vote on Plans ➡️](02-buat-dan-voting-rencana.md)
 
-Target: **8 host** yang punya grup nyata **4–12 teman**, dikonfirmasi dalam **2 hari**.
+Target: **8 hosts** who have a real group of **4–12 friends**, confirmed within **2 days**.
 
-## Kriteria host yang bagus
+## What makes a good host
 
-- Punya "geng" yang **sering ingin** nongkrong / makan / belajar / olahraga bareng.
-- Dalam **30 hari terakhir** pernah punya rencana yang **gagal jadi** ("wacana").
-- Mau bantu uji 2 minggu (santai, bukan komitmen berat).
+- Has a "crew" that **often wants** to hang out / eat / study / exercise together.
+- In the **last 30 days** has had a plan that **fell through** ("just talk").
+- Willing to help test for 2 weeks (casual, not a heavy commitment).
 
-## Di mana mencari
+## Where to look
 
-- Teman sekelas / satu angkatan / satu jurusan.
-- UKM / organisasi / kepanitiaan.
-- Teman kos / kontrakan.
-- Komunitas hobi (kalau itu beachhead pilihanmu).
+- Classmates / same cohort / same major.
+- Student clubs / organizations / committees.
+- Boarding-house / housemates.
+- Hobby community (if that's your chosen beachhead).
 
-## Wawancara 3 menit (ukur "masalahnya nyata")
+## 3-minute interview (gauge "the problem is real")
 
-Tanya calon host:
+Ask the prospective host:
 
-1. "Terakhir kali kalian **batal** hangout gara-gara susah nyocokin waktu, kapan?"
-2. "Biasanya ngaturnya lewat apa? Ribet di bagian mana?"
-3. "Kalau ada yang bikin gampang nentuin waktu + mastiin orang dateng, kepake nggak?"
+1. "When was the last time you **canceled** a hangout because it was hard to match schedules?"
+2. "How do you usually organize it? Which part is the hassle?"
+3. "If something made it easy to pick a time + make sure people show up, would you use it?"
 
-> Kalau ia **tidak** ingat pernah gagal bikin rencana, ia **bukan** host yang tepat. Cari yang masalahnya terasa.
+> If they **don't** recall ever having a plan fall through, they're **not** the right host. Look for someone who feels the problem.
 
-## Skrip ajakan (WhatsApp / DM)
+## Invite script (WhatsApp / DM)
 
-> Bro/sis, aku lagi coba hal kecil buat 2 minggu ke depan: bantuin geng biar rencana nongkrong / belajar / olahraga **beneran jadi**, bukan wacana. Gak ribet, gak perlu install apa-apa — cukup lewat WA grup kalian. Mau jadi salah satu yang nyoba? Butuh kamu + 4–12 temen deket.
+> Hey! I'm trying a little something over the next 2 weeks: helping crews actually make their hangout / study / workout plans **happen** instead of just talking about them. No hassle, nothing to install — it all runs in your WhatsApp group. Want to be one of the testers? I just need you + 4–12 close friends.
 
-## Target hari 1–2
+## Days 1–2 target
 
-| Target | Angka |
+| Target | Number |
 | --- | ---: |
-| Host diajak | 12–15 |
-| Host konfirmasi ikut | >= 8 |
-| Total undangan (peserta) terkumpul | >= 60 |
+| Hosts invited | 12–15 |
+| Hosts confirmed | >= 8 |
+| Total invites (participants) gathered | >= 60 |

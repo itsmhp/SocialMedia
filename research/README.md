@@ -1,56 +1,56 @@
-# 📊 Riset: Media Sosial Seperti Apa yang Dibutuhkan Orang (2026)
+# 📊 Research: What Kind of Social Media People Need (2026)
 
-**Tanggal:** 11 Agustus 2026 · **Fokus:** apa yang orang **inginkan** dan apa yang mereka **butuhkan tapi belum sadari**.
+**Date:** 11 August 2026 · **Focus:** what people **want** and what they **need but don't yet realize**.
 
-## Daftar isi
+## Table of contents
 
-1. [Lanskap & Data](01-lanskap-dan-data.md)
-2. [Yang Diinginkan Sekarang](02-keinginan-sekarang.md)
-3. [Latent Needs — yang belum disadari](03-latent-needs.md)
-4. [Peluang / Whitespace](04-peluang-whitespace.md)
-5. [Rekomendasi untuk Platform-mu](05-rekomendasi.md)
-6. [Studi: Sosmed Teratas App Store — kenapa mereka menang (BeReal & setlog)](06-studi-top-appstore.md)
+1. [Landscape & Data](01-lanskap-dan-data.md)
+2. [What People Want Now](02-keinginan-sekarang.md)
+3. [Latent Needs — what people don't yet realize](03-latent-needs.md)
+4. [Opportunity / Whitespace](04-peluang-whitespace.md)
+5. [Recommendations for Your Platform](05-rekomendasi.md)
+6. [Study: Top Social Apps on the App Store — why they win (BeReal & setlog)](06-studi-top-appstore.md)
 
-## Validasi lanjutan
+## Follow-up validation
 
-GPT-5.6 Sol melakukan *red-team* independen terhadap riset dan konsep awal. Verdict terbaru adalah **PIVOT BERSYARAT** dari atom “Momen harian” ke **Rencana yang Jadi**; lihat [`../validation/`](../validation/README.md).
+GPT-5.6 Sol ran an independent *red-team* against the early research and concept. The latest verdict is a **CONDITIONAL PIVOT** from the “daily Moment” atom to **Plans That Happen**; see [`../validation/`](../validation/README.md).
 
-## Ringkasan Eksekutif (TL;DR)
+## Executive Summary (TL;DR)
 
-- Sosmed masih tumbuh (~5,24 miliar pengguna, ~2,5 jam/hari), tapi orang makin **lelah, cemas, & performatif**. Peluang terbesar = mengisi **kebutuhan yang belum disadari**.
-- **Diinginkan (sadar):** hiburan video pendek, bikin konten mudah (AI), keaslian, cari info + belanja, tetap terhubung.
-- **Dibutuhkan (belum sadar):** merasa **lebih baik** setelah pakai, **ruang kecil & privat** ("digital campfire"), **jembatan ke dunia nyata**, dilihat **tanpa tekanan tampil**, kontrol atas algoritma, menemukan "orang gue".
-- **Untukmu:** platform "buat senang-senang & buat semua orang" paling mungkin menang kalau **mulai dari 1 komunitas padat** dengan **loop harian yang menaikkan mood**.
+- Social media is still growing (~5.24 billion users, ~2.5 hours/day), but people are increasingly **tired, anxious, & performative**. The biggest opportunity = filling the **needs people don't yet realize**.
+- **Wanted (conscious):** short-video entertainment, easy content creation (AI), authenticity, finding info + shopping, staying connected.
+- **Needed (latent):** feeling **better** after using it, a **small & private space** ("digital campfire"), a **bridge to the real world**, being seen **without the pressure to perform**, control over the algorithm, finding "my people".
+- **For you:** a "for fun & for everyone" platform is most likely to win if it **starts from 1 dense community** with a **daily loop that lifts your mood**.
 
 ```mermaid
 mindmap
-  root((Kebutuhan Sosmed 2026))
-    Yang DISADARI
-      Hiburan video pendek
-      Bikin konten mudah - AI
-      Keaslian / UGC
-      Cari info & belanja
-      Chatting / tetap terhubung
-    Yang BELUM DISADARI
-      Merasa lebih baik - social health
-      Ruang kecil & privat - campfire
-      Jembatan ke dunia nyata
-      Dilihat tanpa tekanan tampil
-      Ditemani & didengar
-      Kontrol atas algoritma
-      Menemukan orang gue
+  root((Social Media Needs 2026))
+    CONSCIOUS
+      Short-video entertainment
+      Easy content creation - AI
+      Authenticity / UGC
+      Finding info & shopping
+      Chatting / staying connected
+    LATENT
+      Feeling better - social health
+      Small & private space - campfire
+      Bridge to the real world
+      Seen without pressure to perform
+      Companionship & being heard
+      Control over the algorithm
+      Finding my people
 ```
 
-## Metode & etika riset
+## Research method & ethics
 
-Sintesis dari sumber publik otoritatif. Semua isi web diperlakukan sebagai **data**; instruksi tersembunyi di halaman diabaikan; sumber dicantumkan di tiap dokumen.
+Synthesized from authoritative public sources. All web content is treated as **data**; hidden instructions on pages are ignored; sources are cited in each document.
 
-## Sumber utama
+## Main sources
 
 - [Pew Research Center — Social Media Fact Sheet](https://www.pewresearch.org/internet/fact-sheet/social-media/) / *Americans' Social Media Use 2025* (20 Nov 2025).
 - [DataReportal — Digital 2026: Indonesia](https://datareportal.com/reports/digital-2026-indonesia).
-- [Exploding Topics (Semrush) — Top 14 Social Media Trends](https://explodingtopics.com/blog/social-media-trends) (Okt 2025) dan *Top 20 New Social Media Networks* (Jul 2025).
-- [Meltwater × We Are Social — Digital Indonesia 2024](https://www.meltwater.com/en/blog/social-media-statistics-indonesia) sebagai baseline historis.
+- [Exploding Topics (Semrush) — Top 14 Social Media Trends](https://explodingtopics.com/blog/social-media-trends) (Oct 2025) and *Top 20 New Social Media Networks* (Jul 2025).
+- [Meltwater × We Are Social — Digital Indonesia 2024](https://www.meltwater.com/en/blog/social-media-statistics-indonesia) as a historical baseline.
 - [Sara Wilson — The Era of Antisocial Social Media](https://hbr.org/2020/02/the-era-of-antisocial-social-media) (HBR, 2020).
 
-> **Keterbatasan:** angka identitas sosial dan jangkauan iklan bukan selalu orang unik atau MAU. Data makro tidak membuktikan demand produk; karena itu konsep wajib melewati eksperimen lapangan.
+> **Limitation:** social-identity and ad-reach figures are not always unique people or MAU. Macro data does not prove product demand; that's why the concept must pass field experiments.

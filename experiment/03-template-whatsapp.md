@@ -1,39 +1,39 @@
-# 3. Template WhatsApp (Siap Salin)
+# 3. WhatsApp Templates (Ready to Copy)
 
-[⬅️ 2. Buat & voting](02-buat-dan-voting-rencana.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
+[⬅️ 2. Create & vote](02-buat-dan-voting-rencana.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
 
-Ganti `[...]` sesuai rencana. Nada santai; sesuaikan dengan gaya grupmu. Semua ditulis & dikirim manusia.
+Replace `[...]` to fit the plan. Casual tone; adjust to your group's style. Everything is written & sent by a human.
 
-## a. Ajakan awal (host → grup)
+## a. Initial invite (host → group)
 
-> Guys, ayo kita **[aktivitas]** bareng! Aku rapihin biar beneran jadi, bukan wacana 😅 Bentar ya, aku sebar polling waktunya.
+> Guys, let's **[activity]** together! I'll sort it out so it actually happens instead of being just talk 😅 Hang on, I'll drop a poll for the time.
 
-## b. Caption poll waktu
+## b. Time-poll caption
 
-> Kapan kita **[aktivitas]**? Tandai **semua** yang kamu bisa 👇
+> When should we **[activity]**? Mark **all** the times you can make 👇
 
-## c. Kunci waktu
+## c. Lock the time
 
-> Fix ya! **[aktivitas]** · **[hari, tgl, jam]** · **[tempat/patokan]**. Yang dateng, react ✅ atau ketik "gas".
+> It's set! **[activity]** · **[day, date, time]** · **[place/landmark]**. If you're coming, react ✅ or type "I'm in".
 
-## d. Reminder H-1
+## d. Reminder 1 day before
 
-> Reminder: besok **[aktivitas]** jam **[jam]** di **[tempat]**. Sampai ketemu 🙌
+> Reminder: tomorrow **[activity]** at **[time]** at **[place]**. See you there 🙌
 
-## e. Reminder H-2 jam
+## e. Reminder 2 hours before
 
-> 2 jam lagi ya **[aktivitas]** di **[tempat]**. Otw pelan-pelan 🚶
+> 2 hours to go until **[activity]** at **[place]**. Start heading over 🚶
 
-## f. Check-in (hari-H, di grup)
+## f. Check-in (day of, in the group)
 
-> Yang udah sampai, share lokasi / foto di sini ya 📍
+> Whoever's arrived, drop your location / a photo here 📍
 
-Alternatif terukur (opsional): absensi 10 detik → `[link Tally check-in]`.
+Measurable alternative (optional): a 10-second check-in → `[Tally check-in link]`.
 
-## g. Recap (setelah acara)
+## g. Recap (after the event)
 
-> Seru tadi! Drop **1 foto** favorit / **1 kata** buat hari ini 📸
+> That was fun! Drop **1 favorite photo** / **1 word** for today 📸
 
-## h. Ajak ulang (uji retensi)
+## h. Re-invite (retention test)
 
-> Kapan-kapan lagi? 😆 Siapa yang mau jadi **host** rencana minggu depan? Aku bantu bikinin pollingnya.
+> Let's do it again sometime? 😆 Who wants to **host** next week's plan? I'll help set up the poll.
