@@ -1,24 +1,27 @@
-# 🔥 Konsep Produk: "Unggun" — nongkrong online tanpa AI
+# Konsep Produk: Unggun v2 — bikin rencana jadi, tanpa AI
 
 > Nama kerja: **Unggun** (dari *api unggun*). Alternatif: **Bara**, **Riung**, **Kumpul**.
-> Status: konsep v1 — turunan langsung dari [riset](../research/README.md).
+> Status: **pivot bersyarat** setelah [validasi GPT-5.6 Sol](../validation/01-gpt-5.6-sol-validation.md). Belum layak dibangun penuh sebelum [eksperimen 14 hari](../validation/02-eksperimen-14-hari.md) lulus.
 
 ## Manifesto (positioning)
-**Unggun = ruang tamu, bukan panggung.** Tempat lingkaran kecil teman dekat berbagi momen jujur, main bareng, dan janjian ketemu — hangat, santai, dan **100% manusia**.
+
+**Unggun membantu grup kecil berhenti berkata “kapan-kapan” dan benar-benar bertemu.** Host membuat rencana, teman memilih waktu, semua berkomitmen, lalu menyimpan recap privat — hangat, ringan, dan **100% manusia**.
 
 - 🚫 **Tanpa AI.** Tidak ada chatbot, konten buatan mesin, feed/rekomendasi AI, atau moderasi AI. Semua dari & untuk manusia.
-- 🔒 **Lingkaran kecil, bukan siaran publik.** Default privat.
-- ⏹️ **Selesai, bukan tanpa henti.** Tidak ada *infinite scroll*; tiap hari ada awal & akhir.
-- 😌 **Bikin merasa lebih dekat & lebih baik**, bukan lebih insecure. Tak ada adu follower/like.
+- 🔒 **Rencana privat, bukan siaran publik.** Host mengundang orang yang relevan.
+- 🔗 **Bekerja lewat WhatsApp.** Tamu bisa voting dan RSVP dari tautan tanpa wajib instal.
+- ⏹️ **Selesai, bukan tanpa henti.** Tidak ada *infinite scroll* atau kewajiban posting harian.
+- 🤝 **Keberhasilan = orang benar-benar hadir**, bukan waktu layar, follower, atau like.
 
-> **Kenapa "tanpa AI" justru kekuatan?** Riset menunjukkan orang **lelah, cemas, & rindu keaslian** (lihat [latent needs](../research/03-latent-needs.md)). Di tengah banjir "AI slop", **human-first** adalah diferensiasi yang jujur dan langka.
+> **Peran “tanpa AI”:** prinsip kepercayaan dan batasan produk, bukan *wedge* akuisisi. Orang datang karena rencananya jadi; mereka bertahan karena produk menjaga koneksi tetap manusiawi.
 
 ## Inti konsep dalam 3 pertanyaan
+
 | Pertanyaan | Jawaban Unggun |
-|---|---|
-| **Atom** (unit inti) | **Momen** — 1 potret jujur harian (foto apa adanya / teks pendek / voice note) sebagai jawaban "Prompt Hari Ini". Ephemeral 24–48 jam. |
-| **Komunitas pertama** (beachhead) | **Mahasiswa (terutama maba) di 1 kampus** Indonesia — padat, muda, mobile-first, budaya nongkrong kuat. |
-| **Kenapa balik tiap hari** | **Loop harian yang hangat & selesai**: prompt → momen → reaksi teman → main bareng → janjian ketemu. |
+| --- | --- |
+| **Atom** (unit inti) | **Rencana** — aktivitas + area/tempat + 2–3 opsi waktu + daftar orang. |
+| **Komunitas pertama** (beachhead) | Grup **4–12 maba** di satu kampus yang dapat dijangkau founder dan sudah mengatur makan, belajar, olahraga, atau nongkrong lewat WhatsApp. |
+| **Kenapa kembali** | Rencana berikutnya lebih mudah dibuat, peserta bisa menjadi host, dan setiap pertemuan punya recap privat. Ritmenya event-driven, bukan dipaksa harian. |
 
 ```mermaid
 mindmap
@@ -29,51 +32,54 @@ mindmap
       Selesai bukan tanpa henti
       Merasa lebih baik
     Beachhead
-      Mahasiswa 1 kampus
-      Budaya nongkrong
+      Grup 4-12 maba
+      Satu kampus terjangkau
     Atom
-      Momen harian jujur
-      Prompt Hari Ini
+      Rencana
+      Aktivitas tempat opsi waktu
     Fitur inti
-      Reaksi playful
-      Mini-game grup
-      Ayo Ketemu - IRL
-      Streak dan Kenangan
+      Link via WhatsApp
+      Voting waktu
+      RSVP dan reminder
+      Check-in dan recap
     Anti-fitur
       Tak ada feed publik
       Tak ada follower atau like
       Tak ada algoritma
 ```
 
-## Daily loop
+## Loop Rencana
+
 ```mermaid
 journey
-    title Loop Harian Unggun
-    section Pagi
-      Notifikasi hangat Prompt Hari Ini: 4: Kamu
-      Posting Momen ke lingkaran: 5: Kamu
-    section Siang
-      Lihat Momen teman dekat: 5: Kamu
-      Reaksi playful dan mini-game: 5: Kamu
-    section Sore Malam
-      Ayo Ketemu rencana IRL: 4: Kamu
-      Lihat Kenangan mingguan: 4: Kamu
+    title Dari Wacana Menjadi Pertemuan
+    section Buat
+      Host membuat Rencana dalam 30 detik: 4: Host
+      Bagikan tautan ke WhatsApp: 5: Host
+    section Putuskan
+      Teman voting tanpa instal: 4: Teman
+      Host mengunci waktu dan tempat: 5: Host
+    section Hadir dan Ulang
+      Peserta check-in: 5: Semua
+      Recap privat dan buat versi berikutnya: 4: Semua
 ```
 
 ## Growth loop
+
 ```mermaid
 flowchart LR
-    A[Nilai solo<br/>streak dan Kenangan] --> B[Undang 3-8 teman dekat<br/>ke lingkaran]
-    B --> C[Lingkaran jadi hidup<br/>momen + main bareng]
-    C --> D[Kebiasaan harian]
-    D --> E[Teman lihat ini seru<br/>bikin lingkaran sendiri]
-    E --> F[Menyebar di kampus<br/>ambassador + Papan Kampus]
-    F --> B
+    A[Host membuat Rencana] --> B[Bagikan link<br/>ke WhatsApp]
+    B --> C[Teman voting dan hadir]
+    C --> D[Recap privat]
+    D --> E[Peserta membuat<br/>Rencana berikutnya]
+    E --> B
 ```
 
 ## Peta dokumen konsep
+
 1. [Fitur MVP (tanpa AI) + moderasi manusia](01-fitur-mvp-tanpa-ai.md)
 2. [Beachhead Indonesia + pemetaan latent needs](02-indonesia-dan-latent-needs.md)
 3. [Growth, metrik, roadmap, monetisasi-nanti](03-growth-metrik-roadmap.md)
+4. [Validasi independen & perbandingan konsep](../validation/README.md)
 
-> ✍️ Ini **proposal** — beachhead & atom bisa diganti. Kalau kamu lebih dekat ke komunitas hobi tertentu (bukan kampus), tinggal bilang; pola & fiturnya sama.
+> Ini hipotesis terbaik saat ini, bukan kebenaran. Bangun MVP hanya jika ambang [GO](../validation/02-eksperimen-14-hari.md#go) tercapai.

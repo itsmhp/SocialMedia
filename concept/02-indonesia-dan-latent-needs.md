@@ -3,31 +3,35 @@
 [⬅️ 1. Fitur MVP](01-fitur-mvp-tanpa-ai.md) · [Konsep](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrik-roadmap.md)
 
 ## Kenapa Indonesia + kampus?
+
 Dari [data lanskap](../research/01-lanskap-dan-data.md):
-- **Mobile-first ekstrem** — 353 jt koneksi seluler (126,8% populasi); ~6 jam/hari di HP.
-- **Hiburan-first & sosial** — alasan utama pakai sosmed: hiburan (58,9%) & kontak (57,1%).
-- **Messaging-first** — WhatsApp dibuka ~1.347×/bulan. *Pelajaran:* jangan lawan chat; **lengkapi** dengan momen + main bareng + janjian.
-- **Muda** — segmen terbesar 18–34.
+
+- DataReportal 2026 memperkirakan **230 jt pengguna internet** (80,5% penetrasi) dan **180 jt identitas sosial** pada akhir 2025.
+- APJII 2024 memperkirakan Gen Z sebagai kelompok pengguna internet terbesar (**34,4%**).
+- Indonesia tetap **muda dan mobile-first**, tetapi data makro tidak membuktikan demand Unggun.
+- Pelajaran produk: jangan lawan WhatsApp; gunakan WhatsApp sebagai jalur distribusi.
 
 **Kampus = beachhead ideal** (pola Facebook@Harvard, Fizz@Stanford):
-- Jaringan **padat & tertutup** → lingkaran cepat "hidup".
-- Maba lagi **cari teman & rasa memiliki** → butuh Unggun banget.
-- Budaya **nongkrong / ngariung** kuat → fitur "Ayo Ketemu" langsung relevan.
-- Mudah menyebar **kampus-ke-kampus** lewat ambassador.
+
+- Jaringan **padat** dan pertemuan berulang memberi lingkungan tes yang cepat.
+- Maba sering membangun ulang lingkaran sosial, tetapi intensitas masalah harus diwawancarai langsung.
+- Aktivitas makan, belajar, olahraga, dan nongkrong memberi use case berfrekuensi lebih tinggi daripada pesta besar.
+- Pilih kampus berdasarkan **akses founder**, bukan nama atau ukuran semata.
 
 > Alternatif beachhead kalau kamu lebih dekat ke sana: komunitas hobi padat (pecinta buku, komunitas lari/sepeda, fanbase, band lokal) atau geng SMA/kuliah. Pola & fitur sama.
 
 ## Pemetaan: Latent Need → Fitur Unggun (tanpa AI)
-| Latent need (riset) | Dijawab Unggun dengan | Pakai AI? |
-|---|---|---|
-| Merasa lebih baik (*social health*) | Loop selesai, tanpa vanity metric, prompt positif, Kenangan | ❌ |
-| Ruang kecil & privat (*campfire*) | Lingkaran kecil, default privat | ❌ |
-| Jembatan ke dunia nyata | **Ayo Ketemu** (rencana IRL) | ❌ |
-| Dilihat tanpa tekanan tampil | Momen apa adanya, ephemeral, tanpa filter wajib | ❌ |
-| **Ditemani & didengar** | **Teman manusia** di lingkaran — *bukan* AI companion | ❌ (justru inti positioning) |
-| Ekspresi diri & identitas | Kustomisasi lingkaran/profil (kosmetik) | ❌ |
-| Kontrol atas algoritma | Tidak ada algoritma; kronologis; kamu pilih lingkaran | ❌ |
-| Menemukan "orang gue" | Papan Kampus (komunitas) → tetap masuk via lingkaran kecil | ❌ |
-| Waktu yang berarti | Pengalaman harian **selesai**, bukan doomscroll | ❌ |
 
-➡️ Unggun menjawab **9 dari 9** latent need **tanpa satu pun fitur AI**. Kebutuhan "ditemani & didengar" — yang di pasar dijawab AI companion (Character.ai) — kita jawab dengan **koneksi manusia nyata**. Ini sekaligus **menghindari risiko keamanan & etika** AI companion.
+| Latent need (riset) | Dijawab Unggun dengan | Pakai AI? |
+| --- | --- | --- |
+| Merasa lebih baik (*social health*) | Mengoptimalkan pertemuan nyata, bukan waktu layar | ❌ |
+| Ruang kecil & privat (*campfire*) | Rencana berbasis undangan | ❌ |
+| Jembatan ke dunia nyata | Voting → komit → check-in | ❌ |
+| Dilihat tanpa tekanan tampil | Tidak ada feed atau vanity metric pada MVP | ❌ |
+| **Ditemani & didengar** | Pertemuan manusia nyata — bukan AI companion | ❌ |
+| Ekspresi diri & identitas | Bukan prioritas MVP | ❌ |
+| Kontrol atas algoritma | Tidak ada recommendation feed | ❌ |
+| Menemukan "orang gue" | Belum dijawab pada MVP; grup dibawa dari WhatsApp | ❌ |
+| Waktu yang berarti | Alur selesai ketika keputusan dan pertemuan terjadi | ❌ |
+
+➡️ Klaim lama “menjawab 9 dari 9” terlalu kuat. Unggun v2 fokus pada tiga kebutuhan yang paling konkret: **koordinasi, pertemuan nyata, dan hubungan privat**. Kebutuhan lain sengaja tidak dipaksakan ke MVP.

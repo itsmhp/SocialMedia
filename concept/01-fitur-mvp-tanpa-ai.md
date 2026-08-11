@@ -3,47 +3,53 @@
 [⬅️ Konsep](README.md) · [2. Indonesia & Latent Needs ➡️](02-indonesia-dan-latent-needs.md)
 
 ## Fitur inti MVP (semua non-AI, logika deterministik)
-1. **Lingkaran (Circle)** — grup kecil, kapasitas dibatasi (mis. maks 15–20). Default **privat**.
-2. **Prompt Hari Ini** — 1 ajakan ringan yang sama untuk semua ("Apa yang bikin kamu senyum hari ini?", "Foto langit dari tempatmu", "Lagu yang lagi diputar"). **Dikurasi manusia + usulan komunitas — bukan dibuat AI.**
-3. **Momen** — jawaban atas prompt: foto apa adanya / teks pendek / voice note manusia. **Ephemeral** (hilang 24–48 jam), tanpa filter estetik wajib.
-4. **Reaksi playful** — emoji, stiker, "tos", komentar singkat. Tanpa angka like publik.
-5. **Mini-game grup** — turn-based sederhana: tebak-tebakan, "paling mungkin...", polling. Aturan deterministik, **bukan AI**.
-6. **Ayo Ketemu** — papan rencana nongkrong IRL: waktu, tempat, RSVP. (Jembatan ke dunia nyata.)
-7. **Streak & Kenangan** — rekap personal mingguan yang bikin hangat. Berguna walau lingkaran belum ramai.
-8. **Verifikasi kampus (opsional)** — via email kampus, untuk mode komunitas kampus → identitas nyata, kurangi penyalahgunaan.
+
+1. **Buat Rencana ≤30 detik** — aktivitas, area/tempat, dan 2–3 opsi waktu.
+2. **Tautan tanpa instal** — host membagikan link ke WhatsApp; tamu tidak wajib punya akun untuk voting awal.
+3. **Voting waktu** — peserta memilih opsi yang bisa dihadiri.
+4. **Kunci rencana** — host menetapkan waktu/tempat dari hasil voting.
+5. **RSVP / komit hadir** — status jelas, bukan chat yang tenggelam.
+6. **Pengingat deterministik** — H-1 dan H-2 jam; aturan tetap, bukan AI.
+7. **Check-in sederhana** — kode/tombol pertemuan untuk mengukur Rencana Jadi.
+8. **Recap privat + ulang** — satu foto/kalimat opsional dan tombol “buat versi berikutnya”.
+
+## Bukan bagian aktivasi MVP
+
+Lingkaran permanen, Prompt Hari Ini, feed Momen, voice note, reaksi, mini-game, streak, Papan Kampus, dan verifikasi kampus ditunda sampai tes membuktikan bahwa Rencana benar-benar terjadi dan berulang.
 
 ## Anti-fitur (SENGAJA tidak dibuat)
+
 - ❌ **AI apa pun** — no chatbot, no AI feed/rekomendasi, no generasi konten, no moderasi AI.
-- ❌ **Feed publik & infinite scroll** — isi lingkaran terbatas & selesai.
+- ❌ **Feed publik & infinite scroll** — MVP tidak membutuhkan feed.
 - ❌ **Follower / like publik** — anti adu pamer & perbandingan.
 - ❌ **Algoritma manipulatif** — urutan **kronologis**; kamu yang pilih lingkaran.
 
 ## Moderasi TANPA AI
+
 Karena kita menolak moderasi AI, keamanan bertumpu pada **desain sosial**:
-1. **Lingkaran kecil + identitas kampus** → akuntabilitas sosial (bukan anonim massal).
-2. **Pemilik lingkaran = moderator** lingkarannya.
-3. **Ambassador / relawan kampus** untuk area komunitas.
-4. **Tombol lapor → tinjauan manusia** (SLA jelas).
-5. **Default privat** → permukaan serangan kecil.
+
+1. **Rencana privat berbasis undangan** → tidak ada discovery publik pada MVP.
+2. **Host mengontrol daftar peserta** dan dapat menghapus tamu.
+3. **Tautan dapat dirotasi/dinonaktifkan** jika tersebar di luar grup.
+4. **Tombol lapor → tinjauan manusia** dengan SLA jelas.
+5. **Data lokasi dibatasi** ke peserta yang diundang setelah rencana dikunci.
 
 > ⚖️ **Trade-off jujur:** moderasi manusia lebih lambat & mahal saat skala besar. Justru itu alasan **mulai kecil (1 kampus)** dan tumbuh terukur — bukan langsung "buat semua orang".
 
 ## Alur layar (MVP)
+
 ```mermaid
 flowchart TD
-    Start([Buka app]) --> Notif[Prompt Hari Ini]
-    Notif --> Post[Posting Momen<br/>foto/teks/voice]
-    Post --> Circle[Lihat Momen lingkaran<br/>kronologis, terbatas]
-    Circle --> React[Reaksi playful]
-    React --> Game{Main mini-game?}
-    Game -->|Ya| Play[Mini-game grup]
-    Game -->|Tidak| Meet
-    Play --> Meet[Ayo Ketemu - rencana IRL]
-    Meet --> Done([Selesai untuk hari ini])
+    Start([Host buka web/app]) --> Plan[Buat Rencana<br/>aktivitas + area + waktu]
+    Plan --> Share[Bagikan link ke WhatsApp]
+    Share --> Vote[Tamu voting tanpa instal]
+    Vote --> Lock[Host kunci waktu dan tempat]
+    Lock --> RSVP[Komit hadir + reminder]
+    RSVP --> Checkin[Check-in pertemuan]
+    Checkin --> Recap[Recap privat opsional]
+    Recap --> Repeat[Buat versi berikutnya]
 ```
 
-## "Bikin konten mudah" tanpa AI
-Kebutuhan pasar "bikin konten gampang" tetap kita penuhi — **tanpa AI**:
-- **Prompt harian** menghilangkan "bingung mau posting apa".
-- **Template momen** sederhana (frame, stiker, teks) — manual, cepat.
-- **Voice note & foto apa adanya** = effort rendah, keaslian tinggi.
+## Mengapa bukan sekadar WhatsApp
+
+Unggun tidak mengganti chat. Ia menang hanya jika lebih baik pada empat langkah: **mencari konsensus sebelum waktu ditetapkan, mengunci keputusan, mengukur komit hadir, dan memudahkan pengulangan setelah acara**. Bila eksperimen menunjukkan WhatsApp sudah cukup, tesis produk harus dihentikan.

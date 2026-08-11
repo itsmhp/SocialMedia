@@ -3,57 +3,59 @@
 [⬅️ 2. Indonesia & Latent Needs](02-indonesia-dan-latent-needs.md) · [Konsep](README.md)
 
 ## North-star metric
-Bukan DAU mentah, tapi **Lingkaran Aktif Sehat** = lingkaran dengan **≥3 anggota** yang saling berbagi Momen **≥3 hari/minggu**. Sejalan dengan prinsip *social health* (kualitas koneksi, bukan waktu-layar).
 
-Metrik pendukung: % undangan diterima, retensi minggu-4 per lingkaran, jumlah "Ayo Ketemu" yang benar-benar terjadi (IRL).
+Bukan DAU mentah, tetapi **Rencana Jadi** = rencana dengan **≥3 peserta yang check-in**.
+
+Metrik pendukung: aktivasi host, respons voting, rasio rencana terlaksana, kehadiran/RSVP, *repeat plan* 14/30 hari, dan konversi peserta→host.
 
 ## Growth loops
+
 ```mermaid
 flowchart LR
-    subgraph Solo
-    A[Streak dan Kenangan<br/>berguna walau sendiri]
-    end
-    subgraph Lingkaran
-    B[Undang 3-8 teman dekat] --> C[Lingkaran hidup]
-    end
-    subgraph Kampus
-    D[Papan Kampus + Ambassador] --> E[Lingkaran baru bermunculan]
-    end
-    A --> B
-    C --> F[Teman lihat, bikin lingkaran sendiri]
-    F --> D
+    A[Host membuat Rencana] --> B[Link dibagikan via WhatsApp]
+    B --> C[Peserta voting dan hadir]
+    C --> D[Recap privat]
+    D --> E[Peserta menjadi host]
     E --> B
 ```
 
 ## Roadmap bertahap (growth-first, bukan monetisasi-first)
+
 ```mermaid
 timeline
     title Roadmap Unggun
-    Fase 0 - Validasi : 1 kampus percontohan : 20-50 lingkaran seed
-    Fase 1 - MVP : Lingkaran + Prompt + Momen + Reaksi : loop harian
-    Fase 2 - Lengket : Mini-game + Ayo Ketemu + Kenangan : retensi
-    Fase 3 - Menyebar : Papan Kampus + ambassador : kampus-ke-kampus
-    Fase 4 - Ekspansi : buka kampus/komunitas lain : dari 1 suku ke banyak
+    Fase 0 - No-code : 8 host + 60 undangan : uji 14 hari
+    Fase 1 - MVP : buat + vote + lock + RSVP : link tanpa instal
+    Fase 2 - Outcome : reminder + check-in + recap : ukur Rencana Jadi
+    Fase 3 - Repeat : clone plan + peserta jadi host : retensi 30 hari
+    Fase 4 - Expand : kru aktivitas atau organisasi : kampus kedua
 ```
 
 ## Monetisasi (NANTI — bukan sekarang)
+
 Fokus sekarang = **cari user**. Saat sudah lengket, opsi yang **tidak merusak vibe**:
+
 - Kustomisasi kosmetik lingkaran (tema, stiker).
 - Fitur premium lingkaran (kapasitas lebih, arsip Kenangan).
 - Kemitraan **acara & kampus** (bukan iklan feed).
 - ❌ Tanpa iklan yang mengganggu, ❌ tanpa jual data.
 
 ## Risiko & mitigasi
+
 | Risiko | Mitigasi |
-|---|---|
-| **Cold-start** (sepi di awal) | Mulai 1 kampus, seeding prompt, ambassador |
-| **Retensi** (bukan cuma akuisisi) | Loop harian + streak + hook IRL |
-| **Moderasi manual mahal** | Skala perlahan, identitas kampus, tombol lapor |
+| --- | --- |
+| **WhatsApp sudah cukup** | Link harus memberi consensus + commitment; kill jika tidak |
+| **Host tidak mau membuat link** | Form ≤30 detik; ukur aktivasi ≥5/8 |
+| **Rencana dibuat tetapi batal** | Voting + lock + reminder; target ≥50% terlaksana |
+| **Retensi rendah** | Recap + clone; target repeat participant ≥30% |
+| **Moderasi manual mahal** | Undangan privat, kontrol host, tinjauan manusia |
 | **"Tanpa AI dianggap kalah canggih"** | Jadikan *human-first* sebagai kampanye & kekuatan |
 | **WhatsApp incumbent** | Lengkapi (momen + main + janjian), jangan gantikan chat |
 
 ## Langkah paling konkret berikutnya
-1. **Pilih 1 kampus** percontohan + 3–5 ambassador.
-2. Susun **50 Prompt Harian** pertama (kurasi manusia).
-3. Rakit **prototipe loop harian** (mulai dari clickable prototype).
-4. Rekrut **10 lingkaran seed** (teman-temanmu) untuk uji 2 minggu.
+
+1. Jalankan [eksperimen 14 hari tanpa aplikasi](../validation/02-eksperimen-14-hari.md).
+2. Jangan membuat feed, prompt, mini-game, atau sistem akun penuh selama fase tes.
+3. Jika GO, buat PWA ringan untuk create/vote/lock/RSVP/check-in.
+4. Jika ITERATE, fokus pada kru aktivitas atau organisasi kampus.
+5. Jika KILL, hentikan tesis aplikasi sosial sebelum membangun lebih jauh.

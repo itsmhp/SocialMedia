@@ -2,6 +2,8 @@
 
 [⬅️ 4. Peluang](04-peluang-whitespace.md) · [Indeks](README.md)
 
+> **Pembaruan 11 Agustus 2026:** validasi independen GPT-5.6 Sol mengubah rekomendasi menjadi **Rencana-first**. Dokumen ini adalah jalur pemikiran awal; keputusan terbaru ada di [`../validation/`](../validation/README.md) dan [`../concept/`](../concept/README.md).
+
 Konteksmu: *seru-seruan, buat semua orang, fokus cari user dulu.* Terjemahannya jadi strategi:
 
 1. **"Buat semua orang" = tujuan, bukan start.** Pilih **1 beachhead** (komunitas padat yang kamu paham).
@@ -45,9 +47,11 @@ timeline
 ```
 
 ## Risiko yang harus diwaspadai
+
 - **Cold-start** (sepi di awal) & **retensi** (bukan cuma akuisisi).
 - **Moderasi & keamanan** (anak, konten berbahaya) — karena **tanpa AI moderation**, andalkan desain sosial + tinjauan manusia (lihat [`../concept/01-fitur-mvp-tanpa-ai.md`](../concept/01-fitur-mvp-tanpa-ai.md)).
 - **"Tanpa AI" dianggap kurang canggih** → jadikan *human-first* sebagai kekuatan, bukan kelemahan.
 
 ## Langkah berikutnya
-Beachhead + atom sudah dikunci di [`../concept/`](../concept/README.md) → **Unggun** (mahasiswa 1 kampus; atom = "Momen" harian). Berikutnya: pilih kampus percontohan + rakit prototipe *loop* harian.
+
+Beachhead dipersempit ke grup 4–12 maba di satu kampus yang dapat dijangkau founder; atom kini **Rencana**, bukan Momen harian. Berikutnya jalankan [eksperimen 14 hari tanpa aplikasi](../validation/02-eksperimen-14-hari.md).
