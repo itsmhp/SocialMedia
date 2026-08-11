@@ -2,7 +2,9 @@ import { StoreProvider, useStore } from "./data/store";
 import { Header } from "./components/Header";
 import { BottomNav } from "./components/BottomNav";
 import { ChatScreen } from "./components/ChatScreen";
-import { Placeholder } from "./components/Placeholder";
+import { MomentsScreen } from "./components/MomentsScreen";
+import { PlayScreen } from "./components/PlayScreen";
+import { MemoriesScreen } from "./components/MemoriesScreen";
 import { Toast } from "./components/Toast";
 
 function Screens() {
@@ -10,15 +12,9 @@ function Screens() {
   return (
     <main className="scroll" id="scroll">
       {state.screen === "chat" && <ChatScreen />}
-      {state.screen === "moments" && (
-        <Placeholder emoji="✨" title="Moments" line="Little unfiltered moments with your circle. Porting from the prototype next." />
-      )}
-      {state.screen === "play" && (
-        <Placeholder emoji="🎲" title="Play" line="Silly group games to keep a room alive. Porting next." />
-      )}
-      {state.screen === "memories" && (
-        <Placeholder emoji="📸" title="Memories" line="Bara — warm recaps of rooms that faded. Porting next." />
-      )}
+      {state.screen === "moments" && <MomentsScreen />}
+      {state.screen === "play" && <PlayScreen />}
+      {state.screen === "memories" && <MemoriesScreen />}
     </main>
   );
 }

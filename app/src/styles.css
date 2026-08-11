@@ -133,6 +133,50 @@ body {
 .toast { position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px); background: #2a1d13; border: 1px solid var(--ember); color: var(--text); padding: 10px 16px; border-radius: 24px; font-size: 13px; opacity: 0; pointer-events: none; transition: .25s; z-index: 20; box-shadow: 0 10px 30px rgba(0, 0, 0, .5); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* Moments / Play / Memories (ported from the prototype) */
+.prompt-card { background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--line); border-radius: 18px; padding: 14px; margin-bottom: 14px; }
+.prompt-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--ember2); font-weight: 700; }
+.prompt-text { font-size: 15px; margin: 6px 0 12px; font-weight: 600; }
+.compose textarea { width: 100%; resize: none; background: #171009; color: var(--text); border: 1px solid var(--line); border-radius: 12px; padding: 10px; font: inherit; }
+.compose textarea::placeholder { color: #8a7a6d; }
+.mood-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+.mood { background: #171009; border: 1px solid var(--line); border-radius: 10px; font-size: 16px; padding: 6px 8px; cursor: pointer; }
+.mood.active { border-color: var(--ember); background: rgba(255, 122, 69, .18); transform: translateY(-1px); }
+
+.feed { display: flex; flex-direction: column; gap: 12px; }
+.card.pop { animation: pop .4s ease; }
+@keyframes pop { 0% { transform: scale(.96); opacity: .4; } 100% { transform: scale(1); opacity: 1; } }
+.ava.sm { width: 30px; height: 30px; font-size: 16px; }
+.who .mood { font-size: 13px; padding: 0; border: 0; background: none; }
+.reacts { display: flex; gap: 8px; flex-wrap: wrap; }
+.react { background: #1a130d; border: 1px solid var(--line); border-radius: 20px; padding: 5px 10px; font-size: 13px; color: var(--text); cursor: pointer; transition: .12s; }
+.react b { color: var(--muted); font-weight: 700; }
+.react.active { border-color: var(--ember); background: rgba(255, 122, 69, .18); }
+.react.active b { color: var(--ember2); }
+.finite-note { text-align: center; color: var(--muted); font-size: 12px; margin: 16px 0 4px; }
+
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin: 4px 2px 12px; }
+.section-head h2 { margin: 0; font-size: 18px; }
+.section-head span { font-size: 12px; color: var(--muted); }
+
+.game-card { background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--line); border-radius: 18px; padding: 14px; }
+.game-q { font-size: 15px; margin-bottom: 12px; }
+.game-q b { color: var(--ember2); }
+.game-options { display: flex; flex-direction: column; gap: 8px; }
+.gopt { display: flex; align-items: center; gap: 10px; background: #1a130d; border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; cursor: pointer; color: var(--text); text-align: left; }
+.gopt.mine { border-color: var(--ember); }
+.gname { width: 56px; font-size: 13px; font-weight: 600; }
+.gbar { flex: 1; height: 8px; background: #0f0a06; border-radius: 6px; overflow: hidden; }
+.gbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--ember), var(--ember2)); transition: width .35s ease; }
+.gpct { width: 38px; text-align: right; font-size: 12px; color: var(--muted); }
+
+.streak-big { text-align: center; font-size: 22px; font-weight: 800; margin: 8px 0; }
+.streak-big b { color: var(--ember2); }
+.recap { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; font-size: 14px; line-height: 1.5; }
+.mem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
+.mem { aspect-ratio: 1; display: grid; place-items: center; font-size: 30px; background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--line); border-radius: 14px; }
+.no-vanity { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 6px; }
+
 @media (max-width: 480px) {
   body { padding: 0; }
   .phone { max-width: 100%; min-height: 100vh; border: 0; border-radius: 0; box-shadow: none; }

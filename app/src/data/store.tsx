@@ -6,17 +6,23 @@ import {
   type Dispatch,
   type ReactNode,
 } from "react";
-import type { AppState, Message, ScreenName } from "../types";
+import type { AppState, Message, Moment, ScreenName } from "../types";
 import { seedState } from "./seed";
 
 export const CHAT_REACTIONS = ["😂", "❤️", "🔥"] as const;
+export const MOMENT_REACTIONS = ["❤️", "😂", "🔥", "🙌"] as const;
 
 export type Action =
   | { type: "SET_SCREEN"; screen: ScreenName }
   | { type: "SEND_MESSAGE"; text: string }
   | { type: "REACT_MESSAGE"; id: string; emoji: string }
   | { type: "CAST_EXTEND_VOTE"; choice: "keep" | "fade" }
+  | { type: "ADD_MOMENT"; text: string; mood: string }
+  | { type: "REACT_MOMENT"; id: string; emoji: string }
+  | { type: "VOTE_GAME"; name: string }
+  | { type: "NEXT_GAME" }
   | { type: "TICK" }
+  | { type: "TOAST"; msg: string }
   | { type: "CLEAR_TOAST" };
 
 /** More than half the room. */
@@ -100,6 +106,58 @@ function reducer(state: AppState, action: Action): AppState {
         room: { ...state.room, extend: { ...ex, keep, myVote: action.choice } },
       };
     }
+
+    case "ADD_MOMENT": {
+      const text = action.text.trim();
+      if (!text) return state;
+      const moment: Moment = {
+        id: "um" + Date.now(),
+        who: "You",
+        avatar: state.me.avatar,
+        mood: action.mood,
+        time: "just now",
+        text,
+        reactions: { "❤️": 0, "😂": 0, "🔥": 0, "🙌": 0 },
+        mine: [],
+      };
+      return {
+        ...state,
+        streak: state.streak + 1,
+        toast: "Moment shared with your circle ✨",
+        moments: [moment, ...state.moments],
+      };
+    }
+
+    case "REACT_MOMENT": {
+      const moments = state.moments.map((m) => {
+        if (m.id !== action.id) return m;
+        const has = m.mine.includes(action.emoji);
+        const mine = has ? m.mine.filter((e) => e !== action.emoji) : [...m.mine, action.emoji];
+        const count = Math.max(0, (m.reactions[action.emoji] || 0) + (has ? -1 : 1));
+        return { ...m, mine, reactions: { ...m.reactions, [action.emoji]: count } };
+      });
+      return { ...state, moments };
+    }
+
+    case "VOTE_GAME": {
+      const g = state.game;
+      if (g.mine === action.name) return state;
+      const votes = { ...g.votes };
+      if (g.mine) votes[g.mine] = Math.max(0, (votes[g.mine] || 0) - 1);
+      votes[action.name] = (votes[action.name] || 0) + 1;
+      return { ...state, game: { ...g, votes, mine: action.name } };
+    }
+
+    case "NEXT_GAME": {
+      const g = state.game;
+      const idx = (g.idx + 1) % g.prompts.length;
+      const votes: Record<string, number> = {};
+      for (const m of [state.me, ...state.friends]) votes[m.name] = 0;
+      return { ...state, game: { ...g, idx, votes, mine: null } };
+    }
+
+    case "TOAST":
+      return { ...state, toast: action.msg };
 
     case "CLEAR_TOAST":
       return { ...state, toast: undefined };

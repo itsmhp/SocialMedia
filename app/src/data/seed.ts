@@ -8,6 +8,31 @@ import type { AppState } from "../types";
 export const seedState: AppState = {
   screen: "chat",
   me: { name: "You", avatar: "🦊" },
+  streak: 5,
+  friends: [
+    { name: "Dinda", avatar: "🌸" },
+    { name: "Raka", avatar: "🎧" },
+    { name: "Sasa", avatar: "🐱" },
+    { name: "Bagas", avatar: "⚡" },
+    { name: "Nadia", avatar: "🌙" },
+  ],
+  moments: [
+    { id: "m1", who: "Dinda", avatar: "🌸", mood: "😌", time: "1h ago", text: "Found an amazing iced latte near campus, you have to try it ☕", reactions: { "❤️": 3, "😂": 0, "🔥": 2, "🙌": 0 }, mine: [] },
+    { id: "m2", who: "Raka", avatar: "🎧", mood: "🎶", time: "2h ago", text: "Playing my sad-boy playlist, anyone want to keep me company? lol", reactions: { "❤️": 2, "😂": 1, "🔥": 0, "🙌": 0 }, mine: [] },
+    { id: "m3", who: "Sasa", avatar: "🐱", mood: "🥰", time: "3h ago", text: "The campus cat keeps getting chubbier because I keep feeding it 🐈", reactions: { "❤️": 4, "😂": 0, "🔥": 0, "🙌": 1 }, mine: [] },
+    { id: "m4", who: "Bagas", avatar: "⚡", mood: "😮\u200d💨", time: "5h ago", text: "Finished my assignment at 3am. Someone please invite me out so I stay sane 😭", reactions: { "❤️": 1, "😂": 2, "🔥": 1, "🙌": 0 }, mine: [] },
+  ],
+  game: {
+    prompts: [
+      "be late to morning class ⏰",
+      "treat everyone when they've got some cash 💸",
+      "fall asleep during a movie night 😴",
+      "spontaneously plan a hangout ✨",
+    ],
+    idx: 0,
+    votes: { You: 0, Dinda: 2, Raka: 1, Sasa: 0, Bagas: 3, Nadia: 1 },
+    mine: null,
+  },
   room: {
     name: "Dusk Crew",
     membersLabel: "6 people · private room",

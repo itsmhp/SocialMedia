@@ -33,11 +33,38 @@ export interface Me {
   avatar: string;
 }
 
+export interface Member {
+  name: string;
+  avatar: string;
+}
+
+export interface Moment {
+  id: string;
+  who: string;
+  avatar: string;
+  mood: string;
+  time: string;
+  text: string;
+  reactions: Record<string, number>;
+  mine: string[];
+}
+
+export interface GameState {
+  prompts: string[];
+  idx: number;
+  votes: Record<string, number>;
+  mine: string | null;
+}
+
 export type ScreenName = "chat" | "moments" | "play" | "memories";
 
 export interface AppState {
   screen: ScreenName;
   toast?: string;
   me: Me;
+  streak: number;
+  friends: Member[];
+  moments: Moment[];
+  game: GameState;
   room: Room;
 }
