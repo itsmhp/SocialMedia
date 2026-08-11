@@ -2,7 +2,7 @@
 
 [⬅️ 2. Buat & voting](02-buat-dan-voting-rencana.md) · [Kit](README.md) · [4. Tracker ➡️](04-tracker.md)
 
-Ganti `[...]` sesuai rencana. Nada santai; sesuaikan dengan gaya grupmu. **Tanpa AI** — semua ditulis & dikirim manusia.
+Ganti `[...]` sesuai rencana. Nada santai; sesuaikan dengan gaya grupmu. Semua ditulis & dikirim manusia.
 
 ## a. Ajakan awal (host → grup)
 

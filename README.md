@@ -3,16 +3,14 @@
 Proyek platform media sosial yang untuk saat ini berfokus pada **fase riset & penemuan konsep**: memahami media sosial seperti apa yang benar-benar dibutuhkan orang pada 2026 — termasuk kebutuhan yang **belum mereka sadari** — sebelum menulis satu baris kode produk.
 
 > Status: **Discovery / Validasi.** Belum ada kode aplikasi. Konsep v2 sedang diuji: [`concept/`](concept/).
->
-> 🚫 **Keputusan produk: TANPA AI.** "Unggun" sengaja **100% manusia** — tanpa chatbot, konten buatan mesin, feed/rekomendasi AI, atau moderasi AI. Ini positioning inti (lihat [`concept/`](concept/)).
 
 ## Isi repo
 
 - [`research/`](research/) — hasil riset mendalam (lanskap, keinginan, *latent needs*, peluang, rekomendasi) + diagram Mermaid.
-- [`concept/`](concept/) — **konsep produk "Unggun"** (nongkrong online tanpa AI): beachhead, atom, fitur MVP, growth, roadmap.
+- [`concept/`](concept/) — **konsep produk "Unggun"** (nongkrong online): beachhead, atom, fitur MVP, growth, roadmap.
 - [`validation/`](validation/) — validasi independen GPT-5.6 Sol, perbandingan konsep, dan eksperimen 14 hari sebelum membangun aplikasi.
-- [`experiment/`](experiment/) — **kit siap-pakai** (tanpa kode/AI) untuk menjalankan uji 14 hari: rekrutmen, form, template WhatsApp, dan tracker.
-- [`prototype/`](prototype/) — **prototipe klik** Unggun (HTML statis, tanpa AI): buka [`prototype/index.html`](prototype/index.html) di browser.
+- [`experiment/`](experiment/) — **kit siap-pakai** (tanpa kode) untuk menjalankan uji 14 hari: rekrutmen, form, template WhatsApp, dan tracker.
+- [`prototype/`](prototype/) — **prototipe klik** Unggun (HTML statis): buka [`prototype/index.html`](prototype/index.html) di browser.
 
 ## Cara baca
 

@@ -1,6 +1,6 @@
 # 2. Beachhead Indonesia + Pemetaan Latent Needs
 
-[⬅️ 1. Fitur MVP](01-fitur-mvp-tanpa-ai.md) · [Konsep](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrik-roadmap.md)
+[⬅️ 1. Fitur MVP](01-fitur-mvp.md) · [Konsep](README.md) · [3. Growth & Roadmap ➡️](03-growth-metrik-roadmap.md)
 
 ## Kenapa Indonesia + kampus?
 
@@ -20,18 +20,18 @@ Dari [data lanskap](../research/01-lanskap-dan-data.md):
 
 > Alternatif beachhead kalau kamu lebih dekat ke sana: komunitas hobi padat (pecinta buku, komunitas lari/sepeda, fanbase, band lokal) atau geng SMA/kuliah. Pola & fitur sama.
 
-## Pemetaan: Latent Need → Fitur Unggun (tanpa AI)
+## Pemetaan: Latent Need → Fitur Unggun
 
-| Latent need (riset) | Dijawab Unggun dengan | Pakai AI? |
-| --- | --- | --- |
-| Merasa lebih baik (*social health*) | Mengoptimalkan pertemuan nyata, bukan waktu layar | ❌ |
-| Ruang kecil & privat (*campfire*) | Rencana berbasis undangan | ❌ |
-| Jembatan ke dunia nyata | Voting → komit → check-in | ❌ |
-| Dilihat tanpa tekanan tampil | Tidak ada feed atau vanity metric pada MVP | ❌ |
-| **Ditemani & didengar** | Pertemuan manusia nyata — bukan AI companion | ❌ |
-| Ekspresi diri & identitas | Bukan prioritas MVP | ❌ |
-| Kontrol atas algoritma | Tidak ada recommendation feed | ❌ |
-| Menemukan "orang gue" | Belum dijawab pada MVP; grup dibawa dari WhatsApp | ❌ |
-| Waktu yang berarti | Alur selesai ketika keputusan dan pertemuan terjadi | ❌ |
+| Latent need (riset) | Dijawab Unggun dengan |
+| --- | --- |
+| Merasa lebih baik (*social health*) | Mengoptimalkan pertemuan nyata, bukan waktu layar |
+| Ruang kecil & privat (*campfire*) | Rencana berbasis undangan |
+| Jembatan ke dunia nyata | Voting → komit → check-in |
+| Dilihat tanpa tekanan tampil | Tidak ada feed atau vanity metric pada MVP |
+| **Ditemani & didengar** | Pertemuan manusia nyata |
+| Ekspresi diri & identitas | Bukan prioritas MVP |
+| Kontrol atas algoritma | Tidak ada recommendation feed |
+| Menemukan "orang gue" | Belum dijawab pada MVP; grup dibawa dari WhatsApp |
+| Waktu yang berarti | Alur selesai ketika keputusan dan pertemuan terjadi |
 
 ➡️ Klaim lama “menjawab 9 dari 9” terlalu kuat. Unggun v2 fokus pada tiga kebutuhan yang paling konkret: **koordinasi, pertemuan nyata, dan hubungan privat**. Kebutuhan lain sengaja tidak dipaksakan ke MVP.

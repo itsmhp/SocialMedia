@@ -1,8 +1,8 @@
-# Experiment Kit — Uji 14 Hari (Tanpa Kode, Tanpa AI)
+# Experiment Kit — Uji 14 Hari (Tanpa Kode)
 
 Perkakas **siap-pakai** untuk menjalankan [eksperimen 14 hari](../validation/02-eksperimen-14-hari.md) yang menjadi gerbang **GO** sebelum membangun aplikasi Unggun v2.
 
-> Prinsip: **tidak menulis kode, tidak memakai AI.** Semua lewat WhatsApp + 2 form kecil (Tally/Google Forms) + 1 spreadsheet.
+> Prinsip: **tidak menulis kode.** Semua lewat WhatsApp + 2 form kecil (Tally/Google Forms) + 1 spreadsheet.
 
 ## Kenapa ini "pilihan terbaik" sekarang
 

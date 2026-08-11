@@ -1,15 +1,15 @@
-# 1. Fitur MVP (Tanpa AI) + Moderasi Manusia
+# 1. Fitur MVP + Moderasi Manusia
 
 [⬅️ Konsep](README.md) · [2. Indonesia & Latent Needs ➡️](02-indonesia-dan-latent-needs.md)
 
-## Fitur inti MVP (semua non-AI, logika deterministik)
+## Fitur inti MVP (logika deterministik)
 
 1. **Buat Rencana ≤30 detik** — aktivitas, area/tempat, dan 2–3 opsi waktu.
 2. **Tautan tanpa instal** — host membagikan link ke WhatsApp; tamu tidak wajib punya akun untuk voting awal.
 3. **Voting waktu** — peserta memilih opsi yang bisa dihadiri.
 4. **Kunci rencana** — host menetapkan waktu/tempat dari hasil voting.
 5. **RSVP / komit hadir** — status jelas, bukan chat yang tenggelam.
-6. **Pengingat deterministik** — H-1 dan H-2 jam; aturan tetap, bukan AI.
+6. **Pengingat deterministik** — H-1 dan H-2 jam; aturan tetap.
 7. **Check-in sederhana** — kode/tombol pertemuan untuk mengukur Rencana Jadi.
 8. **Recap privat + ulang** — satu foto/kalimat opsional dan tombol “buat versi berikutnya”.
 
@@ -19,14 +19,13 @@ Lingkaran permanen, Prompt Hari Ini, feed Momen, voice note, reaksi, mini-game, 
 
 ## Anti-fitur (SENGAJA tidak dibuat)
 
-- ❌ **AI apa pun** — no chatbot, no AI feed/rekomendasi, no generasi konten, no moderasi AI.
 - ❌ **Feed publik & infinite scroll** — MVP tidak membutuhkan feed.
 - ❌ **Follower / like publik** — anti adu pamer & perbandingan.
 - ❌ **Algoritma manipulatif** — urutan **kronologis**; kamu yang pilih lingkaran.
 
-## Moderasi TANPA AI
+## Moderasi
 
-Karena kita menolak moderasi AI, keamanan bertumpu pada **desain sosial**:
+Keamanan bertumpu pada **desain sosial**:
 
 1. **Rencana privat berbasis undangan** → tidak ada discovery publik pada MVP.
 2. **Host mengontrol daftar peserta** dan dapat menghapus tamu.

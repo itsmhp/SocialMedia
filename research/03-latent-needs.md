@@ -18,7 +18,7 @@ Bagian terpenting: hal yang orang **rasakan sakitnya**, tapi belum tahu ada prod
 
 > ⚠️ **Peringatan #5 (AI companion):** permintaannya besar, tapi Character.ai menghadapi **gugatan serius & larangan pengguna <18 (Nov 2025)** terkait keselamatan.
 >
-> 🚫 **Sikap produk kita:** kita **TIDAK** memakai AI companion. Kebutuhan "ditemani & didengar" kita jawab dengan **koneksi manusia nyata** (lingkaran teman dekat) — lihat [`../concept/02-indonesia-dan-latent-needs.md`](../concept/02-indonesia-dan-latent-needs.md).
+> **Sikap produk kita:** kebutuhan "ditemani & didengar" kita jawab dengan **koneksi manusia nyata** (lingkaran teman dekat) — lihat [`../concept/02-indonesia-dan-latent-needs.md`](../concept/02-indonesia-dan-latent-needs.md).
 
 ```mermaid
 quadrantChart

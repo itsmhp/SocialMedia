@@ -13,7 +13,7 @@ Konteksmu: *seru-seruan, buat semua orang, fokus cari user dulu.* Terjemahannya 
 5. **Kaitkan ke dunia nyata** (hook IRL) — pembeda kuat & anti-sepi.
 6. **Mobile-first & dekat messaging** (realita Indonesia).
 7. **Keamanan & moderasi sejak hari-1** — apalagi jika menyentuh anak muda.
-8. **Keputusan sadar: TANPA AI.** Produk dirancang **100% manusia** (tanpa chatbot/feed/generasi/moderasi AI). Di tengah kelelahan & "AI slop", *human-first* justru jadi diferensiasi (lihat [`../concept/`](../concept/README.md)).
+8. **Human-first sebagai diferensiasi.** Produk dirancang **100% buatan manusia**; di tengah kelelahan & "AI slop", pendekatan *human-first* justru jadi pembeda (lihat [`../concept/`](../concept/README.md)).
 
 ```mermaid
 flowchart LR
@@ -49,8 +49,8 @@ timeline
 ## Risiko yang harus diwaspadai
 
 - **Cold-start** (sepi di awal) & **retensi** (bukan cuma akuisisi).
-- **Moderasi & keamanan** (anak, konten berbahaya) — karena **tanpa AI moderation**, andalkan desain sosial + tinjauan manusia (lihat [`../concept/01-fitur-mvp-tanpa-ai.md`](../concept/01-fitur-mvp-tanpa-ai.md)).
-- **"Tanpa AI" dianggap kurang canggih** → jadikan *human-first* sebagai kekuatan, bukan kelemahan.
+- **Moderasi & keamanan** (anak, konten berbahaya) — andalkan desain sosial + tinjauan manusia (lihat [`../concept/01-fitur-mvp.md`](../concept/01-fitur-mvp.md)).
+- **Risiko dianggap "kurang canggih"** → jadikan *human-first* sebagai kekuatan, bukan kelemahan.
 
 ## Langkah berikutnya
 

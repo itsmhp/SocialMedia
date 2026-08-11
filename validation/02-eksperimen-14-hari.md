@@ -13,7 +13,7 @@ Menguji apakah mahasiswa benar-benar ingin memakai alur **Rencana → voting →
 - WhatsApp untuk distribusi;
 - Tally atau Google Forms untuk membuat/voting Rencana;
 - spreadsheet manual untuk status, RSVP, check-in, dan repeat;
-- pengingat manual dengan template tetap (tanpa AI).
+- pengingat manual dengan template tetap.
 
 ## Sampel minimum
 
@@ -82,7 +82,7 @@ Aktivasi <5/8 **atau** Rencana Jadi <50%. Jangan membangun aplikasi sosial penuh
 6. Recap membuat orang ingin mengulang.
 7. Peserta bersedia menjadi host berikutnya.
 8. Satu kampus cukup padat untuk penyebaran organik.
-9. “Tanpa AI” meningkatkan kepercayaan walau bukan alasan utama penggunaan.
+9. Pendekatan human-first meningkatkan kepercayaan walau bukan alasan utama penggunaan.
 
 ## Data yang harus dicatat
 

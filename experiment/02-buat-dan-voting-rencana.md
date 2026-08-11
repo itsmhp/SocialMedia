@@ -1,8 +1,8 @@
-# 2. Buat & Voting Rencana (Tanpa App, Tanpa AI)
+# 2. Buat & Voting Rencana (Tanpa App)
 
 [⬅️ 1. Rekrutmen](01-rekrutmen-host.md) · [Kit](README.md) · [3. Template WhatsApp ➡️](03-template-whatsapp.md)
 
-Inti alur: **host bikin Rencana → voting waktu lewat WhatsApp Poll → kunci → komit hadir.** Semua di dalam WhatsApp; voting pakai **fitur Poll bawaan WhatsApp** (nol instal tambahan, nol AI).
+Inti alur: **host bikin Rencana → voting waktu lewat WhatsApp Poll → kunci → komit hadir.** Semua di dalam WhatsApp; voting pakai **fitur Poll bawaan WhatsApp** (nol instal tambahan).
 
 ## Form "Buat Rencana" (Tally / Google Forms, ~30 detik)
 

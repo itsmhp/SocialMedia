@@ -7,7 +7,7 @@
 
 👉 **Migrasi ≠ retensi.** Yang bikin lengket adalah **vibe, kebiasaan, dan komunitas** — bukan sekadar "anti-platform lama".
 
-> 🚫 **Catatan:** kuadran **"AI companion umum"** di peta bawah sengaja **kita hindari** (keputusan no-AI). Kita main di *sweet spot* non-AI: campfire, IRL lokal, komunitas minat.
+> **Catatan:** kuadran **"AI companion umum"** di peta bawah sengaja **kita hindari**. Kita main di *sweet spot*-nya: campfire, IRL lokal, komunitas minat.
 
 Pemain baru lain membuktikan celah niche: **Partiful** (acara), **Jagat** (lokasi), **Noplace** (ekspresi diri), **Dispo/BeReal** (anti-perfeksi), **Fizz** (komunitas kampus), **RedNote** (minat + lifestyle). Kesimpulan Exploding Topics: mereka menang dengan *"melayani niche & memenuhi kebutuhan yang belum terpenuhi."*
 

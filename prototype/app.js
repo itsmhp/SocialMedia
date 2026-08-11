@@ -1,4 +1,4 @@
-// Unggun — prototipe interaktif. 100% statis, tanpa AI, tanpa build, tanpa internet.
+// Unggun — prototipe interaktif. 100% statis, tanpa build, tanpa internet.
 (function () {
   "use strict";
 

@@ -1,4 +1,4 @@
-# Konsep Produk: Unggun v2 — bikin rencana jadi, tanpa AI
+# Konsep Produk: Unggun v2 — bikin rencana jadi
 
 > Nama kerja: **Unggun** (dari *api unggun*). Alternatif: **Bara**, **Riung**, **Kumpul**.
 > Status: **pivot bersyarat** setelah [validasi GPT-5.6 Sol](../validation/01-gpt-5.6-sol-validation.md). Belum layak dibangun penuh sebelum [eksperimen 14 hari](../validation/02-eksperimen-14-hari.md) lulus.
@@ -7,13 +7,10 @@
 
 **Unggun membantu grup kecil berhenti berkata “kapan-kapan” dan benar-benar bertemu.** Host membuat rencana, teman memilih waktu, semua berkomitmen, lalu menyimpan recap privat — hangat, ringan, dan **100% manusia**.
 
-- 🚫 **Tanpa AI.** Tidak ada chatbot, konten buatan mesin, feed/rekomendasi AI, atau moderasi AI. Semua dari & untuk manusia.
 - 🔒 **Rencana privat, bukan siaran publik.** Host mengundang orang yang relevan.
 - 🔗 **Bekerja lewat WhatsApp.** Tamu bisa voting dan RSVP dari tautan tanpa wajib instal.
 - ⏹️ **Selesai, bukan tanpa henti.** Tidak ada *infinite scroll* atau kewajiban posting harian.
 - 🤝 **Keberhasilan = orang benar-benar hadir**, bukan waktu layar, follower, atau like.
-
-> **Peran “tanpa AI”:** prinsip kepercayaan dan batasan produk, bukan *wedge* akuisisi. Orang datang karena rencananya jadi; mereka bertahan karena produk menjaga koneksi tetap manusiawi.
 
 ## Inti konsep dalam 3 pertanyaan
 
@@ -27,7 +24,7 @@
 mindmap
   root((Unggun))
     Prinsip
-      Tanpa AI - manusia penuh
+      Sepenuhnya buatan manusia
       Lingkaran kecil - privat
       Selesai bukan tanpa henti
       Merasa lebih baik
@@ -77,7 +74,7 @@ flowchart LR
 
 ## Peta dokumen konsep
 
-1. [Fitur MVP (tanpa AI) + moderasi manusia](01-fitur-mvp-tanpa-ai.md)
+1. [Fitur MVP + moderasi manusia](01-fitur-mvp.md)
 2. [Beachhead Indonesia + pemetaan latent needs](02-indonesia-dan-latent-needs.md)
 3. [Growth, metrik, roadmap, monetisasi-nanti](03-growth-metrik-roadmap.md)
 4. [Validasi independen & perbandingan konsep](../validation/README.md)

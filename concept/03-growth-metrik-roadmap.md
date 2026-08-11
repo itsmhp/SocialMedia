@@ -49,7 +49,7 @@ Fokus sekarang = **cari user**. Saat sudah lengket, opsi yang **tidak merusak vi
 | **Rencana dibuat tetapi batal** | Voting + lock + reminder; target ≥50% terlaksana |
 | **Retensi rendah** | Recap + clone; target repeat participant ≥30% |
 | **Moderasi manual mahal** | Undangan privat, kontrol host, tinjauan manusia |
-| **"Tanpa AI dianggap kalah canggih"** | Jadikan *human-first* sebagai kampanye & kekuatan |
+| **Dianggap kalah canggih** | Jadikan *human-first* sebagai kampanye & kekuatan |
 | **WhatsApp incumbent** | Lengkapi (momen + main + janjian), jangan gantikan chat |
 
 ## Langkah paling konkret berikutnya
