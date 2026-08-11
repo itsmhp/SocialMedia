@@ -2,6 +2,8 @@
 
 [⬅️ Indeks validasi](README.md) · [Verdict GPT-5.6 Sol](01-gpt-5.6-sol-validation.md)
 
+> 🧰 **Perkakas siap-pakai** untuk menjalankan eksperimen ini (skrip rekrutmen, form, template WhatsApp, tracker) ada di [`../experiment/`](../experiment/README.md).
+
 ## Tujuan
 
 Menguji apakah mahasiswa benar-benar ingin memakai alur **Rencana → voting → komit → hadir → ulang**, sebelum membangun aplikasi.
