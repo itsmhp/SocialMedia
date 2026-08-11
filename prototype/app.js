@@ -37,21 +37,20 @@
       votes: { You: 0, Dinda: 2, Raka: 1, Sasa: 0, Bagas: 3, Nadia: 1 },
       mine: null,
     },
-    meetup: {
-      title: "Coffee + a chill chat ☕",
-      place: "📍 Dusk Coffee — near the back gate",
-      options: [
-        { id: "a", label: "Fri 16:00", voters: ["🌸", "🎧"] },
-        { id: "b", label: "Sat 10:00", voters: ["🐱", "⚡", "🌙"] },
-        { id: "c", label: "Sat 19:00", voters: [] },
+    chat: {
+      messages: [
+        { id: "c1", who: "Dinda", avatar: "🌸", text: "ok who else is NOT sleeping rn 😭", time: "20:14", reactions: { "😂": 2, "❤️": 0, "🔥": 0 }, mine: [] },
+        { id: "c2", who: "Raka", avatar: "🎧", text: "me. third coffee. send help ☕", time: "20:15", reactions: { "😂": 3, "❤️": 1, "🔥": 0 }, mine: [] },
+        { id: "c3", who: "Sasa", avatar: "🐱", text: "just saw a cat that looks EXACTLY like Bagas lmaooo", time: "20:16", reactions: { "😂": 4, "❤️": 0, "🔥": 2 }, mine: [] },
+        { id: "c4", who: "Bagas", avatar: "⚡", text: "excuse me i am far more handsome 💅", time: "20:16", reactions: { "😂": 5, "❤️": 1, "🔥": 0 }, mine: [] },
+        { id: "c5", who: "Nadia", avatar: "🌙", text: "this room fades tomorrow and i already miss the chaos 🥲", time: "20:18", reactions: { "😂": 1, "❤️": 3, "🔥": 0 }, mine: [] },
       ],
-      mine: null,
-      locked: false,
-      chosen: null,
+      remaining: 5 * 3600 + 59 * 60 + 41,
     },
   };
 
   const REACTIONS = ["❤️", "😂", "🔥", "🙌"];
+  const CHAT_REACTIONS = ["😂", "❤️", "🔥"];
   let currentMood = "😊";
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -152,55 +151,72 @@
     renderGame();
   }
 
-  function renderMeetup() {
-    $("#meetup-title").textContent = state.meetup.title;
-    $("#meetup-place").textContent = state.meetup.place;
-    $("#meetup-options").innerHTML = state.meetup.options
-      .map((o) => {
-        const mine = state.meetup.mine === o.id;
-        const chosen = state.meetup.locked && state.meetup.chosen === o.id;
-        const count = o.voters.length + (mine ? 1 : 0);
-        return `<button class="mopt ${mine ? "mine" : ""} ${chosen ? "chosen" : ""}" data-id="${o.id}" ${state.meetup.locked ? "disabled" : ""}>
-            <span class="mlabel">${o.label}${chosen ? " · locked ✅" : ""}</span>
-            <span class="mvoters">${o.voters.map((a) => `<i>${a}</i>`).join("")}${mine ? `<i class="me">${state.you.avatar}</i>` : ""}</span>
-            <span class="mcount">${count}</span>
-          </button>`;
+  function renderChat() {
+    const box = $("#chat");
+    box.innerHTML = state.chat.messages
+      .map((m) => {
+        const mine = m.who === "You";
+        return `<div class="msg ${mine ? "mine" : ""}" data-id="${m.id}">
+            <div class="who">${mine ? "You" : m.avatar + " " + m.who}<span class="t">${m.time}</span></div>
+            <div class="body">${escapeHtml(m.text)}</div>
+            <div class="mreacts">
+              ${CHAT_REACTIONS.map((e) => {
+                const c = m.reactions[e] || 0;
+                const on = m.mine.includes(e);
+                if (!c && !on) return `<button class="mreact" data-id="${m.id}" data-emoji="${e}">${e}</button>`;
+                return `<button class="mreact ${on ? "active" : ""}" data-id="${m.id}" data-emoji="${e}">${e} <b>${c}</b></button>`;
+              }).join("")}
+            </div>
+          </div>`;
       })
       .join("");
+  }
 
-    const st = $("#meetup-status");
-    const lockBtn = $("#meetup-lock");
-    if (state.meetup.locked) {
-      const o = state.meetup.options.find((x) => x.id === state.meetup.chosen);
-      st.innerHTML = `<div class="locked">🎉 It's on! <b>${o.label}</b> at Dusk Coffee.<br/>Auto reminders sent 1 day &amp; 2 hours before ⏰</div>`;
-      lockBtn.disabled = true;
-      lockBtn.textContent = "Locked in ✅";
-    } else if (state.meetup.mine) {
-      const o = state.meetup.options.find((x) => x.id === state.meetup.mine);
-      st.innerHTML = `<div class="picked">You picked <b>${o.label}</b> ✅</div>`;
+  function reactMessage(id, e) {
+    const m = state.chat.messages.find((x) => x.id === id);
+    if (!m) return;
+    if (m.mine.includes(e)) {
+      m.mine = m.mine.filter((x) => x !== e);
+      m.reactions[e] = Math.max(0, (m.reactions[e] || 0) - 1);
     } else {
-      st.innerHTML = "";
+      m.mine.push(e);
+      m.reactions[e] = (m.reactions[e] || 0) + 1;
     }
+    renderChat();
   }
 
-  function voteMeetup(id) {
-    if (state.meetup.locked) return;
-    state.meetup.mine = id;
-    renderMeetup();
+  function sendMessage(text) {
+    state.chat.messages.push({
+      id: "u" + Date.now(),
+      who: "You",
+      avatar: state.you.avatar,
+      text,
+      time: "now",
+      reactions: { "😂": 0, "❤️": 0, "🔥": 0 },
+      mine: [],
+    });
+    renderChat();
+    $(".scroll").scrollTo({ top: 999999, behavior: "smooth" });
   }
 
-  function lockMeetup() {
-    if (state.meetup.locked) return;
-    if (!state.meetup.mine) { toast("Pick a time first 🙂"); return; }
-    state.meetup.locked = true;
-    state.meetup.chosen = state.meetup.mine;
-    renderMeetup();
-    toast("Time locked! Notifying your circle… 📣");
+  function fmtTime(sec) {
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    const p = (n) => String(n).padStart(2, "0");
+    return `${p(h)}:${p(m)}:${p(s)}`;
+  }
+
+  function tickCountdown() {
+    if (state.chat.remaining > 0) state.chat.remaining -= 1;
+    const el = $("#countdown");
+    if (el) el.textContent = fmtTime(state.chat.remaining);
   }
 
   function bumpStreak() {
     state.streak += 1;
-    $("#streak-num").textContent = state.streak;
+    const s1 = $("#streak-num");
+    if (s1) s1.textContent = state.streak;
     const s2 = $("#streak-num2");
     if (s2) s2.textContent = state.streak;
   }
@@ -217,7 +233,9 @@
   document.addEventListener("DOMContentLoaded", () => {
     renderFeed();
     renderGame();
-    renderMeetup();
+    renderChat();
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
 
     document.querySelectorAll(".nav-btn").forEach((b) => b.addEventListener("click", () => showScreen(b.dataset.screen)));
 
@@ -246,10 +264,22 @@
       if (b) voteGame(b.dataset.name);
     });
     $("#game-next").addEventListener("click", nextGame);
-    $("#meetup-options").addEventListener("click", (e) => {
-      const b = e.target.closest(".mopt");
-      if (b) voteMeetup(b.dataset.id);
+
+    $("#chat").addEventListener("click", (e) => {
+      const b = e.target.closest(".mreact");
+      if (b) reactMessage(b.dataset.id, b.dataset.emoji);
     });
-    $("#meetup-lock").addEventListener("click", lockMeetup);
+    const sendChat = () => {
+      const inp = $("#chat-text");
+      const text = inp.value.trim();
+      if (!text) return;
+      sendMessage(text);
+      inp.value = "";
+      inp.focus();
+    };
+    $("#chat-send").addEventListener("click", sendChat);
+    $("#chat-text").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") { e.preventDefault(); sendChat(); }
+    });
   });
 })();

@@ -16,14 +16,14 @@
           <div class="circle-sub">6 people · private circle</div>
         </div>
       </div>
-      <div class="streak" title="day streak">
-        <span id="streak-num">5</span><small>days 🔥</small>
+      <div class="countdown" title="this room fades in 24h">
+        <span id="countdown">05:59:59</span><small>left 🔥</small>
       </div>
     </header>
 
     <main class="scroll">
-      <!-- CIRCLE -->
-      <section id="screen-circle" class="screen active">
+      <!-- MOMENTS -->
+      <section id="screen-circle" class="screen">
         <div class="prompt-card">
           <div class="prompt-label">Today's Prompt</div>
           <div id="prompt-text" class="prompt-text">What's one little thing that made you smile today? 😊</div>
@@ -55,16 +55,14 @@
         </div>
       </section>
 
-      <!-- LET'S MEET UP -->
-      <section id="screen-meetup" class="screen">
-        <div class="section-head"><h2>Let's Meet Up</h2><span>turn talk into a real plan</span></div>
-        <div class="meetup-card">
-          <div class="meetup-title" id="meetup-title">Coffee + a chill chat ☕</div>
-          <div class="meetup-place" id="meetup-place">📍 Dusk Coffee — near the back gate</div>
-          <div class="meetup-sub">Pick a time that works for you 👇</div>
-          <div class="meetup-options" id="meetup-options"></div>
-          <div id="meetup-status" class="meetup-status"></div>
-          <button id="meetup-lock" class="btn-primary">Lock the time &amp; invite</button>
+      <!-- CHAT (hero) -->
+      <section id="screen-chat" class="screen active">
+        <div class="room-banner">🔥 This room fades in 24h — be silly, it won't last.</div>
+        <div class="presence" id="presence">🟢 Dinda, Raka &amp; Sasa are here now</div>
+        <div class="chat" id="chat"></div>
+        <div class="composer">
+          <input id="chat-text" type="text" placeholder="Say something silly…" autocomplete="off" />
+          <button id="chat-send" class="btn-send">Send</button>
         </div>
       </section>
 
@@ -82,9 +80,9 @@
     </main>
 
     <nav class="bottomnav">
-      <button class="nav-btn active" data-screen="circle">🏠<span>Circle</span></button>
+      <button class="nav-btn active" data-screen="chat">💬<span>Chat</span></button>
+      <button class="nav-btn" data-screen="circle">✨<span>Moments</span></button>
       <button class="nav-btn" data-screen="play">🎲<span>Play</span></button>
-      <button class="nav-btn" data-screen="meetup">📍<span>Meet</span></button>
       <button class="nav-btn" data-screen="memories">📸<span>Memories</span></button>
     </nav>
   </div>
