@@ -77,6 +77,7 @@ flowchart LR
 1. [MVP features + human moderation](01-mvp-features.md)
 2. [Indonesia beachhead + latent needs mapping](02-indonesia-and-latent-needs.md)
 3. [Growth, metrics, roadmap, monetization-later](03-growth-metrics-roadmap.md)
-4. [Independent validation & concept comparison](../validation/README.md)
+4. [Rooms, lanes & design principles (latest direction)](04-rooms-and-lanes.md)
+5. [Independent validation & concept comparison](../validation/README.md)
 
 > This is the best current hypothesis, not the truth. Build the MVP only if the [GO](../validation/02-14-day-experiment.md#go) threshold is met.
