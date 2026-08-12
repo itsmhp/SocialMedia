@@ -1,4 +1,4 @@
-# Unggun — app
+# Falò — app
 
 Fun group chat **rooms that don't last forever**. A room glows for 12–24h, the
 circle can **vote to keep the fire going** (+24h), and when it finally fades it
@@ -34,7 +34,7 @@ production build), `npm run preview` (serve the build, incl. the service worker)
 ## Mobile apps (Android + iOS via Capacitor)
 
 The same web build is wrapped natively by [Capacitor](https://capacitorjs.com).
-`capacitor.config.ts` sets the app id (`com.unggun.app`) and points at `dist/`.
+`capacitor.config.ts` sets the app id (`com.falo.app`) and points at `dist/`.
 
 **Android** (the `android/` project is committed):
 
@@ -81,25 +81,45 @@ directory `dist`. All have a free tier with no server to run.
   typed or randomized, paired with an emoji avatar, edited later and saved on
   this device.
 - **Settings and profile hub:** a visible avatar/gear opens Profile, Account,
-  Notifications, Privacy & Safety, Data, Help and About without adding a fifth
-  tab. Profile edits warn before discarding changes; notification categories and
-  quiet hours persist separately from room data.
+  Appearance, Notifications, Privacy & Safety, Data, Help and About without
+  adding a fifth tab. Profile edits warn before discarding changes; theme,
+  notification categories and quiet hours persist separately from room data.
+- **Adaptive Signal Fire palette:** the original soft, rounded interface now uses
+  chalk, ink, coral, teal and yellow semantic tokens. Appearance offers System,
+  Light and Dark modes; System follows the device. Locally bundled Inter and
+  natural shadows keep the chat calm while the new colors clarify actions and
+  lifecycle states.
 - **Local data controls:** clear room activity while retaining the profile, or
   reset the entire app back to first-install onboarding. Both destructive actions
   require confirmation. Privacy, Terms, Community Guidelines, support and
   open-source license pages are available in-app.
-- **Rooms:** open the room switcher, light a private room with a spark, choose a
-  12h/24h lifetime and local circle members, then switch among active rooms.
+- **Rooms hub (home):** the app opens on one Rooms surface listing glowing rooms
+  and past Bara, with "Light a room" to start a new fire. There is no bottom tab
+  bar — navigation lives inside the room hierarchy.
+- **Circles:** every room belongs to a permanent, private Circle. Opening the
+  group name shows the **Circle profile**: time together, members, fires lit, and
+  private records (longest flame, extensions, Bara kept) that only members see.
+- **Circle profile:** inspect the current flame's remaining lifetime, elapsed burn
+  time and spark. In local mode a host can transfer hosting or remove a member,
+  and a member can leave after confirmation. It states plainly that no shareable
+  invite exists until secure cloud Circles are verified.
+- **Fail-closed data source:** repository selection stays in `localDemo` unless
+  cloud configuration, explicit enablement, authentication and schema verification
+  all pass. Shared request state rejects stale async completions before remote
+  mutations are connected.
 - **Chat** (the core): messages + reactions, an absolute **countdown** that
   survives reload/background time, and **extend-by-vote** keyed by stable user
   IDs. A majority adds +24h and opens a fresh vote in the next cycle.
+- **Sparks in chat:** a `+` launcher next to the composer drops a Daily Spark,
+  Challenge, Would-you-rather, Most-likely-to, or a custom Poll as a room message
+  that everyone can vote on and that fades with the room.
+- **Keep for Bara:** any message can be bookmarked so it is guaranteed a place in
+  the room's Bara recap when the fire fades.
 - **Fade -> Bara -> relight:** expiry locks/deletes the raw chat, deterministically
-  keeps the warmest messages as a private Bara, shows factual counts in Memories,
-  and can light a clean new round from the same circle.
-- **Versioned local persistence:** rooms, chat, reactions, votes, Moments, game
-  state and Bara survive reload while the backend remains dormant.
-- **Moments / Play** tabs remain local supporting experiments; deeper work on
-  them is deferred until the room loop is validated.
+  keeps the warmest and kept messages as a private Bara in the Rooms hub, and can
+  light a clean new round from the same Circle.
+- **Versioned local persistence:** Circles, rooms, chat, reactions, votes, sparks
+  and Bara survive reload while the backend remains dormant.
 - Installable PWA shell (manifest + offline service worker); native Android/iOS via Capacitor.
 
 ## Structure
@@ -107,19 +127,21 @@ directory `dist`. All have a free tier with no server to run.
 ```
 src/
   main.tsx            app entry + service-worker registration
-  App.tsx             phone shell: Header + active screen + BottomNav + Toast
-  types.ts            domain types (Message, Room, ExtendVote, ...)
+  App.tsx             phone shell: Header + active room + Toast
+  types.ts            domain types (Circle, Room, Message, Spark, ExtendVote, ...)
   styles.css          ember/campfire theme
   lib/id.ts           stable local ID generation
   lib/time.ts         countdown formatting
+  lib/sparks.ts       spark prompt/poll presets
   lib/useDialogFocus.ts accessible modal focus handling
   data/
     seed.ts           mock seed data (room near expiry)
-    lifecycle.ts      absolute clock, expiry, deterministic Bara
-    localState.ts     versioned local persistence
+    lifecycle.ts      absolute clock, expiry, deterministic Bara, Circle records
+    localState.ts     versioned local persistence + v1->v2 Circle migration
     store.tsx         Context + pure reducer — the seam to swap in Supabase
     lifecycle.test.ts lifecycle/reducer/persistence regression tests
-  components/         Rooms, Chat, Bara, Memories, profile, Settings and policies
+    sparks.test.ts    spark posting, poll voting, keep-for-Bara tests
+  components/         Rooms hub, Chat, Sparks, Circle profile, Bara, Settings and policies
 ```
 
 All state changes flow through the reducer in `data/store.tsx`. Swapping the mock
@@ -156,6 +178,9 @@ replaced by Supabase queries + Realtime mutations.
 ## Roadmap (next increments)
 
 1. **Secure multi-user closed alpha**
+  - Expand the new repository contract into full local/cloud command and hydration
+    adapters with pending/error/retry presentation.
+  - Connect Room Details to secure invite, member and report/block operations.
   - Run and test the prepared RLS + atomic invite schema on a live project.
   - Verify email magic-link auth, roles, join/leave/remove/report/block.
    - Replace the local repository with queries, mutations and Realtime while

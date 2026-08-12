@@ -1,9 +1,11 @@
 import { useState, type FormEvent } from "react";
 import { useCloudAuth } from "../lib/CloudAuthProvider";
+import { ConfirmDialog } from "./ConfirmDialog";
 
 export function CloudAccountCard() {
   const auth = useCloudAuth();
   const [email, setEmail] = useState("");
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
 
   if (!auth.configured) return null;
 
@@ -16,7 +18,8 @@ export function CloudAccountCard() {
     return <div className="cloud-account" role="status">Checking account…</div>;
   }
 
-  if (auth.status === "signedIn" || auth.status === "signingOut") {
+  if (auth.status === "signedIn" || auth.status === "signingOut" || auth.status === "deletingAccount") {
+    const busy = auth.status !== "signedIn";
     return (
       <section className="cloud-account" aria-labelledby="cloud-account-title">
         <div className="cloud-account-copy">
@@ -24,9 +27,25 @@ export function CloudAccountCard() {
           <span>{auth.email ?? "Signed in"}</span>
           <small>Account session ready. Rooms stay on this device until sync is enabled.</small>
         </div>
-        <button className="btn-small" disabled={auth.status === "signingOut"} onClick={() => void auth.endSession()}>
-          {auth.status === "signingOut" ? "Signing out…" : "Sign out"}
-        </button>
+        <div className="cloud-account-actions">
+          <button className="btn-small" disabled={busy} onClick={() => void auth.endSession()}>
+            {auth.status === "signingOut" ? "Signing out…" : "Sign out"}
+          </button>
+          <button className="btn-small danger" disabled={busy} onClick={() => setConfirmingDelete(true)}>
+            {auth.status === "deletingAccount" ? "Deleting…" : "Delete account"}
+          </button>
+        </div>
+        {auth.error ? <div className="form-error" role="alert"><span>{auth.error}</span></div> : null}
+        {confirmingDelete ? (
+          <ConfirmDialog
+            title="Delete your account?"
+            body="This permanently deletes your Falò cloud account, profile, the rooms you created, and your messages. It cannot be undone."
+            confirmLabel="Delete account"
+            destructive
+            onConfirm={() => { setConfirmingDelete(false); void auth.removeAccount(); }}
+            onCancel={() => setConfirmingDelete(false)}
+          />
+        ) : null}
       </section>
     );
   }
@@ -37,7 +56,7 @@ export function CloudAccountCard() {
         <div className="cloud-account-copy">
           <strong>Check your email</strong>
           <span>{auth.email}</span>
-          <small>Open the Unggun sign-in link on this device.</small>
+          <small>Open the Falò sign-in link on this device.</small>
         </div>
       </section>
     );

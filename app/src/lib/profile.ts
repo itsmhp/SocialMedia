@@ -1,7 +1,7 @@
 import type { Me } from "../types";
 import { makeId } from "./id";
 
-export const PROFILE_KEY = "unggun.profile";
+export const PROFILE_KEY = "falo.profile";
 
 /** Reads the saved profile from this device, or null on first run / bad data. */
 export function loadProfile(): Me | null {

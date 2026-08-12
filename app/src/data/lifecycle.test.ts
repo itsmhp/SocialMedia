@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AppState, Message, Room } from "../types";
-import { HOUR_MS, settleExpiredRooms } from "./lifecycle";
+import { circleStats, circleSummaries, HOUR_MS, settleExpiredRooms } from "./lifecycle";
 import { APP_STATE_KEY, loadAppState, saveAppState } from "./localState";
 import { majorityOf, reducer } from "./store";
 
@@ -23,6 +23,7 @@ function message(id: string, authorId: string, text: string, reactions: number, 
 function activeRoom(): Room {
   return {
     id: "room_one",
+    circleId: "circle_one",
     name: "Night Crew",
     spark: "Who is still awake?",
     createdBy: "user_me",
@@ -48,21 +49,29 @@ function activeRoom(): Room {
 function appState(): AppState {
   const room = activeRoom();
   return {
-    screen: "chat",
     settingsStack: [],
     now: NOW,
     onboarded: true,
     replayingIntro: false,
     roomListOpen: false,
+    roomDetailsOpen: false,
     creatingRoom: false,
     me: { id: "user_me", name: "Same face", avatar: "🦊" },
     friends: [{ id: "user_friend", name: "Same face", avatar: "🦊" }],
     streak: 0,
     moments: [],
     game: { prompts: ["test"], idx: 0, votes: { user_me: 0, user_friend: 0 }, mine: null },
+    circles: [{
+      id: room.circleId,
+      name: room.name,
+      createdBy: room.createdBy,
+      memberIds: [...room.memberIds],
+      createdAt: room.createdAt,
+    }],
     rooms: [room],
     activeRoomId: room.id,
     baras: [],
+    blockedIds: [],
   };
 }
 
@@ -125,6 +134,52 @@ describe("room lifecycle", () => {
     expect(relit.baras).toHaveLength(1);
   });
 
+  it("derives private Circle records from its room history", () => {
+    const state = appState();
+    const stats = circleStats(state, state.circles[0]);
+
+    expect(stats).toEqual({
+      ageSeconds: 3600,
+      roomCount: 1,
+      baraCount: 0,
+      extensionCount: 0,
+      longestBurnSeconds: 3600,
+    });
+  });
+
+  it("summarizes joined circles with glowing ones first", () => {
+    const base = appState();
+    const fadedRoom = {
+      ...activeRoom(),
+      id: "room_faded",
+      circleId: "circle_faded",
+      name: "Quiet Circle",
+      status: "faded" as const,
+      createdAt: NOW - 5 * HOUR_MS,
+      messages: [],
+    };
+    const withTwo: AppState = {
+      ...base,
+      circles: [
+        base.circles[0],
+        { id: "circle_faded", name: "Quiet Circle", createdBy: "user_me", memberIds: ["user_me"], createdAt: NOW - 5 * HOUR_MS },
+      ],
+      rooms: [base.rooms[0], fadedRoom],
+      baras: [{
+        id: "bara_faded", circleId: "circle_faded", roomId: "room_faded", roomName: "Quiet Circle",
+        spark: "gone", createdAt: NOW - HOUR_MS, memberCount: 1, messageCount: 0, reactionCount: 0, highlights: [],
+      }],
+    };
+    const summaries = circleSummaries(withTwo);
+
+    expect(summaries.map((summary) => summary.circle.id)).toEqual(["circle_one", "circle_faded"]);
+    expect(summaries[0].glowing).toBe(true);
+    expect(summaries[0].targetRoomId).toBe("room_one");
+    expect(summaries[1].glowing).toBe(false);
+    expect(summaries[1].targetRoomId).toBe("room_faded");
+    expect(summaries[1].baraCount).toBe(1);
+  });
+
   it("restores durable room activity across reload", () => {
     const storage = new Map<string, string>();
     vi.stubGlobal("localStorage", {
@@ -147,11 +202,40 @@ describe("room lifecycle", () => {
     expect(restoredMessages[restoredMessages.length - 1]?.id).toBe("message_persisted");
     expect(restored.rooms[0].expiresAt).toBe(sent.rooms[0].expiresAt);
   });
+
+  it("migrates version-one rooms and Bara into a permanent Circle", () => {
+    const storage = new Map<string, string>();
+    vi.stubGlobal("localStorage", {
+      getItem: (key: string) => storage.get(key) ?? null,
+      setItem: (key: string, value: string) => storage.set(key, value),
+    });
+    const state = settleExpiredRooms(appState(), NOW + 60_001);
+    const { circleId: _roomCircleId, ...legacyRoom } = state.rooms[0];
+    const { circleId: _baraCircleId, ...legacyBara } = state.baras[0];
+    storage.set(APP_STATE_KEY, JSON.stringify({
+      version: 1,
+      me: state.me,
+      streak: state.streak,
+      friends: state.friends,
+      moments: state.moments,
+      game: state.game,
+      rooms: [legacyRoom],
+      activeRoomId: legacyRoom.id,
+      baras: [legacyBara],
+    }));
+
+    const restored = loadAppState(appState(), NOW + 120_000);
+
+    expect(restored.circles).toHaveLength(1);
+    expect(restored.rooms[0].circleId).toBe(restored.circles[0].id);
+    expect(restored.baras[0].circleId).toBe(restored.circles[0].id);
+    expect(restored.baras[0].highlights).toEqual(legacyBara.highlights);
+  });
 });
 
 describe("settings state", () => {
-  it("returns from Settings without changing the active bottom tab", () => {
-    const state = { ...appState(), screen: "memories" as const };
+  it("returns from nested Settings to the room hierarchy", () => {
+    const state = appState();
     const opened = reducer(state, { type: "OPEN_SETTINGS" });
     const nested = reducer(opened, { type: "OPEN_SETTINGS_PAGE", page: "profile" });
     const home = reducer(nested, { type: "SETTINGS_BACK" });
@@ -159,7 +243,7 @@ describe("settings state", () => {
 
     expect(nested.settingsStack).toEqual(["home", "profile"]);
     expect(closed.settingsStack).toEqual([]);
-    expect(closed.screen).toBe("memories");
+    expect(closed.activeRoomId).toBe(state.activeRoomId);
   });
 
   it("clears activity while retaining the profile and circle contacts", () => {
@@ -180,6 +264,7 @@ describe("settings state", () => {
     expect(cleared.me).toEqual(state.me);
     expect(cleared.friends).toEqual(state.friends);
     expect(cleared.rooms).toEqual([]);
+    expect(cleared.circles).toEqual([]);
     expect(cleared.moments).toEqual([]);
     expect(cleared.baras).toEqual([]);
     expect(cleared.streak).toBe(0);
@@ -193,7 +278,93 @@ describe("settings state", () => {
     expect(reset.me.id).toBe("user_fresh");
     expect(reset.friends).toEqual([]);
     expect(reset.rooms).toEqual([]);
+    expect(reset.circles).toEqual([]);
     expect(reset.moments).toEqual([]);
     expect(reset.baras).toEqual([]);
+  });
+});
+
+describe("local room membership", () => {
+  it("lets the host remove a member without deleting their message history", () => {
+    const base = appState();
+    const state: AppState = {
+      ...base,
+      friends: [
+        ...base.friends,
+        { id: "user_other", name: "Other", avatar: "🌙" },
+        { id: "user_removed", name: "Removed", avatar: "⚡" },
+      ],
+      circles: [{
+        ...base.circles[0],
+        memberIds: ["user_me", "user_friend", "user_other", "user_removed"],
+      }],
+      rooms: [{
+        ...base.rooms[0],
+        memberIds: ["user_me", "user_friend", "user_other", "user_removed"],
+        extend: {
+          ...base.rooms[0].extend,
+          votes: { user_me: "keep", user_friend: "keep" },
+        },
+      }],
+    };
+    const removed = reducer(state, {
+      type: "REMOVE_ROOM_MEMBER",
+      roomId: "room_one",
+      memberId: "user_removed",
+    });
+
+    expect(removed.rooms[0].memberIds).toEqual(["user_me", "user_friend", "user_other"]);
+    expect(removed.circles[0].memberIds).toEqual(["user_me", "user_friend", "user_other"]);
+    expect(removed.rooms[0].messages).toEqual(state.rooms[0].messages);
+    expect(removed.rooms[0].extend.votes).toEqual({});
+  });
+
+  it("requires the current host to transfer ownership to an active member", () => {
+    const state = appState();
+    const transferred = reducer(state, {
+      type: "TRANSFER_ROOM_OWNER",
+      roomId: "room_one",
+      memberId: "user_friend",
+    });
+    const secondTransfer = reducer(transferred, {
+      type: "TRANSFER_ROOM_OWNER",
+      roomId: "room_one",
+      memberId: "user_me",
+    });
+
+    expect(transferred.rooms[0].createdBy).toBe("user_friend");
+    expect(transferred.circles[0].createdBy).toBe("user_friend");
+    expect(secondTransfer).toBe(transferred);
+  });
+
+  it("lets a non-host leave and selects another visible room", () => {
+    const state = appState();
+    const otherRoom = { ...activeRoom(), id: "room_two", circleId: "circle_two", name: "Next Room" };
+    const memberState: AppState = {
+      ...state,
+      roomDetailsOpen: true,
+      circles: [
+        { ...state.circles[0], createdBy: "user_friend" },
+        {
+          id: otherRoom.circleId,
+          name: otherRoom.name,
+          createdBy: "user_me",
+          memberIds: [...otherRoom.memberIds],
+          createdAt: otherRoom.createdAt,
+        },
+      ],
+      rooms: [{ ...state.rooms[0], createdBy: "user_friend" }, otherRoom],
+    };
+    const left = reducer(memberState, { type: "LEAVE_ROOM", roomId: "room_one" });
+
+    expect(left.rooms.map((room) => room.id)).toEqual(["room_two"]);
+    expect(left.circles.map((circle) => circle.id)).toEqual(["circle_two"]);
+    expect(left.activeRoomId).toBe("room_two");
+    expect(left.roomDetailsOpen).toBe(false);
+  });
+
+  it("does not let the host leave before transferring ownership", () => {
+    const state = appState();
+    expect(reducer(state, { type: "LEAVE_ROOM", roomId: "room_one" })).toBe(state);
   });
 });

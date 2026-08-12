@@ -6,7 +6,7 @@ import {
   type Dispatch,
   type ReactNode,
 } from "react";
-import type { AppState, Message, Moment, Room, ScreenName, SettingsPage } from "../types";
+import type { AppState, Message, Moment, Room, SettingsPage, Spark } from "../types";
 import { HOUR_MS, secondsLeft, selectedRoom, settleExpiredRooms } from "./lifecycle";
 import { loadAppState, saveAppState } from "./localState";
 import { createSeedState } from "./seed";
@@ -15,18 +15,28 @@ export const CHAT_REACTIONS = ["😂", "❤️", "🔥"] as const;
 export const MOMENT_REACTIONS = ["❤️", "😂", "🔥", "🙌"] as const;
 
 export type Action =
-  | { type: "SET_SCREEN"; screen: ScreenName }
   | { type: "OPEN_SETTINGS" }
   | { type: "OPEN_SETTINGS_PAGE"; page: SettingsPage }
   | { type: "SETTINGS_BACK" }
   | { type: "CLOSE_SETTINGS" }
   | { type: "OPEN_ROOM_LIST" }
+  | { type: "OPEN_ROOM_DETAILS" }
+  | { type: "CLOSE_ROOM_DETAILS" }
   | { type: "OPEN_CREATE_ROOM" }
   | { type: "CLOSE_CREATE_ROOM" }
   | { type: "SELECT_ROOM"; roomId: string }
+  | { type: "REMOVE_ROOM_MEMBER"; roomId: string; memberId: string }
+  | { type: "TRANSFER_ROOM_OWNER"; roomId: string; memberId: string }
+  | { type: "LEAVE_ROOM"; roomId: string }
   | { type: "CREATE_ROOM"; roomId: string; messageId: string; name: string; spark: string; durationHours: 12 | 24; memberIds: string[]; now: number }
   | { type: "RELIGHT_ROOM"; sourceRoomId: string; roomId: string; messageId: string; now: number }
   | { type: "SEND_MESSAGE"; id: string; text: string; now: number }
+  | { type: "POST_SPARK"; id: string; spark: Spark; now: number }
+  | { type: "VOTE_SPARK"; messageId: string; option: number }
+  | { type: "TOGGLE_KEEP"; messageId: string }
+  | { type: "DELETE_MESSAGE"; messageId: string }
+  | { type: "TOGGLE_BLOCK_MEMBER"; memberId: string }
+  | { type: "REPORT"; targetId: string }
   | { type: "REACT_MESSAGE"; id: string; emoji: string }
   | { type: "CAST_EXTEND_VOTE"; choice: "keep" | "fade"; systemMessageId: string; now: number }
   | { type: "ADD_MOMENT"; id: string; text: string; mood: string; now: number }
@@ -65,9 +75,6 @@ function updateRoom(state: AppState, roomId: string, update: (room: Room) => Roo
 
 export function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case "SET_SCREEN":
-      return { ...state, screen: action.screen, roomListOpen: false };
-
     case "OPEN_SETTINGS":
       return { ...state, settingsStack: ["home"], roomListOpen: false };
 
@@ -87,7 +94,15 @@ export function reducer(state: AppState, action: Action): AppState {
       return { ...state, settingsStack: [] };
 
     case "OPEN_ROOM_LIST":
-      return { ...state, screen: "chat", roomListOpen: true };
+      return { ...state, roomListOpen: true, roomDetailsOpen: false };
+
+    case "OPEN_ROOM_DETAILS":
+      return selectedRoom(state)
+        ? { ...state, roomDetailsOpen: true, roomListOpen: false }
+        : state;
+
+    case "CLOSE_ROOM_DETAILS":
+      return { ...state, roomDetailsOpen: false };
 
     case "OPEN_CREATE_ROOM":
       return { ...state, creatingRoom: true };
@@ -96,13 +111,92 @@ export function reducer(state: AppState, action: Action): AppState {
       return { ...state, creatingRoom: false };
 
     case "SELECT_ROOM":
-      return { ...state, screen: "chat", activeRoomId: action.roomId, roomListOpen: false };
+      return {
+        ...state,
+        activeRoomId: action.roomId,
+        roomListOpen: false,
+        roomDetailsOpen: false,
+      };
+
+    case "REMOVE_ROOM_MEMBER": {
+      const room = state.rooms.find((item) => item.id === action.roomId);
+      const circle = state.circles.find((item) => item.id === room?.circleId);
+      if (
+        !room ||
+        !circle ||
+        circle.createdBy !== state.me.id ||
+        action.memberId === state.me.id ||
+        !circle.memberIds.includes(action.memberId)
+      ) return state;
+      const member = state.friends.find((friend) => friend.id === action.memberId);
+      return {
+        ...state,
+        circles: state.circles.map((current) => current.id === circle.id
+          ? { ...current, memberIds: current.memberIds.filter((memberId) => memberId !== action.memberId) }
+          : current),
+        rooms: state.rooms.map((current) => current.circleId === circle.id && current.status === "active"
+          ? {
+              ...current,
+              memberIds: current.memberIds.filter((memberId) => memberId !== action.memberId),
+              extend: { ...current.extend, votes: {} },
+            }
+          : current),
+        toast: `${member?.name ?? "Member"} removed from this Circle`,
+      };
+    }
+
+    case "TRANSFER_ROOM_OWNER": {
+      const room = state.rooms.find((item) => item.id === action.roomId);
+      const circle = state.circles.find((item) => item.id === room?.circleId);
+      if (
+        !room ||
+        !circle ||
+        circle.createdBy !== state.me.id ||
+        action.memberId === state.me.id ||
+        !circle.memberIds.includes(action.memberId)
+      ) return state;
+      const member = state.friends.find((friend) => friend.id === action.memberId);
+      return {
+        ...state,
+        circles: state.circles.map((current) => current.id === circle.id
+          ? { ...current, createdBy: action.memberId }
+          : current),
+        rooms: state.rooms.map((current) => current.circleId === circle.id && current.status === "active"
+          ? { ...current, createdBy: action.memberId }
+          : current),
+        toast: `${member?.name ?? "Member"} is now the Circle host`,
+      };
+    }
+
+    case "LEAVE_ROOM": {
+      const room = state.rooms.find((item) => item.id === action.roomId);
+      const circle = state.circles.find((item) => item.id === room?.circleId);
+      if (
+        !room ||
+        !circle ||
+        circle.createdBy === state.me.id ||
+        !circle.memberIds.includes(state.me.id)
+      ) return state;
+      const rooms = state.rooms.filter((item) => item.circleId !== circle.id);
+      return {
+        ...state,
+        circles: state.circles.filter((item) => item.id !== circle.id),
+        rooms,
+        activeRoomId: state.rooms.some((item) => item.id === state.activeRoomId && item.circleId === circle.id)
+          ? rooms.find((item) => item.status === "active")?.id ?? rooms[0]?.id ?? null
+          : state.activeRoomId,
+        baras: state.baras.filter((bara) => bara.circleId !== circle.id),
+        roomDetailsOpen: false,
+        toast: `You left ${circle.name}`,
+      };
+    }
 
     case "CREATE_ROOM": {
       const friendIds = new Set(state.friends.map((friend) => friend.id));
       const memberIds = [state.me.id, ...action.memberIds.filter((id) => friendIds.has(id))];
       const room: Room = {
         id: action.roomId,
+        circleId: `circle_${action.roomId}`,
         name: action.name.trim(),
         spark: action.spark.trim(),
         createdBy: state.me.id,
@@ -130,11 +224,18 @@ export function reducer(state: AppState, action: Action): AppState {
       return {
         ...state,
         now: action.now,
+        circles: [{
+          id: room.circleId,
+          name: room.name,
+          createdBy: room.createdBy,
+          memberIds: [...room.memberIds],
+          createdAt: room.createdAt,
+        }, ...state.circles],
         rooms: [room, ...state.rooms],
         activeRoomId: room.id,
         roomListOpen: false,
+        roomDetailsOpen: false,
         creatingRoom: false,
-        screen: "chat",
         toast: "Room lit 🔥",
       };
     }
@@ -170,7 +271,7 @@ export function reducer(state: AppState, action: Action): AppState {
         rooms: [room, ...state.rooms],
         activeRoomId: room.id,
         roomListOpen: false,
-        screen: "chat",
+        roomDetailsOpen: false,
         toast: "The fire is back 🔥",
       };
     }
@@ -198,6 +299,90 @@ export function reducer(state: AppState, action: Action): AppState {
         messages: [...current.messages, message],
       }));
     }
+
+    case "POST_SPARK": {
+      const room = selectedRoom(state);
+      if (!room || room.status !== "active") return state;
+      const message: Message = {
+        id: action.id,
+        authorId: state.me.id,
+        who: state.me.name,
+        avatar: state.me.avatar,
+        text: action.spark.kind === "poll" ? action.spark.question : action.spark.text,
+        time: "now",
+        createdAt: action.now,
+        reactions: { "😂": 0, "❤️": 0, "🔥": 0 },
+        mine: [],
+        spark: action.spark,
+      };
+      return updateRoom({ ...state, now: action.now, toast: "Spark added to the room ✨" }, room.id, (current) => ({
+        ...current,
+        messages: [...current.messages, message],
+      }));
+    }
+
+    case "VOTE_SPARK": {
+      const room = selectedRoom(state);
+      if (!room || room.status !== "active") return state;
+      const target = room.messages.find((message) => message.id === action.messageId);
+      if (!target || target.spark?.kind !== "poll") return state;
+      if (action.option < 0 || action.option >= target.spark.options.length) return state;
+      return updateRoom(state, room.id, (current) => ({
+        ...current,
+        messages: current.messages.map((message) => {
+          if (message.id !== action.messageId || message.spark?.kind !== "poll") return message;
+          const votes = { ...message.spark.votes };
+          if (votes[state.me.id] === action.option) delete votes[state.me.id];
+          else votes[state.me.id] = action.option;
+          return { ...message, spark: { ...message.spark, votes } };
+        }),
+      }));
+    }
+
+    case "TOGGLE_KEEP": {
+      const room = selectedRoom(state);
+      if (!room || room.status !== "active") return state;
+      return updateRoom(state, room.id, (current) => ({
+        ...current,
+        messages: current.messages.map((message) => (
+          message.id === action.messageId && !message.system
+            ? { ...message, keep: !message.keep }
+            : message
+        )),
+      }));
+    }
+
+    case "DELETE_MESSAGE": {
+      const room = selectedRoom(state);
+      if (!room || room.status !== "active") return state;
+      const target = room.messages.find((message) => message.id === action.messageId);
+      if (!target || target.system) return state;
+      const circle = state.circles.find((item) => item.id === room.circleId);
+      const canDelete = target.authorId === state.me.id || circle?.createdBy === state.me.id;
+      if (!canDelete) return state;
+      return updateRoom({ ...state, toast: "Message deleted" }, room.id, (current) => ({
+        ...current,
+        messages: current.messages.filter((message) => message.id !== action.messageId),
+      }));
+    }
+
+    case "TOGGLE_BLOCK_MEMBER": {
+      if (action.memberId === state.me.id) return state;
+      const blocked = state.blockedIds.includes(action.memberId);
+      const member = state.friends.find((friend) => friend.id === action.memberId);
+      return {
+        ...state,
+        blockedIds: blocked
+          ? state.blockedIds.filter((id) => id !== action.memberId)
+          : [...state.blockedIds, action.memberId],
+        toast: blocked
+          ? `${member?.name ?? "Member"} unblocked`
+          : `${member?.name ?? "Member"} blocked — you won't see their messages`,
+      };
+    }
+
+    case "REPORT":
+      return { ...state, toast: "Report received. Our team will review it." };
 
     case "REACT_MESSAGE": {
       const room = selectedRoom(state);
@@ -316,6 +501,7 @@ export function reducer(state: AppState, action: Action): AppState {
         streak: 0,
         moments: [],
         game: { ...state.game, idx: 0, votes, mine: null },
+        circles: [],
         rooms: [],
         activeRoomId: null,
         baras: [],
@@ -325,21 +511,23 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case "RESET_APP":
       return {
-        screen: "chat",
         settingsStack: [],
         now: action.now,
         onboarded: false,
         replayingIntro: false,
-        roomListOpen: false,
+        roomListOpen: true,
+        roomDetailsOpen: false,
         creatingRoom: false,
         me: { id: action.userId, name: "You", avatar: "🦊" },
         streak: 0,
         friends: [],
         moments: [],
         game: { prompts: state.game.prompts, idx: 0, votes: { [action.userId]: 0 }, mine: null },
+        circles: [],
         rooms: [],
         activeRoomId: null,
         baras: [],
+        blockedIds: [],
       };
 
     case "TOAST":
@@ -371,7 +559,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     saveAppState(state);
-  }, [state.me, state.streak, state.friends, state.moments, state.game, state.rooms, state.activeRoomId, state.baras]);
+  }, [state.me, state.streak, state.friends, state.moments, state.game, state.circles, state.rooms, state.activeRoomId, state.baras, state.blockedIds]);
 
   return <StoreContext.Provider value={{ state, dispatch }}>{children}</StoreContext.Provider>;
 }

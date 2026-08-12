@@ -29,8 +29,10 @@ function seededMessages(now: number): Message[] {
 export function createSeedState(now = Date.now()): AppState {
   const savedProfile = loadProfile();
   const me = savedProfile ?? { id: makeId("user"), name: "You", avatar: "🦊" };
+  const circleId = "circle_dusk_crew";
   const room: Room = {
     id: "room_dusk_crew",
+    circleId,
     name: "Dusk Crew",
     spark: "Who's still awake?",
     createdBy: "user_dinda",
@@ -50,12 +52,12 @@ export function createSeedState(now = Date.now()): AppState {
   };
 
   return {
-    screen: "chat",
     settingsStack: [],
     now,
     onboarded: savedProfile !== null,
     replayingIntro: false,
-    roomListOpen: false,
+    roomListOpen: true,
+    roomDetailsOpen: false,
     creatingRoom: false,
     me,
     streak: 0,
@@ -77,8 +79,16 @@ export function createSeedState(now = Date.now()): AppState {
       votes: { [me.id]: 0, user_dinda: 2, user_raka: 1, user_sasa: 0, user_bagas: 3, user_nadia: 1 },
       mine: null,
     },
+    circles: [{
+      id: circleId,
+      name: room.name,
+      createdBy: room.createdBy,
+      memberIds: [...room.memberIds],
+      createdAt: room.createdAt,
+    }],
     rooms: [room],
     activeRoomId: room.id,
     baras: [],
+    blockedIds: [],
   };
 }

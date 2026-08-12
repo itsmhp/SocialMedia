@@ -24,7 +24,7 @@ export function ChatScreen() {
   if (room.status === "faded") return <FadedRoom room={room} />;
 
   return (
-    <section className="screen active">
+    <section className="screen active chat-screen">
       <div className="room-banner">
         {open
           ? "⏳ Almost out of time — vote now to keep the fire alive."
@@ -33,9 +33,11 @@ export function ChatScreen() {
       {open && <ExtendVoteCard />}
       <div className="presence">🔒 {memberCount(room)} {plural(memberCount(room), "member")} · this chat fades with the room</div>
       <div className="chat">
-        {room.messages.map((message) => (
-          <MessageBubble key={message.id} m={message} />
-        ))}
+        {room.messages
+          .filter((message) => !(message.authorId && state.blockedIds.includes(message.authorId)))
+          .map((message) => (
+            <MessageBubble key={message.id} m={message} />
+          ))}
       </div>
       <Composer />
     </section>

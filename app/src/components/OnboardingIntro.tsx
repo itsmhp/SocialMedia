@@ -2,9 +2,9 @@ import { useRef, type PointerEvent } from "react";
 
 const SLIDES = [
   {
-    eyebrow: "Welcome to Unggun",
+    eyebrow: "Welcome to Falò",
     title: "A room for right now",
-    body: "Light a private room for your people, add a spark, and let everyone pile in while it glows.",
+    body: "Light a room for your Circle, drop a spark or a poll, and let everyone pile in while it glows.",
     visual: "room",
   },
   {

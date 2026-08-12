@@ -5,7 +5,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { currentAuth, sendMagicLink, signOut, watchAuth, type AuthSnapshot } from "./auth";
+import { currentAuth, deleteAccount, sendMagicLink, signOut, watchAuth, type AuthSnapshot } from "./auth";
 import { SUPABASE_CONFIGURED } from "./supabase";
 
 type CloudAuthStatus =
@@ -16,6 +16,7 @@ type CloudAuthStatus =
   | "emailSent"
   | "signedIn"
   | "signingOut"
+  | "deletingAccount"
   | "error";
 
 interface CloudAuthValue {
@@ -26,6 +27,7 @@ interface CloudAuthValue {
   error: string | null;
   requestMagicLink: (email: string) => Promise<void>;
   endSession: () => Promise<void>;
+  removeAccount: () => Promise<void>;
   refresh: () => Promise<void>;
 }
 
@@ -108,6 +110,16 @@ export function CloudAuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const removeAccount = async () => {
+    setState((current) => ({ ...current, status: "deletingAccount", error: null }));
+    try {
+      await deleteAccount();
+      setState({ status: "signedOut", userId: null, email: null, error: null });
+    } catch (error) {
+      setState((current) => ({ ...current, status: "error", error: messageOf(error) }));
+    }
+  };
+
   return (
     <CloudAuthContext.Provider
       value={{
@@ -115,6 +127,7 @@ export function CloudAuthProvider({ children }: { children: ReactNode }) {
         ...state,
         requestMagicLink,
         endSession,
+        removeAccount,
         refresh,
       }}
     >

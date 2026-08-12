@@ -11,10 +11,14 @@ import {
   Info,
   KeyRound,
   Mail,
+  Monitor,
+  Moon,
   PackageOpen,
   RotateCcw,
   Scale,
   ShieldCheck,
+  Sun,
+  SunMoon,
   Trash2,
   UserRound,
   UsersRound,
@@ -25,12 +29,15 @@ import { useStore } from "../data/store";
 import { clearAppState } from "../data/localState";
 import { updateRemoteProfile } from "../data/supabaseRepository";
 import { makeId } from "../lib/id";
+import { plural } from "../lib/text";
 import { saveProfile } from "../lib/profile";
 import {
+  DEFAULT_PREFERENCES,
   loadPreferences,
   savePreferences,
   type Preferences,
 } from "../lib/preferences";
+import { applyThemePreference, type ThemePreference } from "../lib/theme";
 import { resetLocalStorage } from "../lib/localReset";
 import { APP_VERSION } from "../lib/version";
 import { useCloudAuth } from "../lib/CloudAuthProvider";
@@ -45,6 +52,7 @@ const PAGE_TITLES: Record<SettingsPage, string> = {
   home: "Settings",
   profile: "Profile",
   account: "Account",
+  appearance: "Appearance",
   notifications: "Notifications",
   privacy: "Privacy & Safety",
   data: "Data",
@@ -133,7 +141,13 @@ function ToggleRow({ title, summary, checked, onChange }: {
   );
 }
 
-function SettingsHome({ open }: { open: (page: SettingsPage) => void }) {
+const THEME_LABELS: Record<ThemePreference, string> = {
+  system: "Same as this device",
+  light: "Light",
+  dark: "Dark",
+};
+
+function SettingsHome({ open, theme }: { open: (page: SettingsPage) => void; theme: ThemePreference }) {
   const { state } = useStore();
   const auth = useCloudAuth();
   const accountSummary = auth.status === "signedIn"
@@ -148,6 +162,9 @@ function SettingsHome({ open }: { open: (page: SettingsPage) => void }) {
       <SettingsGroup title="Account">
         <SettingsRow icon={KeyRound} title="Account" summary={accountSummary} onClick={() => open("account")} />
       </SettingsGroup>
+      <SettingsGroup title="Appearance">
+        <SettingsRow icon={SunMoon} title="Theme" summary={THEME_LABELS[theme]} onClick={() => open("appearance")} />
+      </SettingsGroup>
       <SettingsGroup title="Notifications">
         <SettingsRow icon={Bell} title="Notification choices" summary="Categories and quiet hours" onClick={() => open("notifications")} />
       </SettingsGroup>
@@ -155,15 +172,52 @@ function SettingsHome({ open }: { open: (page: SettingsPage) => void }) {
         <SettingsRow icon={ShieldCheck} title="Privacy & Safety" summary="Data practices and circle rules" onClick={() => open("privacy")} />
       </SettingsGroup>
       <SettingsGroup title="Data">
-        <SettingsRow icon={Database} title="Local data" summary={`${state.rooms.length} rooms · ${state.baras.length} Bara`} onClick={() => open("data")} />
+        <SettingsRow icon={Database} title="Local data" summary={`${state.circles.length} ${plural(state.circles.length, "Circle")} · ${state.baras.length} Bara`} onClick={() => open("data")} />
       </SettingsGroup>
       <SettingsGroup title="Help">
         <SettingsRow icon={CircleHelp} title="Help & support" summary="Replay the intro or contact support" onClick={() => open("help")} />
       </SettingsGroup>
       <SettingsGroup title="About">
-        <SettingsRow icon={Info} title="About Unggun" summary={`Version ${APP_VERSION}`} onClick={() => open("about")} />
+        <SettingsRow icon={Info} title="About Falò" summary={`Version ${APP_VERSION}`} onClick={() => open("about")} />
       </SettingsGroup>
     </div>
+  );
+}
+
+const THEME_OPTIONS: { value: ThemePreference; label: string; icon: LucideIcon }[] = [
+  { value: "system", label: "System", icon: Monitor },
+  { value: "light", label: "Light", icon: Sun },
+  { value: "dark", label: "Dark", icon: Moon },
+];
+
+function AppearanceSettings({ theme, update }: {
+  theme: ThemePreference;
+  update: (theme: ThemePreference) => void;
+}) {
+  return (
+    <section className="settings-page">
+      <div className="settings-notice">
+        <SunMoon size={20} aria-hidden="true" />
+        <span><strong>Choose how Falò looks</strong><small>The change applies immediately and stays on this device.</small></span>
+      </div>
+      <SettingsGroup title="Theme">
+        <fieldset className="theme-picker" aria-label="Color theme">
+          {THEME_OPTIONS.map(({ value, label, icon: Icon }) => (
+            <label className="theme-option" key={value}>
+              <input
+                type="radio"
+                name="theme"
+                value={value}
+                checked={theme === value}
+                onChange={() => update(value)}
+              />
+              <span><Icon size={19} aria-hidden="true" /><strong>{label}</strong></span>
+            </label>
+          ))}
+        </fieldset>
+      </SettingsGroup>
+      <p className="settings-footnote">System follows your phone or browser appearance automatically.</p>
+    </section>
   );
 }
 
@@ -229,7 +283,7 @@ function AccountSettings() {
       ) : null}
       <CloudAccountCard />
       <p className="settings-footnote">
-        Local activity is not silently uploaded. Resetting this app does not delete a separate cloud account.
+        Local activity is not silently uploaded. When you are signed in, use Delete account to permanently remove your cloud account and its data. Resetting this app only clears this device.
       </p>
     </section>
   );
@@ -272,10 +326,10 @@ function PrivacySettings({ open }: { open: (page: SettingsPage) => void }) {
         <span><strong>Private by default</strong><small>No contact upload, precise location, public followers, or ad tracking.</small></span>
       </div>
       <SettingsGroup title="Policies">
-        <SettingsRow icon={FileText} title="Privacy Policy" summary="What Unggun stores and why" onClick={() => open("privacy-policy")} />
+        <SettingsRow icon={FileText} title="Privacy Policy" summary="What Falò stores and why" onClick={() => open("privacy-policy")} />
         <SettingsRow icon={UsersRound} title="Community Guidelines" summary="Boundaries for every private circle" onClick={() => open("guidelines")} />
       </SettingsGroup>
-      <p className="settings-footnote">Report and block controls are not yet connected in this local alpha.</p>
+      <p className="settings-footnote">Block and report a member from their Circle profile, or report a message from the chat. Reports are reviewed by the team.</p>
     </section>
   );
 }
@@ -285,14 +339,14 @@ function DataSettings({ onClear, onReset }: { onClear: () => void; onReset: () =
   return (
     <section className="settings-page">
       <div className="data-summary" aria-label="Local activity summary">
-        <span><strong>{state.rooms.length}</strong><small>rooms</small></span>
-        <span><strong>{state.moments.length}</strong><small>Moments</small></span>
+        <span><strong>{state.circles.length}</strong><small>{plural(state.circles.length, "Circle")}</small></span>
+        <span><strong>{state.rooms.length}</strong><small>{plural(state.rooms.length, "room")}</small></span>
         <span><strong>{state.baras.length}</strong><small>Bara</small></span>
       </div>
       <SettingsGroup title="Local activity">
         <button type="button" className="settings-action danger" onClick={onClear}>
           <Trash2 size={18} aria-hidden="true" />
-          <span><strong>Clear local activity</strong><small>Remove rooms, messages, Moments, game votes, and Bara. Keep your profile.</small></span>
+          <span><strong>Clear local activity</strong><small>Remove Circles, rooms, messages, sparks, and Bara. Keep your profile.</small></span>
         </button>
       </SettingsGroup>
       <SettingsGroup title="This app">
@@ -322,12 +376,12 @@ function HelpSettings({ replay }: { replay: () => void }) {
 function AboutSettings({ open }: { open: (page: SettingsPage) => void }) {
   return (
     <section className="settings-page">
-      <div className="about-mark" aria-label={`Unggun version ${APP_VERSION}`}>
-        <span aria-hidden="true">🔥</span><strong>Unggun</strong><small>Version {APP_VERSION} · local alpha</small>
+      <div className="about-mark" aria-label={`Falò version ${APP_VERSION}`}>
+        <span aria-hidden="true">🔥</span><strong>Falò</strong><small>Version {APP_VERSION} · local alpha</small>
       </div>
       <SettingsGroup title="Documents">
         <SettingsRow icon={Scale} title="Terms of Use" summary="Rules for using the alpha" onClick={() => open("terms")} />
-        <SettingsRow icon={PackageOpen} title="Open-source licenses" summary="Libraries that make Unggun possible" onClick={() => open("licenses")} />
+        <SettingsRow icon={PackageOpen} title="Open-source licenses" summary="Libraries that make Falò possible" onClick={() => open("licenses")} />
       </SettingsGroup>
     </section>
   );
@@ -377,6 +431,16 @@ export function SettingsScreen() {
     else dispatch({ type: "TOAST", msg: "Preference could not be saved" });
   };
 
+  const updateTheme = (theme: ThemePreference) => {
+    const next = { ...preferences, theme };
+    if (savePreferences(next)) {
+      setPreferences(next);
+      applyThemePreference(theme);
+    } else {
+      dispatch({ type: "TOAST", msg: "Theme preference could not be saved" });
+    }
+  };
+
   const clearActivity = () => {
     setConfirmation(null);
     if (!clearAppState()) {
@@ -392,19 +456,24 @@ export function SettingsScreen() {
       dispatch({ type: "TOAST", msg: "App reset failed. Local storage may be unavailable." });
       return;
     }
+    setPreferences(DEFAULT_PREFERENCES);
+    applyThemePreference(DEFAULT_PREFERENCES.theme);
     dispatch({ type: "RESET_APP", userId: makeId("user"), now: Date.now() });
   };
 
   let content: ReactNode;
   switch (current) {
     case "home":
-      content = <SettingsHome open={open} />;
+      content = <SettingsHome open={open} theme={preferences.theme} />;
       break;
     case "profile":
       content = <ProfileSettings onDirtyChange={setProfileDirty} onCancel={navigateBack} />;
       break;
     case "account":
       content = <AccountSettings />;
+      break;
+    case "appearance":
+      content = <AppearanceSettings theme={preferences.theme} update={updateTheme} />;
       break;
     case "notifications":
       content = <NotificationSettings preferences={preferences} update={updateNotifications} />;
@@ -440,15 +509,15 @@ export function SettingsScreen() {
     : confirmation === "clear"
       ? {
           title: "Clear local activity?",
-          body: "Rooms, messages, Moments, game votes, and Bara on this device will be permanently removed. Your profile stays.",
+          body: "Circles, rooms, messages, sparks, and Bara on this device will be permanently removed. Your profile stays.",
           confirmLabel: "Clear activity",
           destructive: true,
           onConfirm: clearActivity,
         }
       : confirmation === "reset"
         ? {
-            title: "Reset Unggun?",
-            body: "Everything Unggun stores locally on this device will be removed and the introduction will start again.",
+            title: "Reset Falò?",
+            body: "Everything Falò stores locally on this device will be removed and the introduction will start again.",
             confirmLabel: "Reset app",
             destructive: true,
             onConfirm: resetApp,

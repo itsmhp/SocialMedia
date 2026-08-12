@@ -1,4 +1,4 @@
--- Unggun secure core schema for a NEW Supabase project.
+-- Falò secure core schema for a NEW Supabase project.
 -- Do not run this file over an existing database with user data. Use a reviewed
 -- migration instead. Client code must use the RPCs below for room membership.
 
@@ -795,6 +795,30 @@ begin
 end;
 $$;
 
+create or replace function public.delete_account()
+returns void
+language plpgsql
+security definer
+set search_path = ''
+as $$
+declare
+  uid uuid := auth.uid();
+begin
+  if uid is null then
+    raise exception 'authentication required' using errcode = '42501';
+  end if;
+
+  -- Rooms this user created cascade to their members, messages, invites, votes, and Bara.
+  delete from public.rooms where created_by = uid;
+  -- Remove this user's messages elsewhere first; the non-null author check blocks set-null on delete.
+  delete from public.messages where user_id = uid;
+  -- The profile delete cascades remaining memberships, reactions, votes, and blocks.
+  delete from public.profiles where id = uid;
+  -- Finally drop the auth identity so the account can no longer sign in.
+  delete from auth.users where id = uid;
+end;
+$$;
+
 revoke all on function public.create_room(text, text, smallint, smallint) from public, anon;
 revoke all on function public.create_room_invite(uuid, integer, integer) from public, anon;
 revoke all on function public.preview_room_invite(text) from public, anon;
@@ -804,6 +828,7 @@ revoke all on function public.leave_room(uuid) from public, anon;
 revoke all on function public.remove_room_member(uuid, uuid) from public, anon;
 revoke all on function public.cast_extend_vote(uuid, text) from public, anon;
 revoke all on function public.report_room_content(uuid, uuid, uuid, text, text) from public, anon;
+revoke all on function public.delete_account() from public, anon;
 
 grant execute on function public.create_room(text, text, smallint, smallint) to authenticated;
 grant execute on function public.create_room_invite(uuid, integer, integer) to authenticated;
@@ -814,6 +839,7 @@ grant execute on function public.leave_room(uuid) to authenticated;
 grant execute on function public.remove_room_member(uuid, uuid) to authenticated;
 grant execute on function public.cast_extend_vote(uuid, text) to authenticated;
 grant execute on function public.report_room_content(uuid, uuid, uuid, text, text) to authenticated;
+grant execute on function public.delete_account() to authenticated;
 
 -- ---------- server-authoritative fade / Bara ----------
 
@@ -941,7 +967,7 @@ grant execute on function private.finalize_expired_rooms() to service_role;
 
 -- Optional after enabling pg_cron in Supabase:
 -- select cron.schedule(
---   'unggun-finalize-expired-rooms',
+--   'falo-finalize-expired-rooms',
 --   '* * * * *',
 --   $$ select private.finalize_expired_rooms(); $$
 -- );
@@ -1121,7 +1147,7 @@ begin
 end;
 $$;
 
--- PostgreSQL cannot apply row filters to DELETE payloads. Unggun does not need
+-- PostgreSQL cannot apply row filters to DELETE payloads. Falò does not need
 -- delete events: room/message/reaction removal is represented by room UPDATEs
 -- and subsequent authorized rehydration.
 alter publication supabase_realtime set (publish = 'insert, update');

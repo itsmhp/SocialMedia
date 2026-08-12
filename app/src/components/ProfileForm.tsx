@@ -18,6 +18,7 @@ export function ProfileForm({
   submitting = false,
   error,
   onDirtyChange,
+  requireTerms = false,
 }: {
   initialName: string;
   initialAvatar: string;
@@ -28,10 +29,12 @@ export function ProfileForm({
   submitting?: boolean;
   error?: string | null;
   onDirtyChange?: (dirty: boolean) => void;
+  requireTerms?: boolean;
 }) {
   const [name, setName] = useState(initialName);
   const [avatar, setAvatar] = useState(initialAvatar);
-  const canSubmit = name.trim().length > 0;
+  const [agreed, setAgreed] = useState(false);
+  const canSubmit = name.trim().length > 0 && (!requireTerms || agreed);
   const dirty = name !== initialName || avatar !== initialAvatar;
 
   useEffect(() => {
@@ -88,6 +91,20 @@ export function ProfileForm({
         ))}
       </div>
       {error ? <div className="profile-save-error" role="alert">{error}</div> : null}
+      {requireTerms && (
+        <label className="terms-agree">
+          <input
+            type="checkbox"
+            checked={agreed}
+            disabled={submitting}
+            onChange={(event) => setAgreed(event.target.checked)}
+          />
+          <span className="terms-agree-text">
+            I'm 18 or older and agree to Falò's <strong>Community Guidelines</strong> and <strong>Terms</strong>.
+            No harassment, hate, or illegal content — anyone can be reported or blocked.
+          </span>
+        </label>
+      )}
       <div className="pform-actions">
         {onCancel && (
           <button type="button" className="btn-ghost" disabled={submitting} onClick={onCancel}>{secondaryLabel}</button>

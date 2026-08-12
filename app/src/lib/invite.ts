@@ -1,5 +1,5 @@
 const TOKEN_PATTERN = /^[a-f0-9]{48}$/;
-export const PENDING_INVITE_KEY = "unggun.pendingInvite";
+export const PENDING_INVITE_KEY = "falo.pendingInvite";
 
 export function normalizeInviteToken(value: string): string | null {
   const token = value.trim().toLowerCase();

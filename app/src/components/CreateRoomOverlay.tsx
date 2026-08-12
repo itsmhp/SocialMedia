@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useStore } from "../data/store";
 import { makeId } from "../lib/id";
+import { isBlockedText, MODERATION_NOTICE } from "../lib/moderation";
 import { useDialogFocus } from "../lib/useDialogFocus";
 
 export function CreateRoomOverlay() {
@@ -22,6 +23,10 @@ export function CreateRoomOverlay() {
 
   const create = () => {
     if (!name.trim() || !spark.trim()) return;
+    if (isBlockedText(name) || isBlockedText(spark)) {
+      dispatch({ type: "TOAST", msg: MODERATION_NOTICE });
+      return;
+    }
     const now = Date.now();
     dispatch({
       type: "CREATE_ROOM",

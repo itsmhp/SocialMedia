@@ -44,6 +44,13 @@ export async function signOut(): Promise<void> {
   if (error) throw error;
 }
 
+export async function deleteAccount(): Promise<void> {
+  const client = await requireSupabase();
+  const { error } = await client.rpc("delete_account");
+  if (error) throw error;
+  await client.auth.signOut();
+}
+
 export async function watchAuth(
   onChange: (snapshot: AuthSnapshot) => void,
 ): Promise<() => void> {

@@ -75,10 +75,52 @@ The first Settings milestone is now implemented locally:
 - Privacy Policy, Terms, Community Guidelines, public support and dependency
   license destinations are accessible in-app.
 
-Current verification: 29/29 Vitest tests, production TypeScript/Vite build,
+That milestone was verified with 29/29 Vitest tests, production TypeScript/Vite build,
 zero editor diagnostics, and browser checks at 320x568, 390x844 and 1440x900.
 No horizontal overflow was found; keyboard/focus, unsaved-change confirmation,
 preference reload, prior-tab return, clear and reset flows were exercised.
+
+### Repository and room-details update
+
+The first Phase 2A increment is implemented locally:
+
+- a fail-closed repository selector requires configuration, explicit enablement,
+  authentication and schema verification before cloud mode can be selected;
+- keyed async operation state ignores stale success/failure from overlapping
+  requests and exposes consistent pending/error/retry metadata;
+- a header control opens Room Details with lifetime, spark, role and member list;
+- local host transfer and member removal enforce ownership rules, while members
+  can leave after confirmation; membership-count changes reset the active ballot;
+- the room sheet truthfully disables shareable invites in local mode instead of
+  producing a link that another user cannot join;
+- nested confirmation dialogs make the parent sheet inert/hidden and restore
+  keyboard focus to a stable control.
+
+Current verification: 42/42 Vitest tests, production TypeScript/Vite build,
+zero editor diagnostics, final code-review pass, and browser checks at 320x568,
+390x844 and 1440x900 with no horizontal overflow. Secure invite/join,
+report/block UI, cloud hydration and Realtime remain open work.
+
+### Signal Fire palette update
+
+The previous brown, dark-only palette has been replaced while retaining the
+app's original soft, rounded visual language:
+
+- light mode uses chalk, ink, coral, accessible teal and yellow status surfaces;
+- Appearance provides persistent System, Light and Dark choices; System follows
+  `prefers-color-scheme` and updates when the device changes;
+- locally bundled Inter, rounded cards and natural shadows preserve the
+  earlier chat experience without the old brown cast;
+- browser theme colors and the PWA manifest now match the new identity.
+
+Rendered-surface scans across Chat, Moments, Play, Memories, Settings and Room
+Details found no legacy brown backgrounds. Light/dark token contrast passes for
+body, muted, coral, teal and primary-action text; responsive checks at 320x568,
+390x844 and 1440x900 show no page-level horizontal overflow.
+
+Room Details also exposes a live, compact elapsed burn time from the room's
+persisted `createdAt`, capped at `expiresAt` after fade so the achievement stays
+truthful rather than increasing forever.
 
 ## Executive verdict
 
@@ -97,9 +139,10 @@ The remaining product boundary is the network: there is still no secure join/inv
 flow, real second participant, auth/realtime store, server-authoritative expiry, or
 moderation operations.
 
-**Recommendation:** do not expand Moments, Play, discovery, or meetup features yet.
-Connect the proven local repository contract to a corrected Supabase model and pass the
-two-browser closed-alpha gate next.
+**Recommendation:** the standalone Moments/Play/Memories tabs were removed in favor
+of one Rooms hub, a Circle profile behind the group name, and in-room Sparks; do not
+re-add discovery or meetup features yet. Connect the proven local repository contract
+to a corrected Supabase model and pass the two-browser closed-alpha gate next.
 
 ## Readiness
 
@@ -125,14 +168,15 @@ two-browser closed-alpha gate next.
 | Bara recap | Functional locally | Deterministic top highlights and factual counts appear in the faded room and Memories. |
 | Room creation / Spark | Functional locally | Name, spark, 12h/24h duration, and private local member selection. |
 | Circles / room list / switching | Partial | Active/faded room switching works; circle membership is still local seed data. |
-| Invite / join / member management | Missing | No user flow; draft SQL does not yet enforce invite-only membership. |
+| Room details / local membership | Functional locally | Status and members are visible; local host transfer/remove and member leave are confirmed and tested. No shareable invite or remote membership yet. |
+| Invite / join | Missing | Secure RPC wrappers exist, but there is no consumer flow and the React store remains local. |
 | Authentication + multi-user realtime | Missing | Supabase client/schema exist, but the React store never calls them. |
-| Moments | Local experiment | Prompt/feed now persists; deeper lifecycle and truthful timestamps remain deferred. |
-| Play | Local experiment | Poll persists and votes use stable member IDs; it remains mock single-device behavior. |
-| Memories | Functional locally | Shows only generated Bara and factual room counts; fictional hangout/streak content was removed. |
+| Circles | Functional locally | Every room belongs to a permanent private Circle; the group name opens a Circle profile with members, time together, and private records. v1 data migrates into Circles on load. |
+| Sparks in chat | Functional locally | A `+` launcher posts Daily Spark, Challenge, Would-you-rather, Most-likely-to, and custom Polls as room messages; poll votes use stable member IDs and fade with the room. |
+| Keep for Bara | Functional locally | Any message can be bookmarked to guarantee its place in the room's Bara recap. |
 | PWA | Partial | Manifest and service worker exist; production icons/update/offline UX are incomplete. |
 | Native apps | Foundation only | Capacitor + Android scaffold exist; no completed release path or device verification. |
-| Automated tests | Initial coverage | 29 domain/reducer/persistence/contract tests pass; committed browser E2E and live RLS tests remain. |
+| Automated tests | Initial coverage | 42 domain/reducer/persistence/contract tests pass; committed browser E2E and live RLS tests remain. |
 
 ## P0 - Core blockers
 

@@ -3,6 +3,7 @@ import { ExternalLink } from "lucide-react";
 export type LegalPageKind = "privacy-policy" | "terms" | "guidelines" | "licenses";
 
 const SUPPORT_URL = "https://github.com/itsmhp/SocialMedia/issues/new";
+const PRIVACY_POLICY_URL = `${import.meta.env.BASE_URL}legal/privacy-policy.html`;
 
 const documents: Record<Exclude<LegalPageKind, "licenses">, {
   title: string;
@@ -13,12 +14,12 @@ const documents: Record<Exclude<LegalPageKind, "licenses">, {
   "privacy-policy": {
     title: "Privacy Policy",
     effective: "Effective October 21, 2025",
-    intro: "This policy describes the data handled by the current Unggun local-first alpha.",
+    intro: "This policy describes the data handled by the current Falò local-first alpha.",
     sections: [
       {
         title: "Data on this device",
         paragraphs: [
-          "Your handle, avatar, rooms, messages, reactions, Moments, game choices, notification preferences, and Bara are stored in this app's local browser or device storage.",
+          "Your handle, avatar, Circles, rooms, messages, reactions, sparks, polls, notification preferences, and Bara are stored in this app's local browser or device storage.",
           "Raw room messages are removed from the local app when a room fades. A small Bara recap remains until you clear local activity or reset the app.",
         ],
       },
@@ -26,7 +27,7 @@ const documents: Record<Exclude<LegalPageKind, "licenses">, {
         title: "Optional cloud account",
         paragraphs: [
           "When a build is connected to Supabase and you choose email sign-in, Supabase processes your email, authentication session, profile, and cloud room data. The current app does not silently upload existing local demo activity.",
-          "Unggun does not ask for your real name, contact book, precise location, or advertising identifier. It has no public follower graph or algorithmic discovery feed.",
+          "Falò does not ask for your real name, contact book, precise location, or advertising identifier. It has no public follower graph or algorithmic discovery feed.",
         ],
       },
       {
@@ -40,7 +41,7 @@ const documents: Record<Exclude<LegalPageKind, "licenses">, {
         title: "Your controls",
         paragraphs: [
           "You can edit your local profile, clear local activity while keeping that profile, or reset the app from Settings. Resetting local data does not delete a separate cloud account.",
-          "Before cloud accounts become the active data source, Unggun will provide an in-app deletion path and publish the corresponding retention details.",
+          "When you are signed in to a cloud account, Settings → Account → Delete account permanently removes your account, profile, the rooms you created, and your messages. This cannot be undone.",
         ],
       },
       {
@@ -55,10 +56,10 @@ const documents: Record<Exclude<LegalPageKind, "licenses">, {
   terms: {
     title: "Terms of Use",
     effective: "Effective October 21, 2025",
-    intro: "These terms apply to the Unggun alpha and its local or cloud-enabled builds.",
+    intro: "These terms apply to the Falò alpha and its local or cloud-enabled builds.",
     sections: [
       {
-        title: "Who may use Unggun",
+        title: "Who may use Falò",
         paragraphs: [
           "You must be at least 18 years old during the closed alpha and able to agree to these terms. Access may be limited to invited test circles.",
         ],
@@ -66,21 +67,21 @@ const documents: Record<Exclude<LegalPageKind, "licenses">, {
       {
         title: "Your content and conduct",
         paragraphs: [
-          "You keep ownership of content you create. You give Unggun only the permission needed to store, display, transmit, moderate, and delete that content as part of the service.",
+          "You keep ownership of content you create. You give Falò only the permission needed to store, display, transmit, moderate, and delete that content as part of the service.",
           "Do not post illegal content, threats, harassment, exploitation, non-consensual intimate material, private information without permission, spam, or content that infringes another person's rights.",
         ],
       },
       {
         title: "Ephemeral rooms",
         paragraphs: [
-          "Room expiry reduces retention inside Unggun; it does not prevent another member from copying, photographing, or sharing what they can see. Do not treat expiry as a guarantee of secrecy.",
+          "Room expiry reduces retention inside Falò; it does not prevent another member from copying, photographing, or sharing what they can see. Do not treat expiry as a guarantee of secrecy.",
           "The alpha may lose or reset data. Keep a separate copy of anything you need to retain.",
         ],
       },
       {
         title: "Accounts and enforcement",
         paragraphs: [
-          "You are responsible for access to your email account and device. Unggun may restrict access or remove content to protect people, comply with law, or enforce these terms and the Community Guidelines.",
+          "You are responsible for access to your email account and device. Falò may restrict access or remove content to protect people, comply with law, or enforce these terms and the Community Guidelines.",
         ],
       },
       {
@@ -117,7 +118,7 @@ const documents: Record<Exclude<LegalPageKind, "licenses">, {
       {
         title: "Safety during alpha",
         paragraphs: [
-          "In-app report and block controls are not yet connected in this local alpha. Leave an unsafe circle, preserve relevant evidence, contact local emergency services when necessary, and use the support link to report an alpha issue.",
+          "Block or report a member from their Circle profile, and report a message from the chat. Blocking hides that member's messages on this device; reports are sent to the team for review. Leave an unsafe circle, preserve relevant evidence, and contact local emergency services when necessary.",
         ],
       },
     ],
@@ -131,6 +132,8 @@ const licenses = [
   ["Supabase JS", "MIT", "https://github.com/supabase/supabase-js/blob/master/LICENSE"],
   ["Capacitor", "MIT", "https://github.com/ionic-team/capacitor/blob/main/LICENSE"],
   ["Lucide", "ISC", "https://github.com/lucide-icons/lucide/blob/main/LICENSE"],
+  ["Inter", "OFL-1.1", "https://github.com/fontsource/font-files/blob/main/fonts/variable/inter/LICENSE"],
+  ["Fontsource", "MIT", "https://github.com/fontsource/fontsource/blob/main/LICENSE"],
   ["Vitest", "MIT", "https://github.com/vitest-dev/vitest/blob/main/LICENSE"],
 ] as const;
 
@@ -138,7 +141,7 @@ export function SettingsLegal({ kind }: { kind: LegalPageKind }) {
   if (kind === "licenses") {
     return (
       <article className="legal-page">
-        <p className="settings-lead">Unggun uses these open-source projects. Each link opens the project's license text.</p>
+        <p className="settings-lead">Falò uses these open-source projects. Each link opens the project's license text.</p>
         <div className="license-list">
           {licenses.map(([name, license, href]) => (
             <a key={name} href={href} target="_blank" rel="noreferrer">
@@ -164,6 +167,11 @@ export function SettingsLegal({ kind }: { kind: LegalPageKind }) {
           {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </section>
       ))}
+      {kind === "privacy-policy" ? (
+        <a className="support-link" href={PRIVACY_POLICY_URL} target="_blank" rel="noreferrer">
+          View the full privacy policy online <ExternalLink size={16} aria-hidden="true" />
+        </a>
+      ) : null}
       <a className="support-link" href={SUPPORT_URL} target="_blank" rel="noreferrer">
         Open public support form <ExternalLink size={16} aria-hidden="true" />
       </a>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Unggun</string>
-    <string name="title_activity_main">Unggun</string>
-    <string name="package_name">com.unggun.app</string>
-    <string name="custom_url_scheme">com.unggun.app</string>
+    <string name="app_name">Falò</string>
+    <string name="title_activity_main">Falò</string>
+    <string name="package_name">com.falo.app</string>
+    <string name="custom_url_scheme">com.falo.app</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.unggun.app;
+package com.falo.app;
 
 import com.getcapacitor.BridgeActivity;
 

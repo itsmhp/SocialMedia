@@ -1,9 +1,9 @@
 {
-  "name": "unggun",
+  "name": "falo",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Unggun — fun group chat rooms that don't last forever.",
+  "description": "Falò — fun group chat rooms that don't last forever.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -18,6 +18,7 @@
     "@capacitor/cli": "^8.5.0",
     "@capacitor/core": "^8.5.0",
     "@capacitor/ios": "^8.5.0",
+    "@fontsource-variable/inter": "^5.3.0",
     "@supabase/supabase-js": "^2.112.3",
     "lucide-react": "^1.31.0",
     "react": "^18.3.1",

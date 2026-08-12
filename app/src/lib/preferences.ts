@@ -1,8 +1,11 @@
-export const PREFERENCES_KEY = "unggun.preferences";
+import type { ThemePreference } from "./theme";
+
+export const PREFERENCES_KEY = "falo.preferences";
 const VERSION = 1;
 
 export interface Preferences {
   version: typeof VERSION;
+  theme: ThemePreference;
   notifications: {
     invites: boolean;
     expiryVotes: boolean;
@@ -15,6 +18,7 @@ export interface Preferences {
 
 export const DEFAULT_PREFERENCES: Preferences = {
   version: VERSION,
+  theme: "system",
   notifications: {
     invites: true,
     expiryVotes: true,
@@ -33,8 +37,10 @@ export function loadPreferences(): Preferences {
     if (!raw) return DEFAULT_PREFERENCES;
     const saved = JSON.parse(raw) as Partial<Preferences>;
     const notifications = saved.notifications;
+    const theme = saved.theme ?? "system";
     if (
       saved.version !== VERSION ||
+      !["system", "light", "dark"].includes(theme) ||
       !notifications ||
       typeof notifications.invites !== "boolean" ||
       typeof notifications.expiryVotes !== "boolean" ||
@@ -47,7 +53,7 @@ export function loadPreferences(): Preferences {
     ) {
       return DEFAULT_PREFERENCES;
     }
-    return { version: VERSION, notifications: { ...notifications } };
+    return { version: VERSION, theme, notifications: { ...notifications } };
   } catch {
     return DEFAULT_PREFERENCES;
   }

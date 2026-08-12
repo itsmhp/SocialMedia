@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useStore } from "../data/store";
 import { saveProfile } from "../lib/profile";
+import { acceptTerms } from "../lib/terms";
 import { ProfileForm } from "./ProfileForm";
 import { useDialogFocus } from "../lib/useDialogFocus";
 import { OnboardingIntro } from "./OnboardingIntro";
@@ -31,6 +32,7 @@ export function ProfileOverlay() {
       setSaveError("This device could not save your profile. Check browser storage and try again.");
       return;
     }
+    if (firstRun) acceptTerms();
     setSaveError(null);
     dispatch({ type: "SET_PROFILE", name, avatar });
   };
@@ -57,11 +59,12 @@ export function ProfileOverlay() {
           <ProfileForm
             initialName=""
             initialAvatar={state.me.avatar}
-            submitLabel="Enter Unggun 🔥"
+            submitLabel="Enter Falò 🔥"
             error={saveError}
             onSubmit={submit}
             onCancel={() => setIntroComplete(false)}
             secondaryLabel="Back"
+            requireTerms={firstRun}
           />
         </div>
       )}

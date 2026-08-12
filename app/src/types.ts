@@ -1,3 +1,18 @@
+export interface SparkPrompt {
+  kind: "prompt";
+  label: string;
+  text: string;
+}
+
+export interface SparkPoll {
+  kind: "poll";
+  question: string;
+  options: string[];
+  votes: Record<string, number>;
+}
+
+export type Spark = SparkPrompt | SparkPoll;
+
 export interface Message {
   id: string;
   authorId: string | null;
@@ -7,6 +22,8 @@ export interface Message {
   time: string;
   createdAt: number;
   system?: boolean;
+  spark?: Spark;
+  keep?: boolean;
   reactions: Record<string, number>;
   mine: string[];
 }
@@ -19,8 +36,17 @@ export interface ExtendVote {
 
 export type RoomStatus = "active" | "faded";
 
+export interface Circle {
+  id: string;
+  name: string;
+  createdBy: string;
+  memberIds: string[];
+  createdAt: number;
+}
+
 export interface Room {
   id: string;
+  circleId: string;
   name: string;
   spark: string;
   createdBy: string;
@@ -79,6 +105,7 @@ export interface BaraHighlight {
 
 export interface Bara {
   id: string;
+  circleId: string;
   roomId: string;
   roomName: string;
   spark: string;
@@ -89,12 +116,11 @@ export interface Bara {
   highlights: BaraHighlight[];
 }
 
-export type ScreenName = "chat" | "moments" | "play" | "memories";
-
 export type SettingsPage =
   | "home"
   | "profile"
   | "account"
+  | "appearance"
   | "notifications"
   | "privacy"
   | "data"
@@ -106,20 +132,22 @@ export type SettingsPage =
   | "licenses";
 
 export interface AppState {
-  screen: ScreenName;
   settingsStack: SettingsPage[];
   toast?: string;
   now: number;
   onboarded: boolean;
   replayingIntro: boolean;
   roomListOpen: boolean;
+  roomDetailsOpen: boolean;
   creatingRoom: boolean;
   me: Me;
   streak: number;
   friends: Member[];
   moments: Moment[];
   game: GameState;
+  circles: Circle[];
   rooms: Room[];
   activeRoomId: string | null;
   baras: Bara[];
+  blockedIds: string[];
 }

@@ -1,5 +1,5 @@
 // Minimal network-first service worker (offline shell). Real caching strategy TBD.
-const CACHE = "unggun-v1";
+const CACHE = "falo-v1";
 const SHELL = ["./", "./index.html", "./icon.svg", "./manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

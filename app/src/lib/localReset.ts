@@ -2,8 +2,9 @@ import { APP_STATE_KEY } from "../data/localState";
 import { PREFERENCES_KEY } from "./preferences";
 import { PROFILE_KEY } from "./profile";
 import { clearPendingInviteToken, PENDING_INVITE_KEY } from "./invite";
+import { TERMS_KEY } from "./terms";
 
-const LOCAL_KEYS = [APP_STATE_KEY, PROFILE_KEY, PREFERENCES_KEY] as const;
+const LOCAL_KEYS = [APP_STATE_KEY, PROFILE_KEY, PREFERENCES_KEY, TERMS_KEY] as const;
 
 export function resetLocalStorage(): boolean {
   const snapshot = new Map<string, string | null>();

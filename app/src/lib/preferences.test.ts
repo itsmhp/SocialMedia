@@ -34,6 +34,7 @@ describe("preferences", () => {
     vi.stubGlobal("localStorage", storage.api);
     const changed = {
       ...DEFAULT_PREFERENCES,
+      theme: "dark" as const,
       notifications: {
         ...DEFAULT_PREFERENCES.notifications,
         roomActivity: true,
@@ -46,6 +47,20 @@ describe("preferences", () => {
     expect(loadPreferences()).toEqual(changed);
     expect(clearPreferences()).toBe(true);
     expect(storage.values.has(PREFERENCES_KEY)).toBe(false);
+  });
+
+  it("keeps version-one notification choices when theme is missing", () => {
+    const notifications = {
+      ...DEFAULT_PREFERENCES.notifications,
+      roomActivity: true,
+    };
+    const storage = storageStub(JSON.stringify({ version: 1, notifications }));
+    vi.stubGlobal("localStorage", storage.api);
+
+    expect(loadPreferences()).toEqual({
+      ...DEFAULT_PREFERENCES,
+      notifications,
+    });
   });
 
   it("rejects malformed or incompatible saved preferences", () => {

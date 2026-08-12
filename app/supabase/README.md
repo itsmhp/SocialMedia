@@ -1,7 +1,7 @@
 # Supabase activation
 
 The cloud foundation is implemented but deliberately **not enabled by default**.
-Unggun remains fully usable in local mode. A live project is required before the
+Falò remains fully usable in local mode. A live project is required before the
 repository adapter can be connected and honestly called multi-user.
 
 ## What is ready

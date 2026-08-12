@@ -79,6 +79,7 @@ describe("Supabase schema security contract", () => {
       "remove_room_member",
       "cast_extend_vote",
       "report_room_content",
+      "delete_account",
       "finalize_expired_rooms",
     ]) {
       expect(schema).toMatch(new RegExp(`function\\s+(public\\.|private\\.)?${name}`));

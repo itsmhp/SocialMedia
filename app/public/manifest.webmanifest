@@ -1,13 +1,13 @@
 {
-  "name": "Unggun",
-  "short_name": "Unggun",
+  "name": "Falò",
+  "short_name": "Falò",
   "description": "Fun group chat rooms that don't last forever.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#140f0c",
-  "theme_color": "#140f0c",
+  "background_color": "#f4f6f2",
+  "theme_color": "#ff5a36",
   "icons": [
     { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]

@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { APP_STATE_KEY } from "../data/localState";
 import { PREFERENCES_KEY } from "./preferences";
 import { PROFILE_KEY } from "./profile";
+import { TERMS_KEY } from "./terms";
 import { resetLocalStorage } from "./localReset";
 import { PENDING_INVITE_KEY } from "./invite";
 
@@ -9,6 +10,7 @@ const initial = new Map([
   [APP_STATE_KEY, "state"],
   [PROFILE_KEY, "profile"],
   [PREFERENCES_KEY, "preferences"],
+  [TERMS_KEY, "terms"],
 ]);
 
 afterEach(() => vi.unstubAllGlobals());
@@ -41,7 +43,7 @@ function storage(failRemoveAt?: number, failSessionRemove = false) {
 }
 
 describe("full local reset", () => {
-  it("removes all Unggun storage together", () => {
+  it("removes all Falò storage together", () => {
     const stub = storage();
     vi.stubGlobal("localStorage", stub.api);
     vi.stubGlobal("sessionStorage", stub.sessionApi);
@@ -50,7 +52,7 @@ describe("full local reset", () => {
     expect(stub.sessionValues.size).toBe(0);
   });
 
-  it.each([1, 2, 3])("restores the previous values when removal %i fails", (failure) => {
+  it.each([1, 2, 3, 4])("restores the previous values when removal %i fails", (failure) => {
     const stub = storage(failure);
     vi.stubGlobal("localStorage", stub.api);
     vi.stubGlobal("sessionStorage", stub.sessionApi);
